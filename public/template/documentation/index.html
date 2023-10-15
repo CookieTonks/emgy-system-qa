@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<!-- Title -->
+	<title> Fito - Fitness Laravel Bootstrap Admin Dashboard</title>
+	
+	<!-- Favicons Icon -->
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+	<!-- StyleSheets -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/scrollbar.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="plugins/jstree/dist/themes/default/style.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	
+	<!-- Our Custom CSS -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	
+</head>
+<body data-spy="scroll" data-target=".nav-bar" data-offset="50">
+<div class="wrapper" id="tableofcontent">
+	<!-- Sidebar Holder -->
+	<nav id="nevbarleft">
+		<div class="side-nav full-height">
+			<div class="sidebar-header">
+				<img class="logo" src="images/logo-white.png" alt="logo"/>
+				<img class="logo-text" src="images/logo-text-white.png" alt="logo"/>
+			</div>
+			<div class="nav-bar">
+				<ul class="list-unstyled content-scroll components navbar-nav nav" id="download-button">
+					<li class="active"><a href="#introduction">Introduction</a></li>
+					<li><a href="#quick-start">Quick Start</a></li>
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#file-structure">File Structure</a></li>
+					<li><a href="#layout-config">Layout Config</a></li>
+					<!-- <li><a href="#menu-generator">Menu Generator</a></li> -->
+					<li><a href="#our_product">Our Products </a></li>
+					<li><a href="#custom_work">Custom Work Requirements </a></li>
+					<li><a href="#version_history">Version History</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- Page Content Holder -->
+	<div id="content">
+		<nav class="navbar navbar-default top-nav-bar ">
+			<div class="container-fluid">
+				<div class="navbar-header">
+				   <button type="button" id="sidebarCollapse" class="navbar-btn">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+				<a href="https://w3itexperts.ticksy.com/" target="bank" class="site-button support-button">Support</a>
+				<!-- <a href="javascript:void(0);" target="blank" class="site-button support-button">Buy Now</a> -->
+			</div>
+		</nav>
+		<section class="app-brief slide-banner" id="introduction">
+			<div class="container">
+				<div class="section-header">
+					<h2>Fito - Fitness Laravel Admin Dashboard </h2>
+					<div class="colored-line"></div>
+					<div class="section-description">
+						Fito - Fitness Laravel Bootstrap Admin Dashboard
+					</div>
+					<div class="colored-line"></div>
+				</div>
+			</div>
+		</section>
+		
+
+		
+		<!-- Quick Start -->
+		<section class="app-brief grey-bg" id="quick-start">
+			<div class="container left-align">
+				<div class="section-header">
+					<h2 class="dark-text"> Quick Start - </h2>
+				</div>
+				<div class="row">
+					<h4><strong>Requirements</strong></h4>
+					<p>Laravel has a set of requirements in order to run smoothly in specific environment. Please see <a href="https://laravel.com/docs/8.x/installation#server-requirements" target="blank"><strong>requirements</strong></a> section in Laravel documentation.</p>
+					<p>Fito similarly uses additional plugins and frameworks, so ensure You have <a href="https://getcomposer.org/" target="blank"> <strong>Composer </strong></a> installed on Your machine.</p>
+					<p>Assuming your machine meets all requirements - let's process to installation of Fito Laravel integration (skeleton).</p>
+					<ol>
+						<li>Open in cmd or terminal app and navigate to this folder</li>
+						<li>Run following commands
+							<code class="code">composer install</code>
+							<code class="code">cp .env.example .env</code>
+							<p>For Windows command line tool use <i>copy </i>command. For unix style - cp.</p>
+							<code class="code">php artisan key:generate</code>
+						</li>
+					</ol>
+					<p>For more information about the Laravel installation, check out on this link <a href="https://laravel.com/docs/8.x/installation" target="blank">https://laravel.com/docs/8.x/installation</a></p>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Overview -->
+		<section class="app-brief" id="overview">
+			<div class="container left-align">
+				<div class="section-header">
+					<h2 class="dark-text"> Overview - </h2>
+				</div>
+				<div class="row">
+					<p>We Have Converted All Fito HTML templates In Laravel</p>
+				</div>
+			</div>
+		</section>
+		
+		<!-- File Structure -->
+		<section class="app-brief grey-bg" id="file-structure">
+			<div class="container left-align">
+				<div class="section-header">
+					<h2 class="dark-text"> File Structure - </h2>
+				</div>
+				<div class="row">
+					<p>Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects.</p>
+					<p>We, at Dexignzone, have implemented our Fitness admin dashboard application theme Fito with this amazing PHP framework for Laravel developers can concentrate on application and not caring much about theme-to-framework integration.</p>
+					<br>
+					<div id="dz_tree" class="tree-demo">
+						<ul>
+							<li data-jstree='{ "opened" : true }'>fito
+								<ul>
+									<li data-jstree='{ "opened" : true }'>resources
+										<ul>
+											<li data-jstree='{ "selected" : false }'>views
+												<ul>
+													<li data-jstree='{ "selected" : false }'>app
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>calender.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>profile.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>chart
+														<ul class="jstree-children">
+															<li data-jstree='{ "type" : "file" }'>chartist.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>chartjs.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>flot.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>morris.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>peity.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>sparkline.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>dashboard
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>distance_map.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>food_menu.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>food_menu_list.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>index.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>personal_record.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>recent_activities.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>trending_ingridients.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>workout_plan.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>workout_statistic.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>ecom
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>checkout.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>customers.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>invoice.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>productdetail.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>productgrid.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>productlist.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>productorder.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>elements
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>footer.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>footer-scripts.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>header.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>sidebar.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>errors
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>404.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>form
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>editorsummernote.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>element.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>pickers.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>validationjquery.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>wizard.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>layout
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>default.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>fullwidth.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>map
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>jqvmap.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>message
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>compose.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>inbox.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>read.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>page
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>error400.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>error403.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>error404.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>error500.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>error503.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>forgot_password.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>lockscreen.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>login.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>register.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>table
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>bootstrapbasic.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>datatablebasic.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>uc
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>nestable.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>nouislider.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>select2.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>sweetalert.blade.php</li>
+															<li data-jstree='{ "type" : "file" }'>toastr.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>ui
+														<ul>
+                                <li data-jstree='{ "type" : "file" }'>accordion.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>alert.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>badge.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>button.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>buttongroup.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>card.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>carousel.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>dropdown.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>grid.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>listgroup.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>mediaobject.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>modal.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>pagination.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>popover.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>progressbar.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>tab.blade.php</li>
+                                <li data-jstree='{ "type" : "file" }'>typography.blade.php</li>
+														</ul>
+													</li>
+													<li data-jstree='{ "selected" : false }'>widget
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>widget_basic.blade.blade.php</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li data-jstree='{ "opened" : true }'>public
+										<ul>
+											<li data-jstree='{ "selected" : false }'>css</li>
+											<li data-jstree='{ "selected" : false }'>icons</li>
+											<li data-jstree='{ "selected" : false }'>images</li>
+											<li data-jstree='{ "selected" : false }'>js</li>
+											<li data-jstree='{ "selected" : false }'>scss</li>
+											<li data-jstree='{ "selected" : false }'>vendor</li>
+										</ul>
+									</li>
+									<li data-jstree='{ "opened" : true }'>config
+										<ul>
+											<li data-jstree='{ "type" : "file" }'>dz.php</li>
+										</ul>
+									</li>
+									<li data-jstree='{ "opened" : true }'>app
+										<ul>
+											<li data-jstree='{ "selected" : false }'>Http
+												<ul>
+													<li data-jstree='{ "selected" : false }'>Controllers
+														<ul>
+															<li data-jstree='{ "type" : "file" }'>FitoadminController.php</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Configuration -->
+		<section class="app-brief" id="layout-config">
+			<div class="container left-align">
+				<div class="section-header">
+					<h2 class="dark-text"> Configuration - </h2>
+				</div>
+				<div class="row">
+					<p>Fito theme has a large variety of layout styles and settings. You can visually test them all in layout builder section. We also implemented this comprehensive layout configuration into our Laravel version of theme.</p>
+					<p>Configuration file <code>config/dz.php</code> here all the css and js files are defined according to different pages.</p>
+					<p>You can include your js and css file set the theme layout to your needs by given possibility.</p>
+				</div>
+			</div>
+		</section>
+	
+		<!-- Our Products -->
+		<section class="app-brief" id="our_product">
+			<div class="container left-align">
+				<div class="section-header">
+					<h2 class="dark-text">Our Products - </h2>
+				</div>
+				<div class="row other-theme">
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/xez25">
+								<img src="images/product/davur_laravel.jpg"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/xez25">
+										Davur - Laravel Restaurant Admin Dashboard & Bootstrap Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/5RWP3">
+								<img src="images/product/eclan_laravel.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/5RWP3">
+										Eclan - Laravel Ads Campaign Bootstrap Admin Dashboard
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/vXBzy">
+								<img src="images/product/mediqu.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/vXBzy">
+										Mediqu - Laravel Hospital Admin Dashboard Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/Wj1jX">
+								<img src="images/product/davur.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/Wj1jX">
+										Davur - Restaurant Admin Dashboard
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="http://1.envato.market/Q5MyA">
+								<img src="images/product/metroadmin.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="http://1.envato.market/Q5MyA">
+										MetroAdmin - Bootstrap, Laravel & React Admin Dashboard
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/xBy6A">
+								<img src="images/product/tixia.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/xBy6A">
+										Tixia - Ticketing Admin Dashboard Bootstrap HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/9Nzn4">
+								<img src="images/product/koki.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/9Nzn4">
+										Koki - Restaurant Food Admin Dashboard Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/k52Bv">
+								<img src="images/product/chrev.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/k52Bv">
+										Chrev - Crypto Admin & Dashboard Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/0bv1Y">
+								<img src="images/product/eclan.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/0bv1Y">
+										Eclan - Laravel Ads Campaign Bootstrap Admin Dashboard
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/0zjyE">
+								<img src="images/product/wp-beglide.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/0zjyE">
+										BeGlide: Corporate Business Consultant Agency WordPress Theme 
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/NE0QP">
+								<img src="images/product/wp-bheem.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/NE0QP">
+										Bheem : Construction WordPress Theme RTL Ready 
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/WEdAZ">
+								<img src="images/product/wp-beautyzone.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/WEdAZ">
+										BeautyZone: Beauty Spa Salon WordPress Theme
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/6MAKK">
+								<img src="images/product/wp-bucklin.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href=" ">
+										Bucklin - Creative Personal Blog WordPress Theme 
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/oJLNY">
+								<img src="images/product/archia.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/oJLNY">
+										Archia - Architecture and Interior Design RTL Ready Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/XEnGb">
+								<img src="images/product/agency.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/XEnGb">
+										Agency | Creative Multipurpose Bootstrap 4 HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/3zZ9y">
+								<img src="images/product/constructzilla .png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/3zZ9y">
+										ConstructZilla : Construction, Renovation & Building HTML Template With RTL Ready
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/ZEKLg">
+								<img src="images/product/cargozone.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/ZEKLg">
+										CargoZone - Transport, Cargo, Logistics & Business Multipurpose HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/JZVO7">
+								<img src="images/product/yogazone.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/JZVO7">
+										YogaZone: Yoga, Fitness & Meditation Mobile Responsive Bootstrap Html Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/0zjxY">
+								<img src="images/product/gardanzone.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/0zjxY">
+										GardenZone | Agriculture, Gardening & Landscaping Responsive HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/VdYZJ">
+								<img src="images/product/construct.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/VdYZJ">
+										Construct : Construction, Building & Maintenance Business Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/REnO2">
+								<img src="images/product/butterfly.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/REnO2">
+										ButterFly : Spa, Beauty Salon & Massage Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/bQNDm">
+								<img src="images/product/curv.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/bQNDm">
+										CURV: One Page Multipurpose Parallax
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/zObPW">
+								<img src="images/product/beautyzone.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/zObPW">
+										BeautyZone: Beauty Spa Salon HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/3zZmk">
+								<img src="images/product/sportszone.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/3zZmk">
+										SportsZone: Sports Club, New & Game Magazine Mobile Responsive Bootstrap HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/3zZmk">
+								<img src="images/product/medico.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/3zZmk">
+										MediCo.- Hospital and Doctor Clinic HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/g56Wg">
+								<img src="images/product/jobboard.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/g56Wg">
+										Job Board: Job Portal | Job WebSite HTML Wireframe
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/1d1Nm">
+								<img src="images/product/industry.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/1d1Nm">
+										Industry - Factory & Industrial HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/qoKKy">
+								<img src="images/product/lemars.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/qoKKy">
+										Le Mars - Minimal Personal Blog HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/A53RN">
+								<img src="images/product/bizmap.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/A53RN">
+										BizMap - Business Directory Listing HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/EYb39">
+								<img src="images/product/umang_academy.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/EYb39">
+										Umang Academy : Kindergarden, Kids Play School Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/EAeOQ">
+								<img src="images/product/kelsey.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/EAeOQ">
+										Kelsey - Creative Personal Blog HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/xoqvR">
+								<img src="images/product/bucklin.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/xoqvR">
+										Bucklin - Creative Personal Blog HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 m-b30">
+						<div class="product-port-bx">
+							<a target="_blank" href="https://1.envato.market/WvZqM">
+								<img src="images/product/smartclass.png"/>
+							</a>
+							<div class="product-info">
+								<h4 class="title">
+									<a target="_blank" href="https://1.envato.market/WvZqM">
+										SmartClass | Education Agency Choching & Tuition HTML Template
+									</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Custom Work -->
+		<section class="app-brief custom-work" id="custom_work" style="background-image: url(images/pt1.png);">
+			<div class="container left-align">
+				<div class="col-md-12 text-center custom-info">
+					<h2 class="m-t0">Do You Need Help To Customization</h2>
+					<h3 class="text-primary">After Purchase A Template...</h3>
+					<h4>You Will Start Customizing According Your Requirement<br/> <span class="text-primary">BUT</span> What If You Don't Know</h4>
+					<h3 class="text-black">SOLUTION IS <span class="text-primary"><u>HIRE DexignZone</u></span></h3>
+					<div class="hire">
+						<h4><span class="text-black">Hire Same Team For </span> <span class="text-primary">Quality Customization</span></h4>
+						<ul>
+							<li>We Will Customize Template According To Your Requirement</li>
+							<li>We Will Upload On Server And Make Sure Your Website is Live</li>
+						</ul>
+						<div class="gmail-box">
+							<a href="skype:rahulxarma?chat" class="gmail"><i class="fa fa-skype"></i>rahulxarma</a>
+							<a target="_blank" href="dexignzones@gmail.com" class="gmail"><i class="fa fa-envelope"></i> dexignzones@gmail.com</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="app-brief change-log grey-bg" id="version_history">
+			<div class="container left-align">
+				<div class="section-header">
+					<h2 class="dark-text">Version History - <small class="topbutton"><a href="#tableofcontent">#back to top</a></small></h2>
+				</div>
+				<h3> 28 November 2020 </h3>
+				<ul>
+					<li>New - Created & Upload Fito </li>
+				</ul>
+			</div>
+		</section>
+		
+		<!-- Copyright DexignZone -->
+		<footer class="app-brief">
+			<div class="container">
+				<p class="copyright">
+					© 2020 Dexingzone , All Rights Reserved
+				</p>
+			</div>
+		</footer>
+		
+	</div>
+</div>
+<!-- JavaScript files ===== -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jquery.localScroll.min.js"></script>
+<script src="js/load.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/magnific-popup.js"></script>
+<script src="js/scrollbar.min.js"></script>
+<script src="plugins/jstree/dist/jstree.min.js"></script>
+<script>
+	// prettyPhoto
+	jQuery(document).ready(function(){
+		jQuery('.dzClickload').click(function(){
+			jQuery('.dzClickload').removeClass('active');
+			jQuery(this).addClass('active');
+		});
+		 
+		jQuery(".content-scroll").mCustomScrollbar({
+			setWidth:false,
+			setHeight:false,
+			axis:"y"
+		});	
+		
+		$(".full-height").css("height", $(window).height());
+		
+	});  
+	
+	$("#dz_tree").jstree({
+		"core": {
+			"themes": {
+				"responsive": false
+			}
+		},
+		"types": {
+			"default": {
+				"icon": "fa fa-folder"
+			},
+			"file": {
+				"icon": "fa fa-file-text"
+			}
+		},
+		"plugins": ["types"]
+	});
+</script>
+</body>
+</html>

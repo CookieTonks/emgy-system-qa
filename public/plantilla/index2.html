@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Griffin - Responsive Bootstrap 4 Admin Dashboard Template
+Author: Hencework
+Support: support@hencework.com
+
+License: You must have a valid license purchased only from templatemonster to legally use the template for your project.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Griffin I Project Dashboard</title>
+    <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+	<!-- Morris Charts CSS -->
+    <link href="vendors/morris.js/morris.css" rel="stylesheet" type="text/css" />
+	
+    <!-- Toggles CSS -->
+    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
+    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
+	
+	<!-- Toastr CSS -->
+    <link href="vendors/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-it">
+        <div class="loader-pendulums"></div>
+    </div>
+    <!-- /Preloader -->
+	
+	<!-- HK Wrapper -->
+	<div class="hk-wrapper hk-alt-nav">
+
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
+            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-brand" href="index.html">
+                <img class="brand-img d-inline-block align-top" src="dist/img/logo-light.png" alt="brand" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarCollapseAlt">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown show-on-hover active">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Dashboard
+							</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a class="dropdown-item" href="index.html">CRM</a>
+							<a class="dropdown-item active" href="index2.html">Project</a>
+							<a class="dropdown-item" href="index3.html">Statistics</a>
+							<a class="dropdown-item" href="index4.html">classic</a>
+							<a class="dropdown-item" href="index5.html">Analytics</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Pages
+							</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Application</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="chats.html">Chat</a>
+                                    <a class="dropdown-item" href="calendar.html">Calendar</a>
+                                    <a class="dropdown-item" href="email.html">Email</a>
+                                    <a class="dropdown-item" href="file-manager.html">File Manager</a>
+                                </div>
+                            </div>
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Authentication</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <div class="sub-dropdown-menu show-on-hover">
+                                        <a href="#" class="dropdown-toggle dropdown-item">Sign Up</a>
+                                        <div class="dropdown-menu open-right-side">
+                                            <a class="dropdown-item" href="signup.html">Cover</a>
+                                            <a class="dropdown-item" href="signup-simple.html">Simple</a>
+                                        </div>
+                                    </div>
+                                    <div class="sub-dropdown-menu show-on-hover">
+                                        <a href="#" class="dropdown-toggle dropdown-item">Login</a>
+                                        <div class="dropdown-menu open-right-side">
+                                            <a class="dropdown-item" href="login.html">Cover</a>
+                                            <a class="dropdown-item" href="login-simple.html">Simple</a>
+                                        </div>
+                                    </div>
+                                    <div class="sub-dropdown-menu show-on-hover">
+                                        <a href="#" class="dropdown-toggle dropdown-item">Recover Pwd</a>
+                                        <div class="dropdown-menu open-right-side">
+                                            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+                                            <a class="dropdown-item" href="reset-password.html">Reset Password</a>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" href="lock-screen.html">Lock Screen</a>
+                                    <a class="dropdown-item" href="404.html">Error 404</a>
+                                    <a class="dropdown-item" href="maintenance.html">Maintenance</a>
+                                </div>
+                            </div>
+                            <a class="dropdown-item" href="profile.html">Profile</a>
+                            <a class="dropdown-item" href="invoice.html">Invoice</a>
+                            <a class="dropdown-item" href="gallery.html">Gallery</a>
+                            <a class="dropdown-item" href="activity.html">Activity</a>
+                            <a class="dropdown-item" href="faq.html">Faq</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								User interface
+							</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Components</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="alerts.html">Alerts</a>
+                                    <a class="dropdown-item" href="avatar.html">Avatar</a>
+                                    <a class="dropdown-item" href="badge.html">Badge</a>
+                                    <a class="dropdown-item" href="buttons.html">Buttons</a>
+                                    <a class="dropdown-item" href="cards.html">Cards</a>
+                                    <a class="dropdown-item" href="carousel.html">Carousel</a>
+                                    <a class="dropdown-item" href="collapse.html">Collapse</a>
+                                    <a class="dropdown-item" href="dropdowns.html">Dropdown</a>
+                                    <a class="dropdown-item" href="list-group.html">List Group</a>
+                                    <a class="dropdown-item" href="modal.html">Modal</a>
+                                    <a class="dropdown-item" href="nav.html">Nav</a>
+                                    <a class="dropdown-item" href="navbar.html">Navbar</a>
+                                    <a class="dropdown-item" href="nestable.html">Nestable</a>
+                                    <a class="dropdown-item" href="pagination.html">Pagination</a>
+                                    <a class="dropdown-item" href="popovers.html">Popovers</a>
+                                    <a class="dropdown-item" href="progress.html">Progress</a>
+                                    <a class="dropdown-item" href="tooltip.html">Tooltip</a>
+                                </div>
+                            </div>
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Content</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="typography.html">Typography</a>
+                                    <a class="dropdown-item" href="images.html">Images</a>
+                                    <a class="dropdown-item" href="media-object.html">Media Object</a>
+                                </div>
+                            </div>
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Utilities</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="background.html">Background</a>
+                                    <a class="dropdown-item" href="border.html">Border</a>
+                                    <a class="dropdown-item" href="colors.html">Colors</a>
+                                    <a class="dropdown-item" href="embeds.html">Embeds</a>
+                                    <a class="dropdown-item" href="icons.html">Icons</a>
+                                    <a class="dropdown-item" href="shadow.html">Shadow</a>
+                                    <a class="dropdown-item" href="sizing.html">Sizing</a>
+                                    <a class="dropdown-item" href="spacing.html">Spacing</a>
+                                </div>
+                            </div>
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Forms</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="form-element.html">Form Elements</a>
+                                    <a class="dropdown-item" href="input-groups.html">Input Groups</a>
+                                    <a class="dropdown-item" href="form-layout.html">Form Layout</a>
+                                    <a class="dropdown-item" href="form-mask.html">Form Mask</a>
+                                    <a class="dropdown-item" href="form-validation.html">Form Validation</a>
+                                    <a class="dropdown-item" href="form-wizard.html">Form Wizard</a>
+                                    <a class="dropdown-item" href="file-upload.html">File Upload</a>
+                                    <a class="dropdown-item" href="editor.html">Editor</a>
+                                </div>
+                            </div>
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Tables</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="basic-table.html">Basic Table</a>
+                                    <a class="dropdown-item" href="data-table.html">Data Table</a>
+                                    <a class="dropdown-item" href="responsive-table.html">Responsive Table</a>
+                                    <a class="dropdown-item" href="editable-table.html">Editable Table</a>
+                                </div>
+                            </div>
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Charts</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="line-charts.html">Line Chart</a>
+                                    <a class="dropdown-item" href="area-charts.html">Area Chart</a>
+                                    <a class="dropdown-item" href="bar-charts.html">Bar Chart</a>
+                                    <a class="dropdown-item" href="pie-charts.html">Pie Chart</a>
+                                    <a class="dropdown-item" href="realtime-charts.html">Realtime Chart</a>
+                                    <a class="dropdown-item" href="mini-charts.html">Mini Chart</a>
+                                </div>
+                            </div>
+                            <div class="sub-dropdown-menu show-on-hover">
+                                <a href="#" class="dropdown-toggle dropdown-item">Maps</a>
+                                <div class="dropdown-menu open-right-side">
+                                    <a class="dropdown-item" href="google-map.html">Google Map</a>
+                                    <a class="dropdown-item" href="vector-map.html">Vector Map</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documentation.html" >Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log<span class="badge badge-success badge-sm badge-pill ml-10">v 1.0</span></a>
+                    </li>
+                </ul>
+                <form class="navbar-search-alt">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><span class="feather-icon"><i data-feather="search"></i></span></span>
+                        </div>
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                </form>
+            </div>
+            <ul class="navbar-nav hk-navbar-content">
+                <li class="nav-item">
+                    <a id="settings_toggle_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="settings"></i></span></a>
+                </li>
+                <li class="nav-item dropdown dropdown-notifications">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="bell"></i></span><span class="badge-wrap"><span class="badge badge-success badge-indicator badge-indicator-sm badge-pill pulse"></span></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-header">Notifications <a href="javascript:void(0);" class="">View all</a></h6>
+                        <div class="notifications-nicescroll-bar">
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text"><span class="text-dark text-capitalize">Evie Ono</span> accepted your invitation to join the team</div>
+                                            <div class="notifications-time">12m</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">New message received from <span class="text-dark text-capitalize">Misuko Heid</span></div>
+                                            <div class="notifications-time">1h</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-primary rounded-circle">
+													<span class="initial-wrap"><span><i class="zmdi zmdi-account font-18"></i></span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">You have a follow up with<span class="text-dark text-capitalize"> Griffin head</span> on <span class="text-dark text-capitalize">friday, dec 19</span> at <span class="text-dark">10.00 am</span></div>
+                                            <div class="notifications-time">2d</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-success rounded-circle">
+													<span class="initial-wrap"><span>A</span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">Application of <span class="text-dark text-capitalize">Sarah Williams</span> is waiting for your approval</div>
+                                            <div class="notifications-time">1w</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-warning rounded-circle">
+													<span class="initial-wrap"><span><i class="zmdi zmdi-notifications font-18"></i></span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">Last 2 days left for the project</div>
+                                            <div class="notifications-time">15d</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-authentication">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media">
+                            <div class="media-img-wrap">
+                                <div class="avatar">
+                                    <img src="dist/img/avatar5.jpg" alt="user" class="avatar-img rounded-circle">
+                                </div>
+                                <span class="badge badge-success badge-indicator"></span>
+                            </div>
+                            <div class="media-body">
+                                <span>Aash Bill<i class="zmdi zmdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                        <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>
+                        <a class="dropdown-item" href="inbox.html"><i class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
+                        <div class="dropdown-divider"></div>
+                        <div class="sub-dropdown-menu show-on-hover">
+                            <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>
+                            <div class="dropdown-menu open-left-side">
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-check text-success"></i><span>Online</span></a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-circle-o text-warning"></i><span>Busy</span></a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-minus-circle-outline text-danger"></i><span>Offline</span></a>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Top Navbar -->
+	
+        
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper">
+			<!-- Container -->
+            <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+               <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hk-row">
+							<div class="col-lg-3 col-sm-6">
+								<div class="card card-sm">
+									<div class="card-body">
+										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">projects</span>
+										<div class="d-flex align-items-center justify-content-between position-relative">
+											<div>
+												<span class="d-block display-5 font-weight-400 text-dark">12+</span>
+											</div>
+											<div class="position-absolute r-0">
+												<span id="pie_chart_1" class="d-flex easy-pie-chart" data-percent="86">
+													<span class="percent head-font">86</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-sm-6">
+								<div class="card card-sm">
+									<div class="card-body">
+										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Budget</span>
+										<div class="d-flex align-items-center justify-content-between position-relative">
+											<div>
+												<span class="d-block">
+													<span class="display-5 font-weight-400 text-dark">$<span class="counter-anim">740,260</span></span>
+												</span>
+											</div>
+											<div class="position-absolute r-0">
+												<span id="pie_chart_2" class="d-flex easy-pie-chart" data-percent="75">
+													<span class="percent head-font">75</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-sm-6">
+								<div class="card card-sm">
+									<div class="card-body">
+										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Revenue</span>
+										<div class="d-flex align-items-end justify-content-between">
+											<div>
+												<span class="d-block">
+													<span class="display-5 font-weight-400 text-dark">$28,725</span>
+													<small>excl tax</small>
+												</span>
+											</div>
+											<div>
+												<span class="text-success font-12 font-weight-600">+5%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-sm-6">
+								<div class="card card-sm">
+									<div class="card-body">
+										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Genrated Invoices</span>
+										<div class="d-flex align-items-end justify-content-between">
+											<div>
+												<span class="d-block">
+													<span class="display-5 font-weight-400 text-dark">187</span>
+												</span>
+											</div>
+											<div>
+												<span class="text-danger font-12 font-weight-600">-12%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="hk-row">
+							<div class="col-lg-4">
+								<div class="card">
+									<div class="card-header card-header-action">
+										<h6>Balance Sheet Statistics</h6>
+										<div class="d-flex align-items-center card-action-wrap">
+											<div class="d-flex align-items-center card-action-wrap">
+												<a href="#" class="inline-block refresh mr-15">
+													<i class="ion ion-md-arrow-down"></i>
+												</a>
+												<a class="inline-block card-close" href="#" data-effect="fadeOut">
+													<i class="ion ion-md-close"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div id="flot_line_chart_moving" class="" style="height:334px;"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="card">
+									<div class="card-header card-header-action">
+										<h6>Budget</h6>
+										<div class="d-flex align-items-center card-action-wrap">
+											<div class="inline-block dropdown">
+												<a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#">Action</a>
+													<a class="dropdown-item" href="#">Another action</a>
+													<a class="dropdown-item" href="#">Something else here</a>
+													<div class="dropdown-divider"></div>
+													<a class="dropdown-item" href="#">Separated link</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="hk-legend-wrap mb-20">
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-2 rounded-circle d-inline-block"></span><span>A1</span>
+											</div>
+											<div class="hk-legend">
+												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>A2</span>
+											</div>
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-1 rounded-circle d-inline-block"></span><span>A3</span>
+											</div>
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-3 rounded-circle d-inline-block"></span><span>A4</span>
+											</div>
+										</div>
+										<div id="e_chart_9" class="echart" style="height:291px;"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="card">
+									<div class="card-header card-header-action">
+										<h6>Lead Stats</h6>
+										<div class="d-flex align-items-center card-action-wrap">
+											<div class="inline-block dropdown">
+												<a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#">Action</a>
+													<a class="dropdown-item" href="#">Another action</a>
+													<a class="dropdown-item" href="#">Something else here</a>
+													<div class="dropdown-divider"></div>
+													<a class="dropdown-item" href="#">Separated link</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="hk-legend-wrap mb-20">
+											<div class="hk-legend">
+												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Won Leads</span>
+											</div>
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-1 rounded-circle d-inline-block"></span><span>Lost Leads</span>
+											</div>
+										</div>
+										<div id="e_chart_10" class="echart" style="height:291px;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="hk-row">
+							<div class="col-lg-8">
+								<div class="card card-refresh">
+									<div class="refresh-container">
+										<div class="loader-pendulums"></div>
+									</div>
+									<div class="card-header card-header-action">
+										<h6>Campaigning Stats</h6>
+										<div class="d-flex align-items-center card-action-wrap">
+											<a href="#" class="inline-block refresh mr-15">
+												<i class="ion ion-md-radio-button-off"></i>
+											</a>
+											<a href="#" class="inline-block full-screen">
+												<i class="ion ion-md-expand"></i>
+											</a>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="hk-legend-wrap mb-20">
+											<div class="hk-legend">
+												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Click Rate</span>
+											</div>
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-3 rounded-circle d-inline-block"></span><span>Impressions</span>
+											</div>
+										</div>
+										<div id="e_chart_3" class="echart" style="height: 350px;"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="card">
+									<div class="card-header card-header-action">
+										<h6>Risk</h6>
+										<div class="d-flex align-items-center card-action-wrap">
+											<div class="toggle toggle-sm toggle-simple toggle-light toggle-bg-primary risk-switch"></div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div id="e_chart_1" class="" style="height:325px;"></div>
+										<div class="hk-legend-wrap mt-20 mb-5">
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-1 rounded-circle d-inline-block"></span><span>Net Search</span>
+											</div>
+											<div class="hk-legend">
+												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Email Search</span>
+											</div>
+										</div>
+										<div class="hk-legend-wrap">
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-2 rounded-circle d-inline-block"></span><span>Direct Search</span>
+											</div>
+											<div class="hk-legend">
+												<span class="d-10 bg-indigo-light-3 rounded-circle d-inline-block"></span><span>Paid Search</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="card">
+							<div class="card-body pa-0">
+								<div class="table-wrap">
+									<div class="table-responsive">
+										<table class="table table-sm table-hover mb-0">
+											<thead>
+												<tr>
+													<th>Logo</th>
+													<th>Project</th>
+													<th>Company</th>
+													<th>Update</th>
+													<th>Budget</th>
+													<th>Tasks</th>
+													<th class="w-20">Status</th>
+													<th>Deadline</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><img class="img-fluid rounded" src="dist/img/logo1.jpg" alt="icon"></td>
+													<td>Branding</td>
+													<td>Pineapple Inc</td>
+													<td>13 Nov 2018</td>
+													<td><span class="badge badge-success">Completed</span></td>
+													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>0</span></span></td>
+													<td>
+														<div class="progress-wrap lb-side-left mnw-125p">
+															<div class="progress-lb-wrap">
+																<label class="progress-label mnw-25p">95%</label>
+																<div class="progress progress-bar-xs">
+																	<div class="progress-bar bg-success w-95" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td>10 Nov 2018</td>
+												</tr>
+												<tr>
+													<td><img class="img-fluid rounded" src="dist/img/logo2.jpg" alt="icon"></td>
+													<td>Website</td>
+													<td>Gooole co.</td>
+													<td>30 Nov 2018</td>
+													<td><span class="badge badge-primary">In Process</span></td>
+													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>3</span></span></td>
+													<td>
+														<div class="progress-wrap lb-side-left mnw-125p">
+															<div class="progress-lb-wrap">
+																<label class="progress-label mnw-25p">70%</label>
+																<div class="progress progress-bar-xs">
+																	<div class="progress-bar bg-primary w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td>13 Dec 2018</td>
+												</tr>
+												<tr>
+													<td><img class="img-fluid rounded" src="dist/img/logo3.jpg" alt="icon"></td>
+													<td>Collaterals</td>
+													<td>Big Energy</td>
+													<td>12 Nov 2018</td>
+													<td><span class="badge badge-danger">Behind</span></td>
+													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>14</span></span></td>
+													<td>
+														<div class="progress-wrap lb-side-left mnw-125p">
+															<div class="progress-lb-wrap">
+																<label class="progress-label mnw-25p">35%</label>
+																<div class="progress progress-bar-xs">
+																	<div class="progress-bar bg-danger w-35" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td>21 Oct 2018</td>
+												</tr>
+												<tr>
+													<td><img class="img-fluid rounded" src="dist/img/logo4.jpg" alt="icon"></td>
+													<td>Branding, Print</td>
+													<td>Novotel</td>
+													<td>10 Nov 2018</td>
+													<td><span class="badge badge-primary">In process</span></td>
+													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>6</span></span></td>
+													<td>
+														<div class="progress-wrap lb-side-left mnw-125p">
+															<div class="progress-lb-wrap">
+																<label class="progress-label mnw-25p">85%</label>
+																<div class="progress progress-bar-xs">
+																	<div class="progress-bar bg-primary w-85" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td>14 Nov 2018</td>
+												</tr>
+												<tr>
+													<td><img class="img-fluid rounded" src="dist/img/logo5.jpg" alt="icon"></td>
+													<td>Web Application</td>
+													<td>Folkswagan</td>
+													<td>12 Nov 2018</td>
+													<td><span class="badge badge-danger">Behind</span></td>
+													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>9</span></span></td>
+													<td>
+														<div class="progress-wrap lb-side-left">
+															<div class="progress-lb-wrap">
+																<label class="progress-label mnw-25p">30%</label>
+																<div class="progress progress-bar-xs">
+																	<div class="progress-bar bg-danger w-30" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td>15 Oct 2018</td>
+												</tr>
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>		
+					</div>
+                </div>
+                <!-- /Row -->
+            </div>
+            <!-- /Container -->
+			
+            <!-- Footer -->
+            <div class="hk-footer-wrap container-fluid">
+                <footer class="footer">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <p>Pampered by<a href="https://hencework.com/" class="text-dark" target="_blank">Hencework</a> © 2019</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <p class="d-inline-block">Follow us</p>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- /Footer -->
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /HK Wrapper -->
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Slimscroll JavaScript -->
+    <script src="dist/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- FeatherIcons JavaScript -->
+    <script src="dist/js/feather.min.js"></script>
+
+    <!-- Toggles JavaScript -->
+    <script src="vendors/jquery-toggles/toggles.min.js"></script>
+    <script src="dist/js/toggle-data.js"></script>
+	
+	<!-- Toastr JS -->
+    <script src="vendors/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    
+	<!-- Counter Animation JavaScript -->
+	<script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
+	
+	<!-- Morris Charts JavaScript -->
+    <script src="vendors/raphael/raphael.min.js"></script>
+    <script src="vendors/morris.js/morris.min.js"></script>
+	
+	<!-- Easy pie chart JS -->
+    <script src="vendors/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+	
+	<!-- Flot Charts JavaScript -->
+    <script src="vendors/flot/excanvas.min.js"></script>
+    <script src="vendors/flot/jquery.flot.js"></script>
+    <script src="vendors/flot/jquery.flot.pie.js"></script>
+    <script src="vendors/flot/jquery.flot.resize.js"></script>
+    <script src="vendors/flot/jquery.flot.time.js"></script>
+    <script src="vendors/flot/jquery.flot.stack.js"></script>
+    <script src="vendors/flot/jquery.flot.crosshair.js"></script>
+    <script src="vendors/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+	
+	<!-- EChartJS JavaScript -->
+    <script src="vendors/echarts/dist/echarts-en.min.js"></script>
+    
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js"></script>
+	<script src="dist/js/dashboard2-data.js"></script>
+	
+</body>
+
+</html>

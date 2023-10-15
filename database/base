@@ -1,0 +1,1311 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 07-03-2023 a las 23:35:32
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.0.25
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `jets`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `cliente`, `direccion`, `created_at`, `updated_at`) VALUES
+(1, 'METALSA SALTILLO', NULL, '2023-01-24 06:34:34', '2023-01-24 06:34:34'),
+(2, 'BREMBO', NULL, '2023-01-24 22:17:37', '2023-01-24 22:17:37'),
+(3, 'JOHNSON CONTROLS ENTERPRISES MEXICO', NULL, '2023-01-24 22:18:28', '2023-01-24 22:18:28'),
+(4, 'ACAT MEXICANA', NULL, '2023-02-10 15:18:16', '2023-02-10 15:18:16'),
+(5, 'ADVANCED STEEL TECHNOLOGY', NULL, '2023-02-10 15:18:43', '2023-02-10 15:18:43'),
+(6, 'AMERICAN CRANE', NULL, '2023-02-10 15:18:55', '2023-02-10 15:18:55'),
+(7, 'MULTIHERRAMIENTAS Y EQUIPOS', NULL, '2023-02-10 15:19:15', '2023-02-10 15:19:15'),
+(8, 'PANASONIC', NULL, '2023-02-10 15:19:22', '2023-02-10 15:19:22');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dibujos`
+--
+
+CREATE TABLE `dibujos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `dibujo_persona` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `dibujos`
+--
+
+INSERT INTO `dibujos` (`id`, `ot`, `descripcion`, `cliente`, `estatus`, `dibujo_persona`, `created_at`, `updated_at`) VALUES
+(1, '1', 'Ø 3/8 X 38\"', 'METALSA SALTILLO', 'Cargada', NULL, '2023-02-04 01:16:04', '2023-02-04 01:16:21'),
+(2, '2', 'FABRICACION DE FLECHA', 'ACAT MEXICANA', 'Cargada', NULL, '2023-02-10 15:54:11', '2023-02-10 16:14:32'),
+(3, '3', 'TORNILLOS DE 1/4 X 2 LARGO', 'BREMBO', 'Cargada', NULL, '2023-02-10 16:53:19', '2023-02-10 16:56:00'),
+(4, '4', 'ABRIR DIAMETRO A SPROCKET', 'ADVANCED STEEL TECHNOLOGY', 'Cargada', NULL, '2023-02-10 17:07:26', '2023-02-10 17:07:48'),
+(5, '5', 'FABRICACION DE FLECHA MOTRIZ', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'Cargada', NULL, '2023-02-10 17:13:11', '2023-02-10 17:24:29'),
+(6, '6', 'BALEROS CONVEYOR', 'METALSA SALTILLO', 'Cargada', NULL, '2023-02-10 17:47:08', '2023-02-10 17:49:29'),
+(7, '9', '1/2 X 5 X 22-1/8 ESTIRADO EN FRIO', 'ADVANCED STEEL TECHNOLOGY', 'Pendiente', NULL, '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(8, '10', 'TORNILLO INOX', 'MULTIHERRAMIENTAS Y EQUIPOS', 'Cargada', NULL, '2023-02-10 18:08:31', '2023-02-10 18:12:12'),
+(9, '11', 'CANDADO DE PLASTICO', 'METALSA SALTILLO', 'Cargada', NULL, '2023-02-10 18:36:20', '2023-02-10 18:38:00'),
+(10, '12', 'MOLDE', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'Cargada', NULL, '2023-02-10 18:42:01', '2023-02-10 18:43:34'),
+(11, '13', 'TORNILLO INOX', 'BREMBO', 'Cargada', NULL, '2023-02-10 20:39:34', '2023-02-10 20:40:36');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `events`
+--
+
+CREATE TABLE `events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `start`, `end`, `created_at`, `updated_at`) VALUES
+(3, 'EC: 2', '2023-02-10', '2023-02-10', '2023-02-10 15:54:11', '2023-02-10 15:54:11'),
+(4, 'SP: 2', '2023-02-10', '2023-02-10', '2023-02-10 15:54:11', '2023-02-10 15:54:11'),
+(5, 'EC: 3', '2023-02-10', '2023-02-10', '2023-02-10 16:53:19', '2023-02-10 16:53:19'),
+(6, 'SP: 3', '2023-02-10', '2023-02-10', '2023-02-10 16:53:19', '2023-02-10 16:53:19'),
+(7, 'EC: 4', '2023-02-10', '2023-02-10', '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
+(8, 'SP: 4', '2023-02-10', '2023-02-10', '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
+(9, 'EC: 5', '2023-02-10', '2023-02-10', '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
+(10, 'SP: 5', '2023-02-10', '2023-02-10', '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
+(11, 'EC: 6', '2023-02-10', '2023-02-10', '2023-02-10 17:47:08', '2023-02-10 17:47:08'),
+(12, 'SP: 6', '2023-02-10', '2023-02-10', '2023-02-10 17:47:08', '2023-02-10 17:47:08'),
+(13, 'EC: 7', '2023-02-10', '2023-02-10', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(14, 'SP: 7', '2023-02-10', '2023-02-10', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(15, 'EC: 8', '2023-02-10', '2023-02-10', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(16, 'SP: 8', '2023-02-10', '2023-02-10', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(17, 'EC: 9', '2023-03-02', '2023-03-02', '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(18, 'SP: 9', '2023-03-03', '2023-03-03', '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(19, 'EC: 10', '2023-02-10', '2023-02-10', '2023-02-10 18:08:31', '2023-02-10 18:08:31'),
+(20, 'SP: 10', '2023-02-10', '2023-02-10', '2023-02-10 18:08:31', '2023-02-10 18:08:31'),
+(21, 'EC: 11', '2023-02-10', '2023-02-10', '2023-02-10 18:36:20', '2023-02-10 18:36:20'),
+(22, 'SP: 11', '2023-02-10', '2023-02-10', '2023-02-10 18:36:20', '2023-02-10 18:36:20'),
+(23, 'EC: 12', '2023-02-10', '2023-02-10', '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
+(24, 'SP: 12', '2023-02-10', '2023-02-10', '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
+(25, 'EC: 13', '2023-02-10', '2023-02-10', '2023-02-10 20:39:34', '2023-02-10 20:39:34'),
+(26, 'SP: 13', '2023-02-10', '2023-02-10', '2023-02-10 20:39:34', '2023-02-10 20:39:34');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inspections`
+--
+
+CREATE TABLE `inspections` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) NOT NULL,
+  `tipo_inspeccion` varchar(255) NOT NULL,
+  `cant_scrap` varchar(255) DEFAULT NULL,
+  `cant_liberada` varchar(255) DEFAULT NULL,
+  `cant_retrabajo` varchar(255) DEFAULT NULL,
+  `usuario` varchar(255) DEFAULT NULL,
+  `observaciones` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `inspections`
+--
+
+INSERT INTO `inspections` (`id`, `ot`, `tipo_inspeccion`, `cant_scrap`, `cant_liberada`, `cant_retrabajo`, `usuario`, `observaciones`, `created_at`, `updated_at`) VALUES
+(1, '3', 'SCRAP', '20', NULL, NULL, 'ALAIN MASCORRO', NULL, '2023-02-15 14:27:52', '2023-02-15 14:27:52'),
+(2, '1', 'RETRABAJO', NULL, NULL, '1', 'ALAIN MASCORRO', NULL, '2023-02-15 14:36:34', '2023-02-15 14:36:34'),
+(3, '2', 'RETRABAJO', NULL, NULL, '5', 'Miriam Dominguez', NULL, '2023-03-07 22:11:02', '2023-03-07 22:11:02'),
+(4, '2', 'RETRABAJO', NULL, NULL, '5', 'Miriam Dominguez', NULL, '2023-03-07 22:11:22', '2023-03-07 22:11:22');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `jets_registros`
+--
+
+CREATE TABLE `jets_registros` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `movimiento` varchar(255) DEFAULT NULL,
+  `responsable` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `jets_registros`
+--
+
+INSERT INTO `jets_registros` (`id`, `ot`, `movimiento`, `responsable`, `created_at`, `updated_at`) VALUES
+(1, '1', 'INICIO - OT', 'Miriam Dominguez', '2023-02-04 01:16:04', '2023-02-04 01:16:04'),
+(2, '1', 'DIBUJO - INGENIERIA', 'Miriam Dominguez', '2023-02-04 01:16:21', '2023-02-04 01:16:21'),
+(3, '1', 'ALMACEN - PRODUCCION', 'Miriam Dominguez', '2023-02-04 01:17:08', '2023-02-04 01:17:08'),
+(4, '1', 'PRODUCCION - ASIGNADA', 'Miriam Dominguez', '2023-02-04 01:17:52', '2023-02-04 01:17:52'),
+(5, '1', 'PRODUCCION - INICIADA', 'Miriam Dominguez', '2023-02-04 01:18:07', '2023-02-04 01:18:07'),
+(6, '1', 'PRODUCCION - PAUSADA', 'Miriam Dominguez', '2023-02-04 01:18:12', '2023-02-04 01:18:12'),
+(7, '1', 'PRODUCCION - INICIADA', 'Miriam Dominguez', '2023-02-04 01:40:53', '2023-02-04 01:40:53'),
+(8, '1', 'S. PRODUCCION - FINALIZADA', 'Miriam Dominguez', '2023-02-04 02:03:28', '2023-02-04 02:03:28'),
+(9, '2', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 15:54:11', '2023-02-10 15:54:11'),
+(10, '2', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 16:14:32', '2023-02-10 16:14:32'),
+(11, '2', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 16:23:31', '2023-02-10 16:23:31'),
+(12, '3', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 16:53:19', '2023-02-10 16:53:19'),
+(13, '3', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 16:56:00', '2023-02-10 16:56:00'),
+(14, '3', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 16:59:03', '2023-02-10 16:59:03'),
+(15, '3', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 16:59:13', '2023-02-10 16:59:13'),
+(16, '3', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 17:03:37', '2023-02-10 17:03:37'),
+(17, '3', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 17:04:26', '2023-02-10 17:04:26'),
+(18, '4', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
+(19, '4', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 17:07:48', '2023-02-10 17:07:48'),
+(20, '5', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
+(21, '5', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 17:24:29', '2023-02-10 17:24:29'),
+(22, '5', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 17:29:19', '2023-02-10 17:29:19'),
+(23, '5', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 17:29:40', '2023-02-10 17:29:40'),
+(24, '5', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 17:29:48', '2023-02-10 17:29:48'),
+(25, '2', 'ALMACEN - PRODUCCION', 'Miriam Dominguez', '2023-02-10 17:45:32', '2023-02-10 17:45:32'),
+(26, '6', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 17:47:08', '2023-02-10 17:47:08'),
+(27, '2', 'ALMACEN - PRODUCCION', 'Miriam Dominguez', '2023-02-10 17:49:08', '2023-02-10 17:49:08'),
+(28, '6', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 17:49:29', '2023-02-10 17:49:29'),
+(29, '6', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 17:50:46', '2023-02-10 17:50:46'),
+(30, '2', 'ALMACEN - PRODUCCION', 'Miriam Dominguez', '2023-02-10 17:54:17', '2023-02-10 17:54:17'),
+(31, '7', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(32, NULL, 'VENDEDOR - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(33, '8', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(34, NULL, 'VENDEDOR - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(35, '9', 'INICIO - OT', 'Miriam Dominguez', '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(36, '9', 'VENDEDOR - PRODUCCION', 'Miriam Dominguez', '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(37, '10', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 18:08:31', '2023-02-10 18:08:31'),
+(38, '10', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 18:12:12', '2023-02-10 18:12:12'),
+(39, '10', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 18:12:55', '2023-02-10 18:12:55'),
+(40, '2', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 18:27:57', '2023-02-10 18:27:57'),
+(41, '11', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 18:36:20', '2023-02-10 18:36:20'),
+(42, '11', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 18:38:00', '2023-02-10 18:38:00'),
+(43, '11', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 18:38:32', '2023-02-10 18:38:32'),
+(44, '12', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
+(45, '12', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 18:43:34', '2023-02-10 18:43:34'),
+(46, '12', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 18:43:56', '2023-02-10 18:43:56'),
+(47, '3', 'ALMACEN - PRODUCCION', 'Miriam Dominguez', '2023-02-10 18:59:19', '2023-02-10 18:59:19'),
+(48, '2', 'ALMACEN - PRODUCCION', 'Miriam Dominguez', '2023-02-10 19:00:27', '2023-02-10 19:00:27'),
+(49, '2', 'ALMACEN - PRODUCCION', 'Miriam Dominguez', '2023-02-10 19:01:38', '2023-02-10 19:01:38'),
+(50, '2', 'ALMACEN - COMPRAS', 'Miriam Dominguez', '2023-02-10 19:26:49', '2023-02-10 19:26:49'),
+(51, '2', 'ALMACEN - COMPRAS', 'Miriam Dominguez', '2023-02-10 19:35:23', '2023-02-10 19:35:23'),
+(52, '13', 'INICIO - OT', 'ALAIN MASCORRO', '2023-02-10 20:39:34', '2023-02-10 20:39:34'),
+(53, '13', 'DIBUJO - INGENIERIA', 'ALAIN MASCORRO', '2023-02-10 20:40:36', '2023-02-10 20:40:36'),
+(54, '13', 'ALMACEN - COMPRAS', 'ALAIN MASCORRO', '2023-02-10 20:41:57', '2023-02-10 20:41:57'),
+(55, '2', 'COMPRAS - OC', 'ALAIN MASCORRO', '2023-02-10 20:45:17', '2023-02-10 20:45:17'),
+(56, '13', 'COMPRAS - OC', 'ALAIN MASCORRO', '2023-02-10 20:45:17', '2023-02-10 20:45:17'),
+(57, '13', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 20:46:20', '2023-02-10 20:46:20'),
+(58, '13', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 20:47:21', '2023-02-10 20:47:21'),
+(59, '13', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 20:49:37', '2023-02-10 20:49:37'),
+(60, '2', 'S. PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-10 23:00:04', '2023-02-10 23:00:04'),
+(61, '2', 'CALIDAD - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 23:00:25', '2023-02-10 23:00:25'),
+(62, '2', 'PRODUCCION - ASIGNADA', 'ALAIN MASCORRO', '2023-02-10 23:01:37', '2023-02-10 23:01:37'),
+(63, '2', 'PRODUCCION - INICIADA', 'ALAIN MASCORRO', '2023-02-10 23:01:52', '2023-02-10 23:01:52'),
+(64, '3', 'PRODUCCION - ASIGNADA', 'ALAIN MASCORRO', '2023-02-10 23:02:29', '2023-02-10 23:02:29'),
+(65, '2', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 23:09:54', '2023-02-10 23:09:54'),
+(66, '6', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 23:10:57', '2023-02-10 23:10:57'),
+(67, '13', 'ALMACEN - PRODUCCION', 'ALAIN MASCORRO', '2023-02-10 23:11:15', '2023-02-10 23:11:15'),
+(68, '2', 'PRODUCCION - PAUSADA', 'ALAIN MASCORRO', '2023-02-15 00:27:56', '2023-02-15 00:27:56'),
+(69, '3', 'PRODUCCION - INICIADA', 'ALAIN MASCORRO', '2023-02-15 00:30:25', '2023-02-15 00:30:25'),
+(70, '3', 'PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 00:31:09', '2023-02-15 00:31:09'),
+(71, '2', 'PRODUCCION - INICIADA', 'ALAIN MASCORRO', '2023-02-15 00:31:16', '2023-02-15 00:31:16'),
+(72, '2', 'PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 00:31:43', '2023-02-15 00:31:43'),
+(73, '2', 'S. PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 00:34:09', '2023-02-15 00:34:09'),
+(74, '3', 'S. PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 00:34:14', '2023-02-15 00:34:14'),
+(75, '2', 'CALIDAD - PRODUCCION', 'ALAIN MASCORRO', '2023-02-15 00:34:32', '2023-02-15 00:34:32'),
+(76, '2', 'S. PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 00:34:43', '2023-02-15 00:34:43'),
+(77, '2', 'CALIDAD - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 00:51:38', '2023-02-15 00:51:38'),
+(78, '2', 'EMBARQUES - FACTURACIÓN', 'ALAIN MASCORRO', '2023-02-15 00:56:26', '2023-02-15 00:56:26'),
+(79, '2', 'COMPRAS - OC', 'ALAIN MASCORRO', '2023-02-15 00:57:37', '2023-02-15 00:57:37'),
+(80, '3', 'CALIDAD - SCRAP', 'ALAIN MASCORRO', '2023-02-15 14:27:52', '2023-02-15 14:27:52'),
+(81, '1', 'CALIDAD - RETRABAJO', 'ALAIN MASCORRO', '2023-02-15 14:36:34', '2023-02-15 14:36:34'),
+(82, '1', 'PRODUCCION - ASIGNADA', 'ALAIN MASCORRO', '2023-02-15 14:47:46', '2023-02-15 14:47:46'),
+(83, '1', 'PRODUCCION - INICIADA', 'ALAIN MASCORRO', '2023-02-15 14:49:10', '2023-02-15 14:49:10'),
+(84, '1', 'PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 14:49:55', '2023-02-15 14:49:55'),
+(85, '1', 'S. PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 14:50:27', '2023-02-15 14:50:27'),
+(86, '6', 'S. PRODUCCION - FINALIZADA', 'ALAIN MASCORRO', '2023-02-15 14:50:49', '2023-02-15 14:50:49'),
+(87, '1', 'CALIDAD - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 14:58:24', '2023-02-15 14:58:24'),
+(88, '1', 'EMBARQUES - FACTURACIÓN', 'ALAIN MASCORRO', '2023-02-15 15:01:14', '2023-02-15 15:01:14'),
+(89, '2', 'TRATAMIENTO - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 15:01:28', '2023-02-15 15:01:28'),
+(90, '1', 'TRATAMIENTO - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 15:02:02', '2023-02-15 15:02:02'),
+(91, '1', 'CALIDAD - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 15:03:31', '2023-02-15 15:03:31'),
+(92, '1', 'EMBARQUES - FACTURACIÓN', 'ALAIN MASCORRO', '2023-02-15 16:07:01', '2023-02-15 16:07:01'),
+(93, '2', 'CALIDAD - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 16:09:01', '2023-02-15 16:09:01'),
+(94, '2', 'EMBARQUES - FACTURACIÓN', 'ALAIN MASCORRO', '2023-02-15 16:09:39', '2023-02-15 16:09:39'),
+(95, '3', 'S. PRODUCCION - PARCIAL', 'Miriam Dominguez', '2023-03-07 15:31:11', '2023-03-07 15:31:11'),
+(96, '9', 'S. PRODUCCION - FINALIZADA', 'Miriam Dominguez', '2023-03-07 15:33:23', '2023-03-07 15:33:23'),
+(97, '10', 'S. PRODUCCION - PARCIAL', 'Miriam Dominguez', '2023-03-07 16:04:53', '2023-03-07 16:04:53'),
+(98, '13', 'S. PRODUCCION - PARCIAL', 'Miriam Dominguez', '2023-03-07 16:06:31', '2023-03-07 16:06:31'),
+(99, '1', 'CALIDAD - PRODUCCION', 'Miriam Dominguez', '2023-03-07 16:27:08', '2023-03-07 16:27:08'),
+(100, '2', 'CALIDAD - RETRABAJO', 'Miriam Dominguez', '2023-03-07 22:11:02', '2023-03-07 22:11:02'),
+(101, '2', 'CALIDAD - RETRABAJO', 'Miriam Dominguez', '2023-03-07 22:11:22', '2023-03-07 22:11:22');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `jets_rutas`
+--
+
+CREATE TABLE `jets_rutas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `sistema_ot` varchar(255) DEFAULT NULL,
+  `sistema_ingenieria` varchar(255) DEFAULT NULL,
+  `sistema_almacen` varchar(255) DEFAULT NULL,
+  `sistema_compras` varchar(255) DEFAULT NULL,
+  `sistema_almacenr` varchar(255) DEFAULT NULL,
+  `sistema_produccion` varchar(255) DEFAULT NULL,
+  `sistema_calidad` varchar(255) DEFAULT NULL,
+  `sistema_embarques` varchar(255) DEFAULT NULL,
+  `sistema_facturacion` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `jets_rutas`
+--
+
+INSERT INTO `jets_rutas` (`id`, `ot`, `sistema_ot`, `sistema_ingenieria`, `sistema_almacen`, `sistema_compras`, `sistema_almacenr`, `sistema_produccion`, `sistema_calidad`, `sistema_embarques`, `sistema_facturacion`, `created_at`, `updated_at`) VALUES
+(1, '1', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', 'DONE', 'DONE', '-', '2023-02-04 01:16:04', '2023-03-07 16:27:08'),
+(2, '2', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', 'DONE', '-', '-', '2023-02-10 15:54:11', '2023-03-07 22:11:02'),
+(3, '3', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 16:53:19', '2023-02-15 14:27:52'),
+(4, '4', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 17:07:26', '2023-02-10 17:07:48'),
+(5, '5', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '2023-02-10 17:13:11', '2023-02-10 17:29:19'),
+(6, '6', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '2023-02-10 17:47:08', '2023-02-15 14:50:49'),
+(7, '7', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(8, '8', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(9, '9', 'DONE', '-', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '2023-02-10 18:07:28', '2023-03-07 15:33:23'),
+(10, '10', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '2023-02-10 18:08:31', '2023-02-10 18:12:55'),
+(11, '11', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '2023-02-10 18:36:20', '2023-02-10 18:38:32'),
+(12, '12', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '2023-02-10 18:42:01', '2023-02-10 18:43:56'),
+(13, '13', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '2023-02-10 20:39:34', '2023-02-10 20:46:20');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `maquinas`
+--
+
+CREATE TABLE `maquinas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `codigo` varchar(255) DEFAULT NULL,
+  `carga` varchar(255) NOT NULL DEFAULT '0',
+  `ultima_ot` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `marca` varchar(255) DEFAULT NULL,
+  `modelo` varchar(255) DEFAULT NULL,
+  `numero_serie` varchar(255) DEFAULT NULL,
+  `ano` varchar(255) DEFAULT NULL,
+  `area` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `maquinas`
+--
+
+INSERT INTO `maquinas` (`id`, `codigo`, `carga`, `ultima_ot`, `estatus`, `descripcion`, `marca`, `modelo`, `numero_serie`, `ano`, `area`, `created_at`, `updated_at`) VALUES
+(1, 'T-01', '0', '2', 'SIN CARGA', 'TORNO DE 26\" X 2 MTS', 'PRECISE', 'CS 6266B/2000', '140411388', '2014', NULL, '2023-01-24 04:21:24', '2023-02-15 00:31:43'),
+(2, 'T-02', '0', '1', 'SIN CARGA', 'TORNO DE 20\" X 1.5 MTS', 'PRECISE', 'CS 6250B/1500', '150411191', '2015', NULL, '2023-01-24 04:22:06', '2023-02-15 14:49:55'),
+(3, 'T-03', '0', '1', 'ACTIVA', 'TORNO DE 16\" X 1 MTS', 'PRECISE', 'N/A', '-', '2015', NULL, '2023-01-24 04:24:02', '2023-02-04 01:40:53'),
+(4, 'T-04', '0', NULL, NULL, 'TORNO DE 12\" X 1 MTS', 'PRECISE', 'GH1440A', '703017', '2018', NULL, '2023-01-24 04:26:02', '2023-01-24 04:26:02'),
+(5, 'T-05', '0', NULL, NULL, 'TORNO DE 18\" X 5 MTS', 'LODGE SHIPLLEY', 'N/A', '-', '2000', NULL, '2023-01-24 04:27:45', '2023-01-24 04:27:45'),
+(6, 'FC-01', '0', '6', 'SIN CARGA', 'FRESADORA X6330', 'PRECISE', 'X6330', '46', '2018', NULL, '2023-01-24 04:28:38', '2023-01-24 23:56:43'),
+(7, 'FC-02', '0', NULL, NULL, 'FRESADORA X6325', '-', 'X6325', '140899', '2014', NULL, '2023-01-24 04:29:23', '2023-01-24 04:29:23'),
+(8, 'FC-03', '0', NULL, NULL, 'FRESADORA X6325', 'SATURNO', 'X6325', '160822', '2016', NULL, '2023-01-24 04:30:20', '2023-01-24 04:30:20'),
+(9, 'FC-04', '0', NULL, NULL, 'FRESADORA X6325', 'SATURNO', 'X6325', '17080498', '2017', NULL, '2023-01-24 04:30:56', '2023-01-24 04:30:56'),
+(10, 'FCNC-01', '0', NULL, NULL, 'FRESADORA CNC HMX40C', 'TITANIUM', 'HMX40C', 'C22764', '2022', NULL, '2023-01-24 04:31:43', '2023-01-24 04:31:43'),
+(11, 'CMAQ-01', '0', NULL, NULL, 'CENTRO DE MAQUINADO CFV1100', 'HAITIAN', 'CFV1100', 'X2019030137', '2019', NULL, '2023-01-24 04:32:23', '2023-01-24 04:32:23'),
+(12, 'CMAQ-02', '0', NULL, NULL, 'CENTRO DE MAQUINADO VMC1000II', 'HAITIAN', 'VMC1000II', 'X2022050102', '2022', NULL, '2023-01-24 04:33:27', '2023-01-24 04:33:27'),
+(13, 'TCNC-01', '0', NULL, NULL, 'TORNO CNC', 'HAITIAN', 'TC25IIX500', 'C2019030258', '2019', NULL, '2023-01-24 04:34:12', '2023-01-24 04:34:12'),
+(14, 'CEPC-01', '1', '2', NULL, 'CEPILLO CODO CARRERA 20\"', 'GOULD & EBERHARDT', NULL, NULL, '2000', NULL, '2023-01-24 04:35:12', '2023-01-30 21:28:59'),
+(15, 'RECT-01', '0', '20', 'SIN CARGA', 'RECTIFICADORA PLANA 8 X 12\"', 'SATURNO', 'M618A', NULL, '2018', NULL, '2023-01-24 04:36:01', '2023-02-01 00:41:20'),
+(16, 'MAQS-01', '0', NULL, NULL, 'MAQUINA SOLDAR INFRA', 'INFRA', 'MI 2-300CA', NULL, '2018', NULL, '2023-01-24 04:49:41', '2023-01-24 04:49:41'),
+(17, 'MAQS-02', '0', NULL, NULL, 'MAQUINA SOLDAR MICRO ALMBRE', 'WELD500', 'M251', NULL, '2018', NULL, '2023-01-24 04:50:13', '2023-01-24 04:50:13'),
+(18, 'MAQS-03', '0', NULL, NULL, 'MAQUINA SOLDAR MICRO ALAMBRE', 'MILLER', 'INVISION 456MD', 'LF217986', '2018', NULL, '2023-01-24 04:50:53', '2023-01-24 04:50:53'),
+(19, 'COMPTOR-01', '0', NULL, NULL, 'COMPRESOR TORNILLO', 'CURTIS', 'CML10', '1906010166', '2019', NULL, '2023-01-24 04:51:52', '2023-01-24 04:51:52'),
+(20, 'COMPTOR-02', '0', NULL, NULL, 'COMPRESOR', 'CENTURY', '152B', NULL, '2019', NULL, '2023-01-24 04:52:40', '2023-01-24 04:52:40'),
+(21, 'CS-01', '0', NULL, NULL, 'CORTADORA DIAMETRO 18\"', 'SATURNO', 'BS-1018B', 'A17052419', '2018', NULL, '2023-01-24 04:53:16', '2023-01-24 04:53:16'),
+(22, 'CS-02', '0', NULL, NULL, 'CORTADORA DIAMETRO 12\"', 'SM', NULL, NULL, '2000', NULL, '2023-01-24 04:53:45', '2023-01-24 04:53:45');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `materiales`
+--
+
+CREATE TABLE `materiales` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `oc` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `material` varchar(255) DEFAULT NULL,
+  `empresa` varchar(255) DEFAULT NULL,
+  `codigo` varchar(255) DEFAULT NULL,
+  `um` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `cantidad_solicitada` varchar(255) DEFAULT NULL,
+  `cantidad_almacen` varchar(255) DEFAULT NULL,
+  `cantidad_recibida` varchar(255) DEFAULT NULL,
+  `proveedor` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `fecha_oc` varchar(255) DEFAULT NULL,
+  `personal_oc` varchar(255) DEFAULT NULL,
+  `fecha_almacen` varchar(255) DEFAULT NULL,
+  `personal_almacen` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `materiales`
+--
+
+INSERT INTO `materiales` (`id`, `ot`, `oc`, `tipo`, `material`, `empresa`, `codigo`, `um`, `descripcion`, `cantidad_solicitada`, `cantidad_almacen`, `cantidad_recibida`, `proveedor`, `estatus`, `fecha_oc`, `personal_oc`, `fecha_almacen`, `personal_almacen`, `created_at`, `updated_at`) VALUES
+(1, '1', NULL, 'MATERIAL', '1', 'JETS', 'CONS-2', 'PZA', 'DIBUJO DE ESTA OT PRESENTA UN MAL ACOTADO REVISAR EN INGENIERIA CON LA PERSONA PERTINENTE', '1', NULL, NULL, NULL, 'RECIBIDA', NULL, NULL, '2023-02-03 19:17:08', 'Miriam Dominguez', '2023-02-04 01:16:50', '2023-02-04 01:17:08'),
+(2, '2', '8', 'MATERIAL', 'ACERO 1045', 'JETSA', '680', 'plg', 'ACERO 1045 DIAMETRO DE 1 1/2\"', '10', '5', '20', 'ACEROS LEVINSON', 'RECIBIDA', '2023-02-10 14:45:17', 'ALAIN MASCORRO', '2023-02-10 17:09:54', 'ALAIN MASCORRO', '2023-02-10 16:22:06', '2023-02-10 23:09:54'),
+(3, '3', '4', 'MATERIAL', 'ACERO 1045', 'JETSA', '680', 'PLG', 'ACERO 1045 DIAMETRO DE 1 1/2\"', '20', '20', '20', 'ACEROS LEVINSON', 'P/ALMACEN', '2023-02-10 11:00:43', 'ALAIN MASCORRO', '2023-02-10 12:59:19', 'Miriam Dominguez', '2023-02-10 16:54:15', '2023-02-15 14:27:52'),
+(4, '3', '5', 'MATERIAL', 'ACERO 4140', 'JETSA', '1112', 'PLG', 'ACERO 4140 DIAMETRO DE 2\"', '2', '1', '2', 'IRSACERO', 'P/ALMACEN', '2023-02-10 11:01:17', 'ALAIN MASCORRO', '2023-02-10 11:04:26', 'ALAIN MASCORRO', '2023-02-10 16:55:24', '2023-02-15 14:27:52'),
+(5, '5', '6', 'MATERIAL', 'ACERO 1045', 'JETS', '1125', 'PLG', 'ACERO 1045 DIAMETRO DE 1/2\"', '100', '100', '100', 'ACEROS LEVINSON', 'RECIBIDA', '2023-02-10 11:30:52', 'ALAIN MASCORRO', '2023-02-10 11:38:19', 'ALAIN MASCORRO', '2023-02-10 17:14:07', '2023-02-10 17:38:19'),
+(6, '5', '7', 'MATERIAL', 'ACETAL', 'JETS', '1114', 'PLG', 'ACETAL BLANCO ESPESOR DE 3/4\" X ANCHO DE 3\"', '25', '25', '25', 'LA PALOMA', 'RECIBIDA', '2023-02-10 11:31:00', 'ALAIN MASCORRO', '2023-02-10 11:38:48', 'ALAIN MASCORRO', '2023-02-10 17:14:47', '2023-02-10 17:38:48'),
+(7, '5', '6', 'MATERIAL', 'ACERO 1018', 'JETS', '1130', 'PLG', 'ACERO 1018 DIAMETRO DE 1/2\"', '50', '50', '50', 'ACEROS LEVINSON', 'RECIBIDA', '2023-02-10 11:30:52', 'ALAIN MASCORRO', '2023-02-10 11:39:16', 'ALAIN MASCORRO', '2023-02-10 17:15:15', '2023-02-10 17:39:16'),
+(8, '2', NULL, 'MATERIAL', '8590-20', 'JETSA', 'CONS-2', 'PZA', 'DIBUJO DE ESTA OT PRESENTA UN MAL ACOTADO REVISAR EN INGENIERIA CON LA PERSONA PERTINENTE', '1', NULL, NULL, NULL, 'RECIBIDA', NULL, NULL, '2023-02-10 11:49:08', 'Miriam Dominguez', '2023-02-10 17:45:14', '2023-02-10 17:49:08'),
+(9, '6', NULL, 'MATERIAL', 'ACERO 1018', 'JETS', '1136', 'PLG', 'ACERO 1045 DIAMETRO DE 1 3/8\"', '20', NULL, '20', NULL, 'RECIBIDA', NULL, NULL, '2023-02-10 17:10:57', 'ALAIN MASCORRO', '2023-02-10 17:47:52', '2023-02-10 23:10:57'),
+(10, '6', NULL, 'MATERIAL', 'ACERO 1018', 'JETS', '930', 'PLG', 'ACERO 1045 DIAMETRO DE 3 1/2\"', '10', NULL, NULL, NULL, 'RECIBIDA', NULL, NULL, '2023-02-10 11:50:46', 'ALAIN MASCORRO', '2023-02-10 17:49:01', '2023-02-10 17:50:46'),
+(11, '10', NULL, 'MATERIAL', 'INOX', 'JETSA', '932', 'PLG', 'ACERO INOX 304 DIAMETRO DE 5/16\"', '10', NULL, NULL, NULL, 'RECIBIDA', NULL, NULL, '2023-02-10 12:12:55', 'ALAIN MASCORRO', '2023-02-10 18:10:12', '2023-02-10 18:12:55'),
+(12, '11', NULL, 'MATERIAL', 'ACETAL', 'JETS', '946', 'PLG', 'ACETAL BLANCO REDONDO DE 3/4\"', '20', NULL, NULL, NULL, 'RECIBIDA', NULL, NULL, '2023-02-10 12:38:32', 'ALAIN MASCORRO', '2023-02-10 18:37:46', '2023-02-10 18:38:32'),
+(13, '12', NULL, 'MATERIAL', 'ACERO 4140', 'JETS', '1274', 'PLG', 'ACERO 4140 RECOCIDO ESPESOR DE 1 3/4\" X ANCHO DE 3\"', '50', '50', NULL, NULL, 'SOLICITADA', NULL, NULL, '2023-02-10 12:43:56', 'ALAIN MASCORRO', '2023-02-10 18:43:22', '2023-02-10 18:43:56'),
+(14, '13', '8', 'MATERIAL', 'INOX', 'JETSA', '1312', 'PLG', 'ACERO INOX 304 DIAMETRO DE 3/16\"', '10', '10', '30', 'ACEROS LEVINSON', 'RECIBIDA', '2023-02-10 14:45:17', 'ALAIN MASCORRO', '2023-02-10 17:11:15', 'ALAIN MASCORRO', '2023-02-10 20:40:17', '2023-02-10 23:11:15'),
+(15, '2', '9', 'TRATAMIENTO', 'Tratamiento', NULL, NULL, NULL, 'FABRICACION DE FLECHA', NULL, NULL, NULL, 'DANIEL ALVARADO', 'ASIGNADA', '2023-02-14 18:57:37', 'ALAIN MASCORRO', NULL, NULL, '2023-02-15 00:56:26', '2023-02-15 00:57:37'),
+(16, '1', NULL, 'TRATAMIENTO', 'Tratamiento', NULL, NULL, NULL, 'Ø 3/8 X 38\"', NULL, NULL, NULL, 'DANIEL ALVARADO', 'SOLICITADA', NULL, NULL, NULL, NULL, '2023-02-15 15:01:14', '2023-02-15 15:01:14'),
+(17, '2', NULL, 'TRATAMIENTO', 'Tratamiento', NULL, NULL, NULL, 'FABRICACION DE FLECHA', NULL, NULL, NULL, 'DANIEL ALVARADO', 'SOLICITADA', NULL, NULL, NULL, NULL, '2023-02-15 16:09:39', '2023-02-15 16:09:39');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(10) NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ocompras`
+--
+
+CREATE TABLE `ocompras` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tipo_oc` varchar(255) DEFAULT NULL,
+  `proveedor` varchar(255) DEFAULT NULL,
+  `usuario_alta` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `certificado` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `ocompras`
+--
+
+INSERT INTO `ocompras` (`id`, `tipo_oc`, `proveedor`, `usuario_alta`, `estatus`, `certificado`, `created_at`, `updated_at`) VALUES
+(1, 'hi', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, 'ACEROS LEVINSON', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-10 16:27:17', '2023-02-10 16:27:17'),
+(3, NULL, 'ACEROS LEVINSON', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-10 16:44:46', '2023-02-10 16:44:46'),
+(4, NULL, 'ACEROS LEVINSON', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-10 17:00:43', '2023-02-10 17:00:43'),
+(5, NULL, 'IRSACERO', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-10 17:01:17', '2023-02-10 17:01:17'),
+(6, NULL, 'ACEROS LEVINSON', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-10 17:30:52', '2023-02-10 17:30:52'),
+(7, NULL, 'LA PALOMA', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-10 17:31:00', '2023-02-10 17:31:00'),
+(8, NULL, 'ACEROS LEVINSON', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-10 20:45:17', '2023-02-10 20:45:17'),
+(9, NULL, 'DANIEL ALVARADO', 'ALAIN MASCORRO', 'ASIGNADA', NULL, '2023-02-15 00:57:37', '2023-02-15 00:57:37');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `empresa` varchar(255) DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `usuario` varchar(255) DEFAULT NULL,
+  `oc` varchar(255) DEFAULT NULL,
+  `partida` varchar(255) DEFAULT NULL,
+  `cantidad` varchar(255) DEFAULT NULL,
+  `cant_entregada` varchar(255) DEFAULT '0',
+  `cant_retrabajo` varchar(255) NOT NULL DEFAULT 'N/A',
+  `descripcion` varchar(255) DEFAULT NULL,
+  `moneda` varchar(255) DEFAULT NULL,
+  `monto` varchar(255) DEFAULT NULL,
+  `vendedor` varchar(255) DEFAULT NULL,
+  `tipo_dibujo` varchar(255) DEFAULT NULL,
+  `comentario_diseno` varchar(255) DEFAULT NULL,
+  `salida_produccion` varchar(255) DEFAULT NULL,
+  `salida_cliente` varchar(255) DEFAULT NULL,
+  `prioridad` varchar(255) DEFAULT NULL,
+  `tiempo` varchar(255) DEFAULT NULL,
+  `procesos` varchar(255) DEFAULT NULL,
+  `fecha_cliente` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `progreso` varchar(255) DEFAULT NULL,
+  `tratamiento` varchar(255) DEFAULT 'N/A',
+  `tipo_material` varchar(255) DEFAULT NULL,
+  `tipo_entrega_factura` varchar(255) DEFAULT NULL,
+  `tipo_entrega_remision` varchar(255) DEFAULT NULL,
+  `factura` varchar(255) DEFAULT NULL,
+  `fecha_entregada` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `orders`
+--
+
+INSERT INTO `orders` (`id`, `empresa`, `cliente`, `usuario`, `oc`, `partida`, `cantidad`, `cant_entregada`, `cant_retrabajo`, `descripcion`, `moneda`, `monto`, `vendedor`, `tipo_dibujo`, `comentario_diseno`, `salida_produccion`, `salida_cliente`, `prioridad`, `tiempo`, `procesos`, `fecha_cliente`, `estatus`, `progreso`, `tratamiento`, `tipo_material`, `tipo_entrega_factura`, `tipo_entrega_remision`, `factura`, `fecha_entregada`, `created_at`, `updated_at`) VALUES
+(1, 'JETS', 'METALSA SALTILLO', 'EDGAR HERNANDEZ', '003', '1', '1', '1', '1', 'Ø 3/8 X 38\"', 'MXN', '1', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-03-11', '2023-02-23', 'Normal', NULL, NULL, NULL, 'EN PRODUCCION', '0', 'GALVANIZADO2', 'Cliente', NULL, NULL, NULL, NULL, '2023-02-04 01:16:04', '2023-02-15 16:07:01'),
+(2, 'JETSA', 'ACAT MEXICANA', 'HUMBERTO LOPEZ', '123', '1', '10', '0', 'N/A', 'FABRICACION DE FLECHA', 'MXN', '10', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'EN PRODUCCION', '0', 'PAVONEADO', 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 15:54:11', '2023-02-10 23:01:37'),
+(3, 'JETSA', 'BREMBO', 'EDGAR HERNANDEZ', 'O2321', '1', '20', '0', 'N/A', 'TORNILLOS DE 1/4 X 2 LARGO', 'MXN', '15', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'EN PRODUCCION', '0', 'CROMADO', 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 16:53:19', '2023-02-10 23:02:29'),
+(4, 'JETSA', 'ADVANCED STEEL TECHNOLOGY', 'EVERARDO SALAZAR', '2023102', '1', '50', '0', 'N/A', 'ABRIR DIAMETRO A SPROCKET', 'MXN', '250', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', 'N/A', 'Cliente', NULL, NULL, NULL, NULL, '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
+(5, 'JETS', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'ELSA TREVIÑO', '123354', '1', '10', '0', 'N/A', 'FABRICACION DE FLECHA MOTRIZ', 'MXN', '15', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', 'PAVONEADO', 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
+(6, 'JETS', 'METALSA SALTILLO', 'MARISOL ESQUIVEL', '4565', '1', '10', '0', 'N/A', 'BALEROS CONVEYOR', 'MXN', '25', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', 'PAVONEADO', 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 17:47:08', '2023-02-10 17:47:08'),
+(7, 'JETSA', 'BREMBO', 'EDGAR HERNANDEZ', '1258', '1', '10', '0', 'N/A', 'MODIFICACION DE BASE', 'MXN', '15', 'JOSE LUIS SILVA', 'Cliente', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', NULL, 'Cliente', NULL, NULL, NULL, NULL, '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(8, 'JETSA', 'BREMBO', 'EDGAR HERNANDEZ', '1258', '1', '10', '0', 'N/A', 'MODIFICACION DE BASE', 'MXN', '15', 'JOSE LUIS SILVA', 'Cliente', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', NULL, 'Cliente', NULL, NULL, NULL, NULL, '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(9, 'JETSA', 'ADVANCED STEEL TECHNOLOGY', 'ELSA TREVIÑO', '003', '1', '3', '0', 'N/A', '1/2 X 5 X 22-1/8 ESTIRADO EN FRIO', 'MXN', '1', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-03-03', '2023-03-02', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', 'GALVANIZADO2', 'Cliente', NULL, NULL, NULL, NULL, '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(10, 'JETSA', 'MULTIHERRAMIENTAS Y EQUIPOS', 'ELIAS RODRIGUEZ', '4587', '1', '50', '0', 'N/A', 'TORNILLO INOX', 'MXN', '10', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', NULL, 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 18:08:31', '2023-02-10 18:08:31'),
+(11, 'JETS', 'METALSA SALTILLO', 'MARISOL ESQUIVEL', '123654', '1', '1000', '0', 'N/A', 'CANDADO DE PLASTICO', 'MXN', '1', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', NULL, 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 18:36:20', '2023-02-10 18:36:20'),
+(12, 'JETS', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'ELSA TREVIÑO', 'OOOOO1', '1', '50', '0', 'N/A', 'MOLDE', 'MXN', '10', 'JOSE LUIS SILVA', 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', NULL, 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
+(13, 'JETSA', 'BREMBO', 'EDGAR HERNANDEZ', '22112POOO', '1', '40', '0', 'N/A', 'TORNILLO INOX', NULL, '10', NULL, 'Ingenieria', NULL, '2023-02-10', '2023-02-10', 'Normal', NULL, NULL, NULL, 'Iniciada', '0', NULL, 'Jets', NULL, NULL, NULL, NULL, '2023-02-10 20:39:34', '2023-02-10 20:39:34');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pconformes`
+--
+
+CREATE TABLE `pconformes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `operador` varchar(255) DEFAULT NULL,
+  `num_parte` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `cant` varchar(255) DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `analisis` varchar(255) DEFAULT NULL,
+  `origen` varchar(255) DEFAULT NULL,
+  `disposicion` varchar(255) DEFAULT NULL,
+  `comentarios` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `pconformes`
+--
+
+INSERT INTO `pconformes` (`id`, `ot`, `operador`, `num_parte`, `descripcion`, `cant`, `cliente`, `analisis`, `origen`, `disposicion`, `comentarios`, `created_at`, `updated_at`) VALUES
+(1, '3', 'CESAR', 'NVCNM', 'FALLA EN DIMENSIONES', '20', 'BREMBO', 'BMNVKK', 'NVJH', 'VOLVER A FABRICAR', NULL, '2023-02-15 14:27:52', '2023-02-15 14:27:52'),
+(2, '1', 'CARLOS', 'NASNNSA', 'FALTO UNA ROSCA', NULL, 'METALSA SALTILLO', 'NADNASN', 'ADNFNA', 'SE REGRESA A PRODUCCION', NULL, '2023-02-15 14:36:34', '2023-02-15 14:36:34'),
+(3, '2', 'OPERADOR', 'PARTE', 'DESCRIPCION', NULL, 'ADVANCED STEEL TECHNOLOGY', 'ANALISIS', 'ORIGEN', 'DISPOSICION', NULL, '2023-03-07 22:11:02', '2023-03-07 22:11:02'),
+(4, '2', 'OPERADOR', 'PARTE', 'DESCRIPCION', NULL, 'ADVANCED STEEL TECHNOLOGY', 'ANALISIS', 'ORIGEN', 'DISPOSICION', NULL, '2023-03-07 22:11:22', '2023-03-07 22:11:22');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `processes`
+--
+
+CREATE TABLE `processes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `minutos` varchar(255) DEFAULT NULL,
+  `proceso` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `processes`
+--
+
+INSERT INTO `processes` (`id`, `ot`, `minutos`, `proceso`, `created_at`, `updated_at`) VALUES
+(1, '1', '61', 'TORNEADO', '2023-02-04 01:16:04', '2023-02-04 01:16:04'),
+(2, '2', '100', 'TORNEADO', '2023-02-10 15:54:11', '2023-02-10 15:54:11'),
+(3, '3', '200', 'TORNEADO', '2023-02-10 16:53:19', '2023-02-10 16:53:19'),
+(4, '3', '0', 'TORNEADO', '2023-02-10 16:53:19', '2023-02-10 16:53:19'),
+(5, '4', '750', 'TORNEADO', '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
+(6, '4', '0', 'TORNEADO', '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
+(7, '5', '300', 'TORNEADO', '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
+(8, '5', '150', 'FRESADO', '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
+(9, '6', '150', 'TORNEADO', '2023-02-10 17:47:08', '2023-02-10 17:47:08'),
+(10, '6', '10', 'TORNO CNC', '2023-02-10 17:47:08', '2023-02-10 17:47:08'),
+(11, '7', '150', 'TORNEADO', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(12, '8', '150', 'TORNEADO', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(13, '9', '183', 'TORNEADO', '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(14, '10', '600', 'TORNEADO', '2023-02-10 18:08:31', '2023-02-10 18:08:31'),
+(15, '11', '1000', 'FRESADO', '2023-02-10 18:36:20', '2023-02-10 18:36:20'),
+(16, '12', '600', 'FRESADO', '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
+(17, '12', '1250', 'CNC', '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
+(18, '13', '400', 'TORNEADO', '2023-02-10 20:39:34', '2023-02-10 20:39:34');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productions`
+--
+
+CREATE TABLE `productions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `maquina_asignada` varchar(255) DEFAULT NULL,
+  `persona_asignada` varchar(255) DEFAULT NULL,
+  `fecha_cliente` varchar(255) DEFAULT NULL,
+  `fecha_production` varchar(255) DEFAULT NULL,
+  `tiempo_asignado` varchar(255) DEFAULT NULL,
+  `tiempo_progreso` varchar(255) DEFAULT NULL,
+  `tiempo_asignada` varchar(255) DEFAULT NULL,
+  `tiempo_inicio` varchar(255) DEFAULT NULL,
+  `tiempo_final` varchar(255) DEFAULT NULL,
+  `fecha_recepcion` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `prioridad` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `productions`
+--
+
+INSERT INTO `productions` (`id`, `ot`, `cliente`, `descripcion`, `maquina_asignada`, `persona_asignada`, `fecha_cliente`, `fecha_production`, `tiempo_asignado`, `tiempo_progreso`, `tiempo_asignada`, `tiempo_inicio`, `tiempo_final`, `fecha_recepcion`, `estatus`, `prioridad`, `created_at`, `updated_at`) VALUES
+(1, '1', 'METALSA SALTILLO', 'Ø 3/8 X 38\"', 'T-02', 'ALAIN MASCORRO', '2023-02-23', '2023-03-11', '61', '0', '2023-02-15 08:47:46', '2023-02-15 08:49:10', '2023-02-15 08:49:55', '-', 'L.Produccion', 'Normal', '2023-02-04 01:16:04', '2023-03-07 16:27:08'),
+(2, '2', 'ACAT MEXICANA', 'FABRICACION DE FLECHA', 'T-01', 'ALAIN MASCORRO', '2023-02-10', '2023-02-10', '100', '5846', '2023-02-10 17:01:37', '2023-02-14 18:31:16', '2023-02-14 18:31:43', '-', 'RETRABAJO', 'Normal', '2023-02-10 15:54:11', '2023-03-07 22:11:02'),
+(3, '3', 'BREMBO', 'TORNILLOS DE 1/4 X 2 LARGO', 'T-02', 'ALAIN MASCORRO', '2023-02-10', '2023-02-10', '200', '0', '2023-02-10 17:02:29', '2023-02-14 18:30:25', '2023-02-14 18:31:09', '-', 'E.CALIDAD', 'Normal', '2023-02-10 16:53:19', '2023-03-07 15:31:11'),
+(4, '4', 'ADVANCED STEEL TECHNOLOGY', 'ABRIR DIAMETRO A SPROCKET', '-', '-', '2023-02-10', '2023-02-10', '750', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
+(5, '5', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'FABRICACION DE FLECHA MOTRIZ', '-', '-', '2023-02-10', '2023-02-10', '450', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
+(6, '6', 'METALSA SALTILLO', 'BALEROS CONVEYOR', '-', '-', '2023-02-10', '2023-02-10', '160', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 17:47:08', '2023-02-15 14:50:49'),
+(7, '7', 'BREMBO', 'MODIFICACION DE BASE', '-', '-', '2023-02-10', '2023-02-10', '150', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
+(8, '8', 'BREMBO', 'MODIFICACION DE BASE', '-', '-', '2023-02-10', '2023-02-10', '150', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
+(9, '9', 'ADVANCED STEEL TECHNOLOGY', '1/2 X 5 X 22-1/8 ESTIRADO EN FRIO', '-', '-', '2023-03-02', '2023-03-03', '183', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 18:07:28', '2023-03-07 15:33:23'),
+(10, '10', 'MULTIHERRAMIENTAS Y EQUIPOS', 'TORNILLO INOX', '-', '-', '2023-02-10', '2023-02-10', '600', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 18:08:31', '2023-03-07 16:04:53'),
+(11, '11', 'METALSA SALTILLO', 'CANDADO DE PLASTICO', '-', '-', '2023-02-10', '2023-02-10', '1000', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 18:36:20', '2023-02-10 18:36:20'),
+(12, '12', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'MOLDE', '-', '-', '2023-02-10', '2023-02-10', '1850', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
+(13, '13', 'BREMBO', 'TORNILLO INOX', '-', '-', '2023-02-10', '2023-02-10', '400', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 20:39:34', '2023-03-07 16:06:31');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedors`
+--
+
+CREATE TABLE `proveedors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `proveedors`
+--
+
+INSERT INTO `proveedors` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
+(1, 'ACEROS LEVINSON', '2023-01-24 07:00:05', '2023-01-24 07:00:05'),
+(2, 'DANIEL ALVARADO', '2023-01-25 00:13:25', '2023-01-25 00:13:25'),
+(3, 'IRSACERO', '2023-02-10 16:49:37', '2023-02-10 16:49:37'),
+(4, 'LA PALOMA', '2023-02-10 17:16:47', '2023-02-10 17:16:47');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registros_almacens`
+--
+
+CREATE TABLE `registros_almacens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_material` varchar(255) DEFAULT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `oc` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `factura` varchar(255) DEFAULT NULL,
+  `cantidad` varchar(255) DEFAULT NULL,
+  `tipo_recepcion` varchar(255) DEFAULT NULL,
+  `tipo_entrega` varchar(255) DEFAULT NULL,
+  `personal` varchar(255) DEFAULT NULL,
+  `fecha_recepcion` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `registros_almacens`
+--
+
+INSERT INTO `registros_almacens` (`id`, `id_material`, `ot`, `oc`, `descripcion`, `factura`, `cantidad`, `tipo_recepcion`, `tipo_entrega`, `personal`, `fecha_recepcion`, `created_at`, `updated_at`) VALUES
+(1, '1', '1', NULL, 'DIBUJO DE ESTA OT PRESENTA UN MAL ACOTADO REVISAR EN INGENIERIA CON LA PERSONA PERTINENTE', NULL, NULL, 'STOCK ALMACEN', 'PRODUCCION', NULL, '2023-02-03 19:17:08', '2023-02-04 01:17:08', '2023-02-04 01:17:08'),
+(2, '2', '2', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, '10', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 10:23:31', '2023-02-10 16:23:31', '2023-02-10 16:23:31'),
+(3, '2', '2', '3', 'ACERO 1045 DIAMETRO DE 1 1/2\"', 'F123', '10', 'FINAL', 'PRODUCCION', NULL, '2023-02-10 10:47:07', '2023-02-10 16:47:07', '2023-02-10 16:47:07'),
+(4, '3', '3', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, '20', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 10:59:03', '2023-02-10 16:59:03', '2023-02-10 16:59:03'),
+(5, '4', '3', NULL, 'ACERO 4140 DIAMETRO DE 2\"', NULL, '1', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 10:59:13', '2023-02-10 16:59:13', '2023-02-10 16:59:13'),
+(6, '3', '3', '4', 'ACERO 1045 DIAMETRO DE 1 1/2\"', 'MTY123', '20', 'FINAL', 'PRODUCCION', NULL, '2023-02-10 11:03:37', '2023-02-10 17:03:37', '2023-02-10 17:03:37'),
+(7, '4', '3', '5', 'ACERO 4140 DIAMETRO DE 2\"', 'IRSA 123', '2', 'FINAL', 'PRODUCCION', NULL, '2023-02-10 11:04:26', '2023-02-10 17:04:26', '2023-02-10 17:04:26'),
+(8, '5', '5', NULL, 'ACERO 1045 DIAMETRO DE 1/2\"', NULL, '100', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 11:29:19', '2023-02-10 17:29:19', '2023-02-10 17:29:19'),
+(9, '6', '5', NULL, 'ACETAL BLANCO ESPESOR DE 3/4\" X ANCHO DE 3\"', NULL, '25', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 11:29:40', '2023-02-10 17:29:40', '2023-02-10 17:29:40'),
+(10, '7', '5', NULL, 'ACERO 1018 DIAMETRO DE 1/2\"', NULL, '50', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 11:29:48', '2023-02-10 17:29:48', '2023-02-10 17:29:48'),
+(11, '5', '5', '6', 'ACERO 1045 DIAMETRO DE 1/2\"', 'MTY1456', '100', 'FINAL', '-', NULL, '2023-02-10 11:38:19', '2023-02-10 17:38:19', '2023-02-10 17:38:19'),
+(12, '6', '5', '7', 'ACETAL BLANCO ESPESOR DE 3/4\" X ANCHO DE 3\"', 'NDYUTO', '25', 'FINAL', '-', NULL, '2023-02-10 11:38:48', '2023-02-10 17:38:48', '2023-02-10 17:38:48'),
+(13, '7', '5', '6', 'ACERO 1018 DIAMETRO DE 1/2\"', 'DT152', '50', 'FINAL', '-', NULL, '2023-02-10 11:39:16', '2023-02-10 17:39:16', '2023-02-10 17:39:16'),
+(14, '8', '2', NULL, 'DIBUJO DE ESTA OT PRESENTA UN MAL ACOTADO REVISAR EN INGENIERIA CON LA PERSONA PERTINENTE', NULL, NULL, 'STOCK ALMACEN', '-', NULL, '2023-02-10 11:45:32', '2023-02-10 17:45:32', '2023-02-10 17:45:32'),
+(15, '8', '2', NULL, 'DIBUJO DE ESTA OT PRESENTA UN MAL ACOTADO REVISAR EN INGENIERIA CON LA PERSONA PERTINENTE', NULL, NULL, 'STOCK ALMACEN', '-', NULL, '2023-02-10 11:49:08', '2023-02-10 17:49:08', '2023-02-10 17:49:08'),
+(16, '9', '6', NULL, 'ACERO 1045 DIAMETRO DE 1 3/8\"', NULL, NULL, 'STOCK ALMACEN', 'ALMACEN', NULL, '2023-02-10 11:50:35', '2023-02-10 17:50:35', '2023-02-10 17:50:35'),
+(17, '10', '6', NULL, 'ACERO 1045 DIAMETRO DE 3 1/2\"', NULL, NULL, 'STOCK ALMACEN', 'ALMACEN', NULL, '2023-02-10 11:50:46', '2023-02-10 17:50:46', '2023-02-10 17:50:46'),
+(18, '2', '2', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, NULL, 'STOCK ALMACEN', '-', NULL, '2023-02-10 11:54:17', '2023-02-10 17:54:17', '2023-02-10 17:54:17'),
+(19, '11', '10', NULL, 'ACERO INOX 304 DIAMETRO DE 5/16\"', NULL, NULL, 'STOCK ALMACEN', 'PRODUCCION', NULL, '2023-02-10 12:12:55', '2023-02-10 18:12:55', '2023-02-10 18:12:55'),
+(20, '2', '2', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, '10', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 12:27:57', '2023-02-10 18:27:57', '2023-02-10 18:27:57'),
+(21, '12', '11', NULL, 'ACETAL BLANCO REDONDO DE 3/4\"', NULL, NULL, 'STOCK ALMACEN', 'ALMACEN', NULL, '2023-02-10 12:38:32', '2023-02-10 18:38:32', '2023-02-10 18:38:32'),
+(22, '13', '12', NULL, 'ACERO 4140 RECOCIDO ESPESOR DE 1 3/4\" X ANCHO DE 3\"', NULL, '50', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 12:43:56', '2023-02-10 18:43:56', '2023-02-10 18:43:56'),
+(23, '3', '3', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, NULL, 'STOCK ALMACEN', 'ALMACEN', NULL, '2023-02-10 12:59:19', '2023-02-10 18:59:19', '2023-02-10 18:59:19'),
+(24, '2', '2', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, NULL, 'STOCK ALMACEN', 'ALMACEN', NULL, '2023-02-10 13:00:27', '2023-02-10 19:00:27', '2023-02-10 19:00:27'),
+(25, '2', '2', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, NULL, 'STOCK ALMACEN', 'ALMACEN', NULL, '2023-02-10 13:01:38', '2023-02-10 19:01:38', '2023-02-10 19:01:38'),
+(26, '2', '2', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, '10', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 13:26:49', '2023-02-10 19:26:49', '2023-02-10 19:26:49'),
+(27, '2', '2', NULL, 'ACERO 1045 DIAMETRO DE 1 1/2\"', NULL, '10', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 13:35:23', '2023-02-10 19:35:23', '2023-02-10 19:35:23'),
+(28, '14', '13', NULL, 'ACERO INOX 304 DIAMETRO DE 3/16\"', NULL, '20', 'STOCK ALMACEN', NULL, NULL, '2023-02-10 14:41:57', '2023-02-10 20:41:57', '2023-02-10 20:41:57'),
+(29, '14', '13', '8', 'ACERO INOX 304 DIAMETRO DE 3/16\"', 'MTY AS', '10', 'PARCIAL', 'PRODUCCION', NULL, '2023-02-10 14:46:20', '2023-02-10 20:46:20', '2023-02-10 20:46:20'),
+(30, '14', '13', '8', 'ACERO INOX 304 DIAMETRO DE 3/16\"', 'MTY 123', '10', 'PARCIAL', 'PRODUCCION', NULL, '2023-02-10 14:47:21', '2023-02-10 20:47:21', '2023-02-10 20:47:21'),
+(31, '14', '13', '8', 'ACERO INOX 304 DIAMETRO DE 3/16\"', 'MTY 456', '10', 'PARCIAL', 'PRODUCCION', NULL, '2023-02-10 14:49:37', '2023-02-10 20:49:37', '2023-02-10 20:49:37'),
+(32, '2', '2', '8', 'ACERO 1045 DIAMETRO DE 1 1/2\"', 'MTY 123', '10', 'FINAL', 'PRODUCCION', NULL, '2023-02-10 17:09:54', '2023-02-10 23:09:54', '2023-02-10 23:09:54'),
+(33, '9', '6', NULL, 'ACERO 1045 DIAMETRO DE 1 3/8\"', 'MTY 123', '20', 'FINAL', 'PRODUCCION', NULL, '2023-02-10 17:10:57', '2023-02-10 23:10:57', '2023-02-10 23:10:57'),
+(34, '14', '13', '8', 'ACERO INOX 304 DIAMETRO DE 3/16\"', 'TY', '10', 'FINAL', 'PRODUCCION', NULL, '2023-02-10 17:11:15', '2023-02-10 23:11:15', '2023-02-10 23:11:15');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registros_compras`
+--
+
+CREATE TABLE `registros_compras` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registros_maquinas`
+--
+
+CREATE TABLE `registros_maquinas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `maquina` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `hora` varchar(255) DEFAULT NULL,
+  `responsable` varchar(255) DEFAULT NULL,
+  `fecha_asignada` varchar(255) DEFAULT NULL,
+  `fecha_finalizada` varchar(255) DEFAULT NULL,
+  `c_acabado` varchar(255) DEFAULT NULL,
+  `c_rebabeo` varchar(255) DEFAULT NULL,
+  `c_machueleado` varchar(255) DEFAULT NULL,
+  `c_limpieza` varchar(255) DEFAULT NULL,
+  `c_chaflanes` varchar(255) DEFAULT NULL,
+  `c_roscas` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `registros_maquinas`
+--
+
+INSERT INTO `registros_maquinas` (`id`, `maquina`, `tipo`, `ot`, `hora`, `responsable`, `fecha_asignada`, `fecha_finalizada`, `c_acabado`, `c_rebabeo`, `c_machueleado`, `c_limpieza`, `c_chaflanes`, `c_roscas`, `created_at`, `updated_at`) VALUES
+(1, 'T-03', NULL, '1', NULL, 'Miriam Dominguez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-04 01:17:52', '2023-02-04 01:17:52'),
+(2, 'T-03', 'INICIO', '1', '2023-02-03 19:18:07', 'Miriam Dominguez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-04 01:18:07', '2023-02-04 01:18:07'),
+(3, 'T-03', 'PAUSADA', '1', '2023-02-03 19:18:12', 'Miriam Dominguez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-04 01:18:12', '2023-02-04 01:18:12'),
+(4, 'T-03', 'INICIO', '1', '2023-02-03 19:40:53', 'Miriam Dominguez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-04 01:40:53', '2023-02-04 01:40:53'),
+(5, 'T-01', NULL, '2', NULL, 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 23:01:37', '2023-02-10 23:01:37'),
+(6, 'T-01', 'INICIO', '2', '2023-02-10 17:01:52', 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 23:01:52', '2023-02-10 23:01:52'),
+(7, 'T-02', NULL, '3', NULL, 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 23:02:29', '2023-02-10 23:02:29'),
+(8, 'T-01', 'PAUSADA', '2', '2023-02-14 18:27:56', 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-15 00:27:56', '2023-02-15 00:27:56'),
+(9, 'T-02', 'INICIO', '3', '2023-02-14 18:30:25', 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-15 00:30:25', '2023-02-15 00:30:25'),
+(10, 'T-02', 'FINALIZADA', '3', '2023-02-14 18:31:09', 'ALAIN MASCORRO', NULL, NULL, 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', '2023-02-15 00:31:09', '2023-02-15 00:31:09'),
+(11, 'T-01', 'INICIO', '2', '2023-02-14 18:31:16', 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-15 00:31:16', '2023-02-15 00:31:16'),
+(12, 'T-01', 'FINALIZADA', '2', '2023-02-14 18:31:43', 'ALAIN MASCORRO', NULL, NULL, 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', '2023-02-15 00:31:43', '2023-02-15 00:31:43'),
+(13, 'T-02', NULL, '1', NULL, 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-15 14:47:46', '2023-02-15 14:47:46'),
+(14, 'T-02', 'INICIO', '1', '2023-02-15 08:49:10', 'ALAIN MASCORRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-15 14:49:10', '2023-02-15 14:49:10'),
+(15, 'T-02', 'FINALIZADA', '1', '2023-02-15 08:49:55', 'ALAIN MASCORRO', NULL, NULL, 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', 'CONFORME', '2023-02-15 14:49:55', '2023-02-15 14:49:55');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `salidas_embarques`
+--
+
+CREATE TABLE `salidas_embarques` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `tipo_salida` varchar(255) DEFAULT NULL,
+  `tipo_tratamiento` varchar(255) DEFAULT NULL,
+  `fecha_retorno` varchar(255) DEFAULT NULL,
+  `proveedor` varchar(255) DEFAULT NULL,
+  `cantidad` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `salidas_embarques`
+--
+
+INSERT INTO `salidas_embarques` (`id`, `ot`, `tipo_salida`, `tipo_tratamiento`, `fecha_retorno`, `proveedor`, `cantidad`, `estatus`, `created_at`, `updated_at`) VALUES
+(1, '2', 'Tratamiento', 'PAVONEADO', '2023-02-14', 'DANIEL ALVARADO', '8', 'Regreso de tratamiento', '2023-02-15 00:56:26', '2023-02-15 15:01:28'),
+(2, '1', 'Tratamiento', 'GALVANIADO', '2023-02-15', 'DANIEL ALVARADO', '1', 'Regreso de tratamiento', '2023-02-15 15:01:14', '2023-02-15 15:02:02'),
+(3, '1', 'Factura', '-', NULL, '-', '1', 'Enviada por facturación', '2023-02-15 16:07:01', '2023-02-15 16:07:01'),
+(4, '2', 'Tratamiento', 'PAVONEADO', '2023-02-15', 'DANIEL ALVARADO', '10', 'Enviada a tratamiento', '2023-02-15 16:09:39', '2023-02-15 16:09:39');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `salidas_produccions`
+--
+
+CREATE TABLE `salidas_produccions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ot` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `cantidad` varchar(255) DEFAULT NULL,
+  `tipo_salida` varchar(255) DEFAULT NULL,
+  `estatus` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `salidas_produccions`
+--
+
+INSERT INTO `salidas_produccions` (`id`, `ot`, `descripcion`, `cliente`, `cantidad`, `tipo_salida`, `estatus`, `created_at`, `updated_at`) VALUES
+(1, '3', NULL, 'BREMBO', NULL, 'SALIDA PARCIAL', 'P/CALIDAD', '2023-03-07 15:31:11', '2023-03-07 15:31:11'),
+(2, '9', NULL, 'ADVANCED STEEL TECHNOLOGY', '10', 'SALIDA FINAL', 'P/CALIDAD', '2023-03-07 15:33:23', '2023-03-07 15:33:23'),
+(3, '10', NULL, 'MULTIHERRAMIENTAS Y EQUIPOS', '10', 'SALIDA PARCIAL', 'P/CALIDAD', '2023-03-07 16:04:53', '2023-03-07 16:04:53'),
+(4, '13', 'TORNILLO INOX', 'BREMBO', '2', 'SALIDA PARCIAL', 'P/CALIDAD', '2023-03-07 16:06:31', '2023-03-07 16:06:31');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `salidas_tratamientos`
+--
+
+CREATE TABLE `salidas_tratamientos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT '-',
+  `turno` varchar(255) DEFAULT NULL,
+  `maquina` varchar(255) DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `role`, `turno`, `maquina`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'JULIO SILVA', 'faciljets@gmail.com', 'Supervisor producción', NULL, NULL, NULL, '$2y$10$BUGEQ6nvuKkDcrF2whbr/O.2I59r8T7U/HTBtLGcAWK4aVpR.tQjG', NULL, '2023-01-24 06:28:40', '2023-01-24 06:28:40'),
+(2, 'ALAIN MASCORRO', 'Jetsadmon@gmail.com', 'Administrador', NULL, NULL, NULL, '$2y$10$k9sa3sUEPPq3KAd3cUHxPel89H6wRp6ZCiWlXV.D0xFlViyJyX1Lu', NULL, '2023-01-24 06:29:02', '2023-01-24 06:29:02'),
+(3, 'JOSE LUIS SILVA', 'maquinadosjets@gmail.com', 'Vendedor', NULL, NULL, NULL, '$2y$10$Cg5cO.8KnBE0mb9iXDWS4e3bQd5ZuLdrKw0XwB3arcn3Z.Kallb1m', NULL, '2023-01-24 06:29:21', '2023-01-24 06:29:21'),
+(4, 'Miriam Dominguez', 'mdominguez@serviciosjets.com', 'Administrador', NULL, NULL, NULL, '$2y$10$RvcT05h3ulHrGXQaYyApJugI7VWnihuYOWrDPGfVdBMbFiD2K5tNS', NULL, '2023-01-24 20:57:49', '2023-01-24 20:57:49'),
+(5, 'William Salazar', 'AlmacenJets@gmail.com', 'Almacenista', NULL, NULL, NULL, '$2y$10$V9IPwLGCHBsDlO2aTS/YEuQHgO6mUveLjpoAkHUlMUDiZUi/v1puK', NULL, '2023-01-24 22:21:41', '2023-01-24 22:21:41'),
+(6, 'ADAN MEDINA SANCHEZ', 'calidadjets@gmail.com', 'Inspector', NULL, NULL, NULL, '$2y$10$VJ3FDBB9Wc7bwWYj81981OL8vfqYVRouLw7XjIl5KC7RDjxDnLgWO', NULL, '2023-01-24 17:18:18', '2023-01-24 17:18:18'),
+(7, 'ISMAEL CARREON', 'PROGJETS01@GMAIL.COM', 'Dibujante', NULL, NULL, NULL, '$2y$10$SZTldojTifJLJ9ZQQ9nAPeYEtLF2LNqMyQ0LRQaEMaOTH9S8X1meG', NULL, '2023-01-24 22:56:58', '2023-01-24 22:56:58');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
+  `nombre` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `created_at`, `updated_at`, `cliente`, `nombre`) VALUES
+(1, '2023-01-24 06:34:54', '2023-01-24 06:34:54', 'METALSA SALTILLO', 'MARISOL ESQUIVEL'),
+(2, '2023-01-24 22:19:40', '2023-01-24 22:19:40', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'ELSA TREVIÑO'),
+(3, '2023-01-24 22:20:07', '2023-01-24 22:20:07', 'BREMBO', 'EDGAR HERNANDEZ'),
+(4, '2023-02-10 15:23:42', '2023-02-10 15:23:42', 'ACAT MEXICANA', 'HUMBERTO LOPEZ'),
+(5, '2023-02-10 17:06:01', '2023-02-10 17:06:01', 'ADVANCED STEEL TECHNOLOGY', 'EVERARDO SALAZAR'),
+(6, '2023-02-10 18:04:24', '2023-02-10 18:04:24', 'MULTIHERRAMIENTAS Y EQUIPOS', 'ELIAS RODRIGUEZ');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `dibujos`
+--
+ALTER TABLE `dibujos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indices de la tabla `inspections`
+--
+ALTER TABLE `inspections`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `jets_registros`
+--
+ALTER TABLE `jets_registros`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `jets_rutas`
+--
+ALTER TABLE `jets_rutas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `maquinas`
+--
+ALTER TABLE `maquinas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `materiales`
+--
+ALTER TABLE `materiales`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ocompras`
+--
+ALTER TABLE `ocompras`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indices de la tabla `pconformes`
+--
+ALTER TABLE `pconformes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indices de la tabla `processes`
+--
+ALTER TABLE `processes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `productions`
+--
+ALTER TABLE `productions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `proveedors`
+--
+ALTER TABLE `proveedors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `registros_almacens`
+--
+ALTER TABLE `registros_almacens`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `registros_compras`
+--
+ALTER TABLE `registros_compras`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `registros_maquinas`
+--
+ALTER TABLE `registros_maquinas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `salidas_embarques`
+--
+ALTER TABLE `salidas_embarques`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `salidas_produccions`
+--
+ALTER TABLE `salidas_produccions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `salidas_tratamientos`
+--
+ALTER TABLE `salidas_tratamientos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `dibujos`
+--
+ALTER TABLE `dibujos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de la tabla `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `inspections`
+--
+ALTER TABLE `inspections`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `jets_registros`
+--
+ALTER TABLE `jets_registros`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+
+--
+-- AUTO_INCREMENT de la tabla `jets_rutas`
+--
+ALTER TABLE `jets_rutas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `maquinas`
+--
+ALTER TABLE `maquinas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `materiales`
+--
+ALTER TABLE `materiales`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ocompras`
+--
+ALTER TABLE `ocompras`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `pconformes`
+--
+ALTER TABLE `pconformes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `processes`
+--
+ALTER TABLE `processes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de la tabla `productions`
+--
+ALTER TABLE `productions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedors`
+--
+ALTER TABLE `proveedors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `registros_almacens`
+--
+ALTER TABLE `registros_almacens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT de la tabla `registros_compras`
+--
+ALTER TABLE `registros_compras`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `registros_maquinas`
+--
+ALTER TABLE `registros_maquinas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `salidas_embarques`
+--
+ALTER TABLE `salidas_embarques`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `salidas_produccions`
+--
+ALTER TABLE `salidas_produccions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `salidas_tratamientos`
+--
+ALTER TABLE `salidas_tratamientos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

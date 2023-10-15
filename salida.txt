@@ -1,0 +1,2 @@
+                                                        <a href="{{route('salida_produccion', $orden->id)}}" class="btn btn-success btn-sm"><i class="icon-check"></i></a>
+                                                        <a href="{{route('salida_produccion', $orden->id)}}" class="btn btn-success btn-sm"><i class="icon-check"></i></a>
