@@ -22,9 +22,13 @@ class programador_middleware
         if (!Auth::check()) {
             return redirect()->route('login');
         }
+        
+        if (Auth::user()->role == 'Developer') {
+            return $next($request);
+        }
 
         $user = Auth::user();
-        $allowedRoles = ['Administrador', 'Supervisor producci¨®n', 'Programador'];
+        $allowedRoles = ['Administrador', 'Supervisor producciï¿½ï¿½n', 'Programador'];
 
         if (in_array($user->role, $allowedRoles)) {
             return $next($request);

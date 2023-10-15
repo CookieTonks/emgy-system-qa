@@ -26,6 +26,10 @@ class ordenes_middleware
             return $next($request);
         }
 
+        if (Auth::user()->role == 'Developer') {
+            return $next($request);
+        }
+
         if (Auth::user()->role == 'Vendedor') {
             return $next($request);
         } 

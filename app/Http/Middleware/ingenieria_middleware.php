@@ -21,6 +21,9 @@ class ingenieria_middleware
         if (!Auth::check()) {
             return redirect()->route('login');
         }
+        if (Auth::user()->role == 'Developer') {
+            return $next($request);
+        }
 
         if (Auth::user()->role == 'Administrador') {
             return $next($request);
