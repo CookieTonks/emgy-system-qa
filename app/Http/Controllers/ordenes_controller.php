@@ -283,6 +283,8 @@ class ordenes_controller extends Controller
     public function edicion_order(Request $request, $id)
     {
 
+
+
         $order = models\orders::where('id', '=', $id)->first();
         $order->cliente = $request->cliente;
         $order->usuario = $request->usuario;
@@ -295,17 +297,25 @@ class ordenes_controller extends Controller
         $order->moneda = $request->modeda;
         $order->vendedor = $request->vendedor;
         $order->tipo_dibujo = $request->tipo_dibujo;
-        if ($order->tipo_dibujo  == 'Ingenieria') {
-            $dibujo = models\dibujos::where('ot', '=', $id)->exists();
-            if ($dibujo === 'false') {
+        if ($order->tipo_dibujo == 'Ingenieria') {
+            $dibujoExists = models\dibujos::where('ot', '=', $id)->exists();
+            if ($dibujoExists === false) {
+                // Create a new record
                 $alta_dibujo = new Models\dibujos;
                 $alta_dibujo->ot = $id;
                 $alta_dibujo->descripcion = $request->descripcion;
                 $alta_dibujo->cliente = $request->cliente;
                 $alta_dibujo->estatus = 'Pendiente';
                 $alta_dibujo->save();
+            } else {
+                // Update existing record
+                $dibujo_ingenieria = models\dibujos::where('ot', '=', $id)->first();
+                $dibujo_ingenieria->cliente = $request->cliente;
+                $dibujo_ingenieria->descripcion = $request->descripcion;
+                $dibujo_ingenieria->save();
             }
         }
+        
         $order->comentario_diseno = $request->comentario_diseno;
         $order->salida_produccion = $request->salida_produccion;
         $order->salida_cliente = $request->salida_cliente;
@@ -313,10 +323,10 @@ class ordenes_controller extends Controller
         $order->tipo_material = $request->tipo_material;
         $order->save();
 
-        $dibujo_ingenieria = models\dibujos::where('ot', '=', $id)->first();
-        $dibujo_ingenieria->cliente = $request->cliente;
-        $dibujo_ingenieria->descripcion = $request->descripcion;
-        $dibujo_ingenieria->save();
+// Find a record in the 'dibujos' table where 'ot' is equal to $id
+
+
+
 
         $production = models\production::where('ot', '=', $id)->first();
         $production->cliente = $request->cliente;

@@ -292,26 +292,8 @@
                             <div class="card-body">
                                 <form action="{{route('edicion_order', $order)}}" method="post">
                                     @csrf
-                                    <div class="row">
-                                        <div class="col-md-6 form-group">
-                                            <label for="cliente">Cliente</label>
-                                            <select name="cliente" class="form-control custom-select d-block w-100" id="cliente">
-                                                <option value="{{$order->cliente}}">{{$order->cliente}}</option>
-                                                @foreach ($clientes as $cliente)
-                                                <option value="{{$cliente->cliente}}">{{$cliente->cliente}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="usuario">Usuario</label>
-                                            <select name="usuario" class="form-control custom-select d-block w-100" id="usuario">
-                                                <option value="{{$order->usuario}}">{{$order->usuario}}</option>
-                                                @foreach ($usuarios as $usuario)
-                                                <option value="{{$usuario->nombre}}">{{$usuario->nombre}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <livewire:country-dropdown>
+
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="oc">OC</label>
