@@ -66,6 +66,8 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\cliente' => $baseDir . '/app/Models/cliente.php',
     'App\\Models\\dibujos' => $baseDir . '/app/Models/dibujos.php',
+    'App\\Models\\emgy_registros' => $baseDir . '/app/Models/emgy_registros.php',
+    'App\\Models\\emgy_rutas' => $baseDir . '/app/Models/emgy_rutas.php',
     'App\\Models\\inspections' => $baseDir . '/app/Models/inspections.php',
     'App\\Models\\jets_registros' => $baseDir . '/app/Models/jets_registros.php',
     'App\\Models\\jets_rutas' => $baseDir . '/app/Models/jets_rutas.php',

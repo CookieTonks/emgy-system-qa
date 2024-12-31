@@ -696,6 +696,8 @@ class ComposerStaticInitffc97fa486130f2ab90a7cba57a4635f
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\cliente' => __DIR__ . '/../..' . '/app/Models/cliente.php',
         'App\\Models\\dibujos' => __DIR__ . '/../..' . '/app/Models/dibujos.php',
+        'App\\Models\\emgy_registros' => __DIR__ . '/../..' . '/app/Models/emgy_registros.php',
+        'App\\Models\\emgy_rutas' => __DIR__ . '/../..' . '/app/Models/emgy_rutas.php',
         'App\\Models\\inspections' => __DIR__ . '/../..' . '/app/Models/inspections.php',
         'App\\Models\\jets_registros' => __DIR__ . '/../..' . '/app/Models/jets_registros.php',
         'App\\Models\\jets_rutas' => __DIR__ . '/../..' . '/app/Models/jets_rutas.php',
