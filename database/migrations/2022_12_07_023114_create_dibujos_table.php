@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('ot')->nullable();
             $table->string('cliente')->nullable();
+            $table->string('descripcion')->nullable();
             $table->string('estatus')->nullable();
             $table->string('dibujo_persona')->nullable();
             $table->timestamps();

@@ -14,13 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->id(); // ID principal
+            $table->string('email')->unique(); // Email único
+            $table->string('name'); // Nombre del usuario
+            $table->string('role')->nullable(); // Rol del usuario (nullable si no es obligatorio)
+            $table->string('turno')->nullable(); // Turno (nullable)
+            $table->string('maquina')->nullable(); // Máquina asignada (nullable)
+            $table->timestamp('email_verified_at')->nullable(); // Verificación de email
+            $table->string('password'); // Contraseña
+            $table->rememberToken(); // Token para "remember me"
+            $table->timestamps(); // created_at y updated_at
         });
     }
 
