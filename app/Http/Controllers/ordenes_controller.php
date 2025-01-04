@@ -37,9 +37,9 @@ class ordenes_controller extends Controller
         $orders = Models\orders::all();
         $clientes = models\cliente::orderBy('cliente', 'ASC')->get();
         $usuarios =  models\usuarios::orderBy('cliente', 'ASC')->get();
-     $vendedores = models\user::where('role', '=', 'Dibujante')
-    ->orWhere('role', '=', 'Administrador')
-    ->get();
+        $vendedores = models\user::where('role', '=', 'Dibujante')
+            ->orWhere('role', '=', 'Administrador')
+            ->get();
 
 
         return view('modulos.ordenes_trabajo.dashboard', compact('notifications', 'vendedores', 'usuarios', 'orders', 'clientes'));
@@ -47,8 +47,8 @@ class ordenes_controller extends Controller
 
     public function buscador_ordenes()
     {
-       // $orders = Models\orders::all();
-       $notifications =  Models\notifications::where('user_id', '=', Auth::id())->get();
+        // $orders = Models\orders::all();
+        $notifications =  Models\notifications::where('user_id', '=', Auth::id())->get();
 
         $orders = Models\orders::join('productions', 'productions.ot', '=', 'orders.id')
             ->select('orders.*', 'productions.tiempo_asignado', 'productions.tiempo_progreso')
@@ -315,7 +315,7 @@ class ordenes_controller extends Controller
                 $dibujo_ingenieria->save();
             }
         }
-        
+
         $order->comentario_diseno = $request->comentario_diseno;
         $order->salida_produccion = $request->salida_produccion;
         $order->salida_cliente = $request->salida_cliente;
@@ -323,7 +323,7 @@ class ordenes_controller extends Controller
         $order->tipo_material = $request->tipo_material;
         $order->save();
 
-// Find a record in the 'dibujos' table where 'ot' is equal to $id
+        // Find a record in the 'dibujos' table where 'ot' is equal to $id
 
 
 

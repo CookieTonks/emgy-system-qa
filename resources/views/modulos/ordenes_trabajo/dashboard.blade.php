@@ -93,7 +93,7 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                                Dashboard: Ordenes de trabajo : EMGY
+                                Dashboard: Ordenes de trabajo
                             </div>
                         </div>
 
