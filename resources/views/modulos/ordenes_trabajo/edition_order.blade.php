@@ -292,6 +292,7 @@
                             <div class="card-body">
                                 <form action="{{route('edicion_order', $order)}}" method="post">
                                     @csrf
+                                    
                                     <livewire:country-dropdown>
 
                                     <div class="row">

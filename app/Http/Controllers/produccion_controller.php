@@ -34,7 +34,7 @@ class produccion_controller extends Controller
 
 
 
-        $usuarios = models\user::where('role', '=', 'Programador')->get();
+        $usuarios = models\user::where('role', '=', 'Programador')->orderby('name', 'asc')->get();
 
         $maquinas = models\maquinas::all();
 

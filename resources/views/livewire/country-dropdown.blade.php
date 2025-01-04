@@ -23,7 +23,7 @@
     @if(count($users) > 0)
         <div class="mb-8">
             <label class="inline-block w-32 font-bold">Usuario:</label>
-            <select wire:model="user" required 
+            <select name="usuario" wire:model="user" required 
                 class="form-control custom-select d-block w-100">
                 <option value=''>Seleccione un usuario</option>
                 @foreach($users as $user)
