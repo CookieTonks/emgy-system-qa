@@ -36,7 +36,7 @@ class produccion_controller extends Controller
 
         $usuarios = models\user::where('role', '=', 'Programador')->orderby('name', 'asc')->get();
 
-        $maquinas = models\maquinas::all();
+        $maquinas = Models\Maquinas::orderBy('name', 'ASC')->get();
 
         return view('modulos.produccion.dashboard_produccion', compact('usuarios', 'maquinas', 'ordenes', 'notificaciones'));
     }
