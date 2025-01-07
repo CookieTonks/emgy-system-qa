@@ -39,6 +39,7 @@ class ordenes_controller extends Controller
         $usuarios =  models\usuarios::orderBy('cliente', 'ASC')->get();
         $vendedores = models\user::where('role', '=', 'Dibujante')
             ->orWhere('role', '=', 'Administrador')
+            ->orWhere('role', '=', 'Vendedor')
             ->orderBy('name', 'ASC')
             ->get();
 
@@ -283,6 +284,7 @@ class ordenes_controller extends Controller
 
     public function edicion_order(Request $request, $id)
     {
+
 
         $cliente = models\cliente::where('id', '=', $request->cliente)->first();
 
