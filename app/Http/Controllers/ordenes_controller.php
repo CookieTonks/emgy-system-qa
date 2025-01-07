@@ -273,7 +273,11 @@ class ordenes_controller extends Controller
 
         $clientes = models\cliente::all();
         $usuarios =  models\usuarios::all();
-        $vendedores =  models\user::where('role', '=', 'Vendedor')->get();
+        $vendedores = models\user::where('role', '=', 'Dibujante')
+        ->orWhere('role', '=', 'Administrador')
+        ->orWhere('role', '=', 'Vendedor')
+        ->orderBy('name', 'ASC')
+        ->get();
 
 
         $order = Models\orders::findOrFail($id);
