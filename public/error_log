@@ -7,3 +7,159 @@
 [24-Jan-2023 18:34:54 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.2.34. in /home/servic34/sistema.serviciojets.com/vendor/composer/platform_check.php on line 24
 [24-Jan-2023 18:34:59 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.2.34. in /home/servic34/sistema.serviciojets.com/vendor/composer/platform_check.php on line 24
 [24-Jan-2023 18:35:41 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.2.34. in /home/servic34/sistema.serviciojets.com/vendor/composer/platform_check.php on line 24
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:06:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:42 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:42 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:42 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:45 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:45 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:45 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:49 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:49 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:07:49 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:11:08 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:11:08 America/Mexico_City] PHP Warning:  require(/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
+[03-Jan-2025 21:11:08 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/emgymxco/public_html/sistema.emgymx.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home3/emgymxco/public_html/sistema.emgymx.com/public/index.php on line 34
