@@ -807,7 +807,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js" integrity="sha512-tBzZQxySO5q5lqwLWfu8Q+o4VkTcRGOeQGVQ0ueJga4A1RKuzmAu5HXDOXLEjpbKyV7ow9ympVoa6wZLEzRzDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../../Plantilla/flowchart/release/flowchart.js"></script>
+    <script src="../../plantilla/flowchart/release/flowchart.js"></script>
     <script src="http://flowchart.js.org/flowchart-latest.js"></script>
 
     <!-- Final de librerias -->
