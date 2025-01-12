@@ -263,7 +263,7 @@
                 <div class="page-titles">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Edicion</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Orden de trabajo</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Orden de tttrabajo</a></li>
                     </ol>
                 </div>
 
