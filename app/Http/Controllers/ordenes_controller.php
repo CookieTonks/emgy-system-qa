@@ -343,31 +343,22 @@ class ordenes_controller extends Controller
         $production->prioridad = $request->prioridad;
         $production->save();
 
-        // Verificar si el evento 'EC' existe antes de eliminarlo y eliminarlo si es necesario
-        $evento_cliente = models\events::where('title', '=', 'EC: ' . $id);
-        if ($evento_cliente->exists()) {
-            $evento_cliente->delete();
-        }
+        $evento_cliente = models\Events::where('title', '=', 'EC: ' . $id)->delete();
+        $evento_produccion = models\Events::where('title', '=', 'SP: ' . $id)->delete();
 
-        // Verificar si el evento 'SP' existe antes de eliminarlo y eliminarlo si es necesario
-        $evento_produccion = models\events::where('title', '=', 'SP: ' . $id);
-        if ($evento_produccion->exists()) {
-            $evento_produccion->delete();
-        }
 
-        // Crear un nuevo evento para 'EC'
-        $alta_evento_cliente = new models\Events();
-        $alta_evento_cliente->title = "EC: " . $id;
-        $alta_evento_cliente->start = $request->salida_cliente;
-        $alta_evento_cliente->end = $request->salida_cliente;
-        $alta_evento_cliente->save();
+        $alta_evento = new models\Events();
+        $alta_evento->title = "EC: " . $id;
+        $alta_evento->start = $request->salida_cliente;
+        $alta_evento->end = $request->salida_cliente;
+        $alta_evento->save();
 
-        // Crear un nuevo evento para 'SP'
-        $alta_evento_produccion = new models\Events();
-        $alta_evento_produccion->title = "SP: " . $id;
-        $alta_evento_produccion->start = $request->salida_produccion;
-        $alta_evento_produccion->end = $request->salida_produccion;
-        $alta_evento_produccion->save();
+        $alta_evento = new models\Events();
+        $alta_evento->title = "SP: " . $id;
+        $alta_evento->start = $request->salida_produccion;
+        $alta_evento->end = $request->salida_produccion;
+        $alta_evento->save();
+
 
         $registro_jets = new models\emgy_registros();
         $registro_jets->ot = $request->ot;
