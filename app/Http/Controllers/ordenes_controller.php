@@ -16,6 +16,7 @@ use App\Mail\DemoMail;
 use Illuminate\Support\Facades\Storage;
 use finfo;
 use App\Exports\UsersExport;
+use Illuminate\Database\Eloquent\Model;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Hash;
 
@@ -62,9 +63,10 @@ class ordenes_controller extends Controller
     {
 
         $cliente = models\cliente::where('id', '=', $request->cliente)->first();
+        $empresa =  models\Empresas::where('id', '=', $request->empresa)->first();
 
         $alta_orden = new Models\orders;
-        $alta_orden->empresa = $request->empresa;
+        $alta_orden->empresa = $empresa->name;
         $alta_orden->cliente = $cliente->cliente;
         $alta_orden->usuario = $request->usuario;
         $alta_orden->oc = $request->oc;
@@ -72,7 +74,7 @@ class ordenes_controller extends Controller
         $alta_orden->cantidad = $request->cantidad;
         $alta_orden->descripcion = $request->descripcion;
         $alta_orden->moneda = $request->moneda;
-        $alta_orden->monto = $request->monto ?? 0;
+        $alta_orden->monto = $request->monto;
         $alta_orden->vendedor = $request->vendedor;
         $alta_orden->tipo_dibujo = $request->tipo_dibujo;
         $alta_orden->comentario_diseno = $request->comentario_diseno;
@@ -274,35 +276,31 @@ class ordenes_controller extends Controller
         $clientes = models\cliente::all();
         $usuarios =  models\usuarios::all();
         $vendedores = models\user::where('role', '=', 'Dibujante')
-        ->orWhere('role', '=', 'Administrador')
-        ->orWhere('role', '=', 'Vendedor')
-        ->orderBy('name', 'ASC')
-        ->get();
-
+            ->orWhere('role', '=', 'Administrador')
+            ->orWhere('role', '=', 'Vendedor')
+            ->orderBy('name', 'ASC')
+            ->get();
 
         $order = Models\orders::findOrFail($id);
+
         $procesos = Models\process::where('ot', '=', $id)->get();
 
         return view('modulos.ordenes_trabajo.edition_order', compact('notifications', 'order', 'clientes', 'usuarios', 'vendedores', 'procesos',));
     }
 
-    public function edicion_order(Request $request, $id)
+    public function edition_order_save(Request $request, $id)
     {
-
-
-        $cliente = models\cliente::where('id', '=', $request->cliente)->first();
-
         $order = models\orders::where('id', '=', $id)->first();
 
         $order->empresa = $request->empresa;
-        $order->cliente = $cliente->cliente;
+        $order->cliente = $request->cliente;
         $order->usuario = $request->usuario;
         $order->oc = $request->oc;
         $order->partida = $request->partida;
         $order->cantidad = $request->cantidad;
         $order->descripcion = $request->descripcion;
         $order->tratamiento = $request->tratamiento;
-        $order->monto = $request->monto ?? 0;
+        $order->monto = $request->monto;
         $order->moneda = $request->modeda;
         $order->vendedor = $request->vendedor;
         $order->tipo_dibujo = $request->tipo_dibujo;

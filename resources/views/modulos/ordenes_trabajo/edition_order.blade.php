@@ -263,7 +263,7 @@
                 <div class="page-titles">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Edicion</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Orden de tttrabajo</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Orden de trabajo</a></li>
                     </ol>
                 </div>
 
@@ -290,10 +290,22 @@
                                 <h4 class="card-title">Orden de Trabajo: {{$order->id}} </h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{route('edicion_order', $order)}}" method="post">
+                                <form action="{{route('edition_order_save', $order)}}" method="post">
                                     @csrf
-                                    
-                                    <livewire:country-dropdown>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group">
+                                            <label for="empresa">Empresa</label>
+                                            <input name="empresa" class="form-control" id="empresa" placeholder="{{$order->empresa}}" value="{{$order->empresa}}" type="text">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="cliente">Cliente</label>
+                                            <input name="cliente" class="form-control" id="cliente" placeholder="" value="{{$order->cliente}}" type="text">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="usuario">Usuario</label>
+                                            <input name="usuario" class="form-control" id="usuario" placeholder="" value="{{$order->usuario}}" type="text">
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">

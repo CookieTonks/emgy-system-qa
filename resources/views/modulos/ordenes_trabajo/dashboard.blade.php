@@ -327,7 +327,7 @@
                             <tr>
                                 <td style="width: 300px;">
                                     <a  target="_blank" href="{{route('order_pdf', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
-                                    <a href="{{route('edition_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-edit"></i></a>
+                                    <a  target="_blank" href="{{route('edition_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-edit"></i></a>
                                     <a href="{{route('material_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-list"></i></a>
                                     <a href="{{route('ruta_ot', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-route"></i></a>
                                 </td>

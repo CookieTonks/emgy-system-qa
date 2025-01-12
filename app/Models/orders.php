@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class orders extends Model
 {
     use HasFactory;
+
+    // En el modelo Order
+    public function empresa()
+    {
+        return $this->belongsTo(Empresas::class, 'empresa', 'id');
+    }
 }
