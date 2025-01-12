@@ -298,8 +298,13 @@
                                                     <span class="d-block font-15 text-dark font-weight-500">Alta cliente</span>
                                                 </div>
                                                 <div>
+                                                    <!-- Botón para dar de alta clientes -->
                                                     <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_cliente">
                                                         <i class="material-icons">+</i>
+                                                    </button>
+                                                    <!-- Botón para ver clientes dados de alta -->
+                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_clientes">
+                                                        <i class="material-icons">ver</i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -310,6 +315,9 @@
                                         </div>
                                     </div>
 
+
+
+
                                     <div class="card card-sm">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between mb-5">
@@ -319,6 +327,10 @@
                                                 <div>
                                                     <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_usuario">
                                                         <i class="material-icons">+</i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_usuarios">
+                                                        <i class="material-icons">ver</i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -339,6 +351,10 @@
                                                     <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_proveedor">
                                                         <i class="material-icons">+</i>
                                                     </button>
+                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_proveedores">
+                                                        <i class="material-icons">ver</i>
+                                                    </button>
+
                                                 </div>
                                             </div>
                                             <div>
@@ -357,6 +373,9 @@
                                                 <div>
                                                     <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_maquina">
                                                         <i class="material-icons">+</i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_maquinas">
+                                                        <i class="material-icons">ver</i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -561,6 +580,108 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="ver_clientes" tabindex="-1" role="dialog" aria-labelledby="verClientesLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="verClientesLabel">Clientes dados de alta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                @foreach($clientes as $cliente)
+                                <ul>
+                                    <li>{{$cliente->cliente}}</li>
+
+                                </ul>
+                                @endforeach
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="ver_maquinas" tabindex="-1" role="dialog" aria-labelledby="verMaquinasLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="verMaquinasLabel">Máquinas dadas de alta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Aquí mostramos la lista de máquinas -->
+                                @foreach($maquinas_list as $maquina)
+                                <ul>
+                                    <li>{{$maquina->codigo}}</li>
+                                </ul>
+                                @endforeach
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="ver_proveedores" tabindex="-1" role="dialog" aria-labelledby="verMaquinasLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="verMaquinasLabel">Proveedores dados de alta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Aquí mostramos la lista de máquinas -->
+                                @foreach($proveedores_list as $proveedor)
+                                <ul>
+                                    <li>{{$proveedor->nombre}}</li>
+                                </ul>
+                                @endforeach
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="modal fade" id="ver_usuarios" tabindex="-1" role="dialog" aria-labelledby="verMaquinasLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="verMaquinasLabel">Usuarios dados de alta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Aquí mostramos la lista de máquinas -->
+                                @foreach($usuarios_list as $usuario)
+                                <ul>
+                                    <li>{{$usuario->clientes->cliente}} - {{$usuario->name}}</li>
+                                </ul>
+                                @endforeach
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ class admin_controller extends Controller
 {
 
 
-   
+
     public function dashboard_administrador()
     {
         $date = Carbon::now();
@@ -46,13 +46,17 @@ class admin_controller extends Controller
         $tecnicos = models\production::groupBy('persona_asignada')->select('persona_asignada', DB::raw('count(*) as orden_trabajadas'))->where('estatus', '=', 'Finalizada')->get();
         $datos_maquina = models\maquinas::where('estatus', '=', 'ACTIVA')->get();
 
-        $clientes = models\cliente::all();
+        $clientes = models\cliente::orderBy('cliente', 'ASC')->get();
 
+        $maquinas_list = models\maquinas::orderBy('codigo', 'ASC')->get();
+        $proveedores_list = models\proveedor::orderBy('nombre', 'ASC')->get();
 
+        $usuarios_list = models\usuarios::with('clientes')->get();
 
+     
         $ordenes_trabajadas = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->count();
 
-        return view('modulos.administrador.dashboard_administrador', compact('empresas', 'maquinas_conteo','proveedor_conteo','clientes_conteo', 'usuarios_conteo', 'notificaciones', 'clientes', 'tecnicos', 'datos_maquina', 'fecha', 'datos_ordenf', 'datos_ordena', 'datos_ordenp', 'maquinas', 'ordenes_asignadas', 'ordenes_finalizadas', 'ordenes_pendientes', 'clientes_ordenes'));
+        return view('modulos.administrador.dashboard_administrador', compact('usuarios_list', 'proveedores_list', 'maquinas_list', 'empresas', 'maquinas_conteo', 'proveedor_conteo', 'clientes_conteo', 'usuarios_conteo', 'notificaciones', 'clientes', 'tecnicos', 'datos_maquina', 'fecha', 'datos_ordenf', 'datos_ordena', 'datos_ordenp', 'maquinas', 'ordenes_asignadas', 'ordenes_finalizadas', 'ordenes_pendientes', 'clientes_ordenes'));
     }
     public function index(Request $request)
     {
@@ -141,6 +145,5 @@ class admin_controller extends Controller
         $maquina->ano = $request->ano;
         $maquina->save();
         return back()->with('mensaje-success', '¡Nueva maquina registrado con éxito!');
-
     }
 }
