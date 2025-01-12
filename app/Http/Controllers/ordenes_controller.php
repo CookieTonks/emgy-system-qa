@@ -72,7 +72,7 @@ class ordenes_controller extends Controller
         $alta_orden->cantidad = $request->cantidad;
         $alta_orden->descripcion = $request->descripcion;
         $alta_orden->moneda = $request->moneda;
-        $alta_orden->monto = $request->monto;
+        $alta_orden->monto = $request->monto ?? 0;
         $alta_orden->vendedor = $request->vendedor;
         $alta_orden->tipo_dibujo = $request->tipo_dibujo;
         $alta_orden->comentario_diseno = $request->comentario_diseno;
@@ -302,7 +302,7 @@ class ordenes_controller extends Controller
         $order->cantidad = $request->cantidad;
         $order->descripcion = $request->descripcion;
         $order->tratamiento = $request->tratamiento;
-        $order->monto = $request->monto;
+        $order->monto = $request->monto ?? 0;
         $order->moneda = $request->modeda;
         $order->vendedor = $request->vendedor;
         $order->tipo_dibujo = $request->tipo_dibujo;
