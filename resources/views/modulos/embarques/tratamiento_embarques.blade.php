@@ -27,14 +27,15 @@
         <thead>
             <tr>
                 <td scope="col" style="font-size:xx-small;"><img src="images/logo.png" width="150px">
-                    <p>EMPRESA S.A DE C.V <br>
+
+                    <p>EMGY METALMECANICA S.A DE C.V <br>
                         MAQUINADOS Y PAILERIA INDUSTRIAL <br>
-                        Direccion, #410 D-7<br>
-                        Parque Destirral Regio, Apodaca, 66636<br>
-                        RFC: 0000000</p>
+                        Rio de las Amazonas #306<br>
+                        Villa del Rio, Guadalupe, NL. 67112<br>
+                    </p>
                 </td>
                 <td scope="col" style="text-align: right; font-size:xx-small;">
-                    <p>Telefono: 00-00-00-00 <br>
+                    <p>Telefono: 81 2321 9299 <br>
                     </p>
                     <br>
                     <br>
