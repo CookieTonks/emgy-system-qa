@@ -59,204 +59,217 @@ class ordenes_controller extends Controller
 
         return view('modulos.ordenes_trabajo.buscador_ordenes', compact('orders', 'notifications'));
     }
+
+
     public function dashboard_ordenes_register(Request $request)
     {
 
-        $cliente = models\cliente::where('id', '=', $request->cliente)->first();
-        $empresa =  models\Empresas::where('id', '=', $request->empresa)->first();
+        try {
 
-        $alta_orden = new Models\orders;
-        $alta_orden->empresa = $empresa->name;
-        $alta_orden->cliente = $cliente->cliente;
-        $alta_orden->usuario = $request->usuario;
-        $alta_orden->oc = $request->oc;
-        $alta_orden->partida = $request->partida;
-        $alta_orden->cantidad = $request->cantidad;
-        $alta_orden->descripcion = $request->descripcion;
-        $alta_orden->moneda = $request->moneda;
-        $alta_orden->monto = $request->monto;
-        $alta_orden->vendedor = $request->vendedor;
-        $alta_orden->tipo_dibujo = $request->tipo_dibujo;
-        $alta_orden->comentario_diseno = $request->comentario_diseno;
-        $alta_orden->salida_produccion = $request->salida_produccion;
-        $alta_orden->salida_cliente = $request->salida_cliente;
-        $alta_orden->prioridad = $request->prioridad;
-        $alta_orden->estatus = "Iniciada";
-        $alta_orden->tratamiento = $request->tratamiento;
-        $alta_orden->progreso = 0;
-        $alta_orden->procesos = implode(", ", $request->Proceso);
-        $alta_orden->tipo_material = $request->tipo_material;
-        $alta_orden->tipo_entrega_factura = $request->tipo_entrega_factura;
-        $alta_orden->tipo_entrega_remision = $request->tipo_entrega_remision;
+            $cliente = models\cliente::where('id', '=', $request->cliente)->first();
+            $empresa =  models\Empresas::where('id', '=', $request->empresa)->first();
 
-
-        $array_hora = $request->hora;
-        $array_minutos = $request->minutos;
-        $alta_orden->save();
+            $alta_orden = new Models\orders;
+            $alta_orden->empresa = $empresa->name;
+            $alta_orden->cliente = $cliente->cliente;
+            $alta_orden->usuario = $request->usuario;
+            $alta_orden->oc = $request->oc;
+            $alta_orden->partida = $request->partida;
+            $alta_orden->cantidad = $request->cantidad;
+            $alta_orden->descripcion = $request->descripcion;
+            $alta_orden->moneda = $request->moneda;
+            $alta_orden->monto = $request->monto;
+            $alta_orden->vendedor = $request->vendedor;
+            $alta_orden->tipo_dibujo = $request->tipo_dibujo;
+            $alta_orden->comentario_diseno = $request->comentario_diseno;
+            $alta_orden->salida_produccion = $request->salida_produccion;
+            $alta_orden->salida_cliente = $request->salida_cliente;
+            $alta_orden->prioridad = $request->prioridad;
+            $alta_orden->estatus = "Iniciada";
+            $alta_orden->tratamiento = $request->tratamiento;
+            $alta_orden->progreso = 0;
+            $alta_orden->procesos = implode(", ", $request->Proceso);
+            $alta_orden->tipo_material = $request->tipo_material;
+            $alta_orden->tipo_entrega_factura = $request->tipo_entrega_factura;
+            $alta_orden->tipo_entrega_remision = $request->tipo_entrega_remision;
 
 
-        $array_proceso = $request->Proceso;
-        $arrlength = count($array_proceso);
-
-        $minutos_ot = 0;
-        $suma_procesos = 0;
-
-        for ($i = 0; $i < $arrlength; $i++) {
-            $horas = intval($array_hora[$i]);
-            $hora = 60;
-            $minutos = intval($array_minutos[$i]);
-            $cantidad = intval($request->cantidad);
+            $array_hora = $request->hora;
+            $array_minutos = $request->minutos;
+            $alta_orden->save();
 
 
+            $array_proceso = $request->Proceso;
+            $arrlength = count($array_proceso);
 
-            $hora_minutos  =  $horas * $hora;
-            $minutos_sumados = $hora_minutos + $minutos;
-            $minutos_totales =  $minutos_sumados * $cantidad;
+            $minutos_ot = 0;
+            $suma_procesos = 0;
 
-
-            $alta_proceso = new Models\process;
-            $alta_proceso->ot = $alta_orden->id;
-            $alta_proceso->proceso =  $array_proceso[$i];
-            $alta_proceso->minutos = $minutos_totales;
-            $alta_proceso->save();
+            for ($i = 0; $i < $arrlength; $i++) {
+                $horas = intval($array_hora[$i]);
+                $hora = 60;
+                $minutos = intval($array_minutos[$i]);
+                $cantidad = intval($request->cantidad);
 
 
 
-            $minutos_ot = $minutos_ot + $minutos_totales;
-
-            $minutos_totales = 0;
-
-            $suma_procesos = $suma_procesos + 1;
-        }
+                $hora_minutos  =  $horas * $hora;
+                $minutos_sumados = $hora_minutos + $minutos;
+                $minutos_totales =  $minutos_sumados * $cantidad;
 
 
-        if ($alta_orden->tipo_dibujo == "Ingenieria") {
-            $alta_dibujo = new Models\dibujos;
-            $alta_dibujo->ot = $alta_orden->id;
-            $alta_dibujo->descripcion = $alta_orden->descripcion;
-            $alta_dibujo->cliente = $alta_orden->cliente;
-            $alta_dibujo->estatus = 'Pendiente';
-            $alta_dibujo->save();
-        }
-
-        $alta_ruta = new models\emgy_rutas();
-        $alta_ruta->ot = $alta_orden->id;
-        $alta_ruta->sistema_ot = '-';
-        $alta_ruta->sistema_ingenieria = '-';
-        $alta_ruta->sistema_almacen = '-';
-        $alta_ruta->sistema_almacenr = '-';
-        $alta_ruta->sistema_compras = '-';
-        $alta_ruta->sistema_produccion = '-';
-        $alta_ruta->sistema_calidad = '-';
-        $alta_ruta->sistema_embarques = '-';
-        $alta_ruta->sistema_facturacion = '-';
-        $alta_ruta->save();
+                $alta_proceso = new Models\process;
+                $alta_proceso->ot = $alta_orden->id;
+                $alta_proceso->proceso =  $array_proceso[$i];
+                $alta_proceso->minutos = $minutos_totales;
+                $alta_proceso->save();
 
 
 
-        $alta_produccion = new models\production();
-        $alta_produccion->ot = $alta_orden->id;
-        $alta_produccion->cliente = $cliente->cliente;
-        $alta_produccion->descripcion = $alta_orden->descripcion;
-        $alta_produccion->maquina_asignada = '-';
-        $alta_produccion->tiempo_asignado = $minutos_ot;
-        $alta_produccion->persona_asignada = '-';
-        $alta_produccion->estatus = 'REGISTRADA';
-        $alta_produccion->pp = $suma_procesos;
-        $alta_produccion->pr = 0;
-        $alta_produccion->prioridad = $alta_orden->prioridad;
-        $alta_produccion->fecha_production = $alta_orden->salida_produccion;
-        $alta_produccion->fecha_cliente = $alta_orden->salida_cliente;
-        $alta_produccion->fecha_recepcion = '-';
-        $alta_produccion->save();
+                $minutos_ot = $minutos_ot + $minutos_totales;
+
+                $minutos_totales = 0;
+
+                $suma_procesos = $suma_procesos + 1;
+            }
 
 
-        $alta_evento = new models\Events();
-        $alta_evento->title = "EC: " . $alta_orden->id;
-        $alta_evento->start = $alta_orden->salida_cliente;
-        $alta_evento->end = $alta_orden->salida_cliente;
-        $alta_evento->save();
+            if ($alta_orden->tipo_dibujo == "Ingenieria") {
+                $alta_dibujo = new Models\dibujos;
+                $alta_dibujo->ot = $alta_orden->id;
+                $alta_dibujo->descripcion = $alta_orden->descripcion;
+                $alta_dibujo->cliente = $alta_orden->cliente;
+                $alta_dibujo->estatus = 'Pendiente';
+                $alta_dibujo->save();
+            }
 
-        $alta_evento = new models\Events();
-        $alta_evento->title = "SP: " . $alta_orden->id;
-        $alta_evento->start = $alta_orden->salida_produccion;
-        $alta_evento->end = $alta_orden->salida_produccion;
-        $alta_evento->save();
-
-
-        $ruta = models\emgy_rutas::where('ot', '=', $alta_orden->id)->first();
-        $ruta->sistema_ot = 'DONE';
-        $ruta->save();
-
-
-        $registro_jets = new models\emgy_registros();
-        $registro_jets->ot = $alta_orden->id;
-        $registro_jets->movimiento = 'INICIO - OT';
-        $registro_jets->responsable = Auth::user()->name;
-        $registro_jets->save();
-
-        if ($alta_orden->prioridad == 'Urgente') {
-            $registro_notificacion = new models\notifications();
-            $registro_notificacion->ot = $alta_orden->id;
-            $registro_notificacion->cliente = $alta_orden->cliente;
-            $registro_notificacion->estatus = 'Urgente';
-            $registro_notificacion->save();
-        }
-
-        $mailData = [
-            'title' => 'Notificación del sistema',
-            'body' => ''
-        ];
-
-
-        if ($alta_orden->tipo_dibujo == 'Cliente') {
-            Storage::disk('public')->putFileAs('dibujos/' . $alta_orden->id, $request->file('dibujo'), $alta_orden->id . '.pdf');
-
-            $alta_ruta = models\emgy_rutas::where('ot', '=', $alta_orden->id)->first();
-            $alta_ruta->sistema_ingenieria = 'DONE';
+            $alta_ruta = new models\emgy_rutas();
+            $alta_ruta->ot = $alta_orden->id;
+            $alta_ruta->sistema_ot = '-';
+            $alta_ruta->sistema_ingenieria = '-';
+            $alta_ruta->sistema_almacen = '-';
+            $alta_ruta->sistema_almacenr = '-';
+            $alta_ruta->sistema_compras = '-';
+            $alta_ruta->sistema_produccion = '-';
+            $alta_ruta->sistema_calidad = '-';
+            $alta_ruta->sistema_embarques = '-';
+            $alta_ruta->sistema_facturacion = '-';
             $alta_ruta->save();
-        }
 
-        if ($alta_orden->tipo_material == 'Cliente') {
 
-            $registro_jets = new models\emgy_registros();
-            $registro_jets->ot = $alta_orden->id;
-            $registro_jets->movimiento = 'VENDEDOR - PRODUCCION';
-            $registro_jets->responsable = Auth::user()->name;
-            $registro_jets->save();
+
+            $alta_produccion = new models\production();
+            $alta_produccion->ot = $alta_orden->id;
+            $alta_produccion->cliente = $cliente->cliente;
+            $alta_produccion->descripcion = $alta_orden->descripcion;
+            $alta_produccion->maquina_asignada = '-';
+            $alta_produccion->tiempo_asignado = $minutos_ot;
+            $alta_produccion->persona_asignada = '-';
+            $alta_produccion->estatus = 'REGISTRADA';
+            $alta_produccion->pp = $suma_procesos;
+            $alta_produccion->pr = 0;
+            $alta_produccion->prioridad = $alta_orden->prioridad;
+            $alta_produccion->fecha_production = $alta_orden->salida_produccion;
+            $alta_produccion->fecha_cliente = $alta_orden->salida_cliente;
+            $alta_produccion->fecha_recepcion = '-';
+            $alta_produccion->save();
+
+
+            $alta_evento = new models\Events();
+            $alta_evento->title = "EC: " . $alta_orden->id;
+            $alta_evento->start = $alta_orden->salida_cliente;
+            $alta_evento->end = $alta_orden->salida_cliente;
+            $alta_evento->save();
+
+            $alta_evento = new models\Events();
+            $alta_evento->title = "SP: " . $alta_orden->id;
+            $alta_evento->start = $alta_orden->salida_produccion;
+            $alta_evento->end = $alta_orden->salida_produccion;
+            $alta_evento->save();
+
 
             $ruta = models\emgy_rutas::where('ot', '=', $alta_orden->id)->first();
-            $ruta->sistema_almacenr = 'DONE';
-            $ruta->sistema_compras = 'DONE';
-            $ruta->sistema_almacen = 'DONE';
+            $ruta->sistema_ot = 'DONE';
             $ruta->save();
 
 
-            $produccion = models\production::where('ot', '=', $alta_orden->id)->first();
+            $registro_jets = new models\emgy_registros();
+            $registro_jets->ot = $alta_orden->id;
+            $registro_jets->movimiento = 'INICIO - OT';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
 
-            $produccion->estatus = "L.PRODUCCION";
-            $produccion->save();
+            if ($alta_orden->prioridad == 'Urgente') {
+                $registro_notificacion = new models\notifications();
+                $registro_notificacion->ot = $alta_orden->id;
+                $registro_notificacion->cliente = $alta_orden->cliente;
+                $registro_notificacion->estatus = 'Urgente';
+                $registro_notificacion->save();
+            }
+
+            $mailData = [
+                'title' => 'Notificación del sistema',
+                'body' => ''
+            ];
+
+
+            if ($alta_orden->tipo_dibujo == 'Cliente') {
+
+
+                if ($request->hasFile('dibujo') && $request->file('dibujo')->isValid()) {
+                    Storage::disk('public')->putFileAs(
+                        'dibujos/' . $alta_orden->id,
+                        $request->file('dibujo'),
+                        $alta_orden->id . '.pdf'
+                    );
+
+                    $alta_ruta = models\emgy_rutas::where('ot', '=', $alta_orden->id)->first();
+                    $alta_ruta->sistema_ingenieria = 'DONE';
+                    $alta_ruta->save();
+                }
+                else
+                {
+                    return back()->with('mensaje-error', '¡Hubo un problema al cargar el dibujo de la OT, por favor intenta de nuevo!');
+
+                }
+            }
+
+            if ($alta_orden->tipo_material == 'Cliente') {
+
+                $registro_jets = new models\emgy_registros();
+                $registro_jets->ot = $alta_orden->id;
+                $registro_jets->movimiento = 'VENDEDOR - PRODUCCION';
+                $registro_jets->responsable = Auth::user()->name;
+                $registro_jets->save();
+
+                $ruta = models\emgy_rutas::where('ot', '=', $alta_orden->id)->first();
+                $ruta->sistema_almacenr = 'DONE';
+                $ruta->sistema_compras = 'DONE';
+                $ruta->sistema_almacen = 'DONE';
+                $ruta->save();
+
+
+                $produccion = models\production::where('ot', '=', $alta_orden->id)->first();
+
+                $produccion->estatus = "L.PRODUCCION";
+                $produccion->save();
+            }
+
+
+            if ($alta_orden->prioridad == 'Urgente') {
+                $orden = models\orders::where('id', '=', $alta_orden->id)->first();
+
+                Mail::to('faciljets@gmail.com')->send(new DemoMail($mailData, $orden));
+                Mail::to('progjets01@gmail.com')->send(new DemoMail($mailData, $orden));
+                Mail::to('almacenjets@gmail.com')->send(new DemoMail($mailData, $orden));
+                Mail::to('calidadjets@gmail.com')->send(new DemoMail($mailData, $orden));
+                Mail::to('miriamdominguez.e@gmail.com')->send(new DemoMail($mailData, $orden));
+            }
+            return back()->with('mensaje-success', '¡Orden de trabajo realizada con exito!');
+        } catch (\Exception $e) {
+
+            return back()->with('mensaje-error', '¡Hubo un problema al registrar la OT, por favor intenta de nuevo!');
         }
-
-
-        if ($alta_orden->prioridad == 'Urgente') {
-            $orden = models\orders::where('id', '=', $alta_orden->id)->first();
-
-            Mail::to('faciljets@gmail.com')->send(new DemoMail($mailData, $orden));
-            Mail::to('progjets01@gmail.com')->send(new DemoMail($mailData, $orden));
-            Mail::to('almacenjets@gmail.com')->send(new DemoMail($mailData, $orden));
-            Mail::to('calidadjets@gmail.com')->send(new DemoMail($mailData, $orden));
-            Mail::to('miriamdominguez.e@gmail.com')->send(new DemoMail($mailData, $orden));
-        }
-
-
-
-
-
-
-
-
-        return back()->with('mensaje-success', '¡Orden de trabajo realizada con exito!');
     }
 
     public function order_pdf($id)
