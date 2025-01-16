@@ -18,6 +18,6 @@ class Order extends Model
     // Relación con Procesos
     public function procesos()
     {
-        return $this->hasMany(Process::class, 'ot', 'id');
+        return $this->hasMany(process::class, 'ot', 'id');
     }
 }
