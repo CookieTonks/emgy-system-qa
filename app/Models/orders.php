@@ -19,6 +19,6 @@ class orders extends Model
 
     public function Procesos()
     {
-        return $this->hasMany(Models\Process::class, 'ot', 'id');
+        return $this->hasMany(Process::class, 'ot', 'id');
     }
 }

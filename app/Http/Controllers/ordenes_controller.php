@@ -8,7 +8,6 @@ use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Models\materiales;
-use App\Models\orders;
 use PDF;
 use Illuminate\Support\Facades\Auth;
 use Mail;
