@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models;
+use App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Process;
 
 
 class orders extends Model
@@ -20,6 +19,6 @@ class orders extends Model
 
     public function Procesos()
     {
-        return $this->hasMany(Process::class, 'ot', 'id');
+        return $this->hasMany(Models\Process::class, 'ot', 'id');
     }
 }
