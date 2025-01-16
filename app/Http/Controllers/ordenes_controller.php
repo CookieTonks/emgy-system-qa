@@ -226,11 +226,8 @@ class ordenes_controller extends Controller
                     $alta_ruta = models\emgy_rutas::where('ot', '=', $alta_orden->id)->first();
                     $alta_ruta->sistema_ingenieria = 'DONE';
                     $alta_ruta->save();
-                }
-                else
-                {
+                } else {
                     return back()->with('mensaje-error', '¡Hubo un problema al cargar el dibujo de la OT, por favor intenta de nuevo!');
-
                 }
             }
 
@@ -294,11 +291,10 @@ class ordenes_controller extends Controller
             ->orderBy('name', 'ASC')
             ->get();
 
-        $order = Models\orders::findOrFail($id);
+        $order = Models\orders::with('Procesos')->findOrFail($id);
 
-        $procesos = Models\process::where('ot', '=', $id)->get();
 
-        return view('modulos.ordenes_trabajo.edition_order', compact('notifications', 'order', 'clientes', 'usuarios', 'vendedores', 'procesos',));
+        return view('modulos.ordenes_trabajo.edition_order', compact('notifications', 'order', 'clientes', 'usuarios', 'vendedores'));
     }
 
     public function edition_order_save(Request $request, $id)
@@ -314,7 +310,7 @@ class ordenes_controller extends Controller
         $order->descripcion = $request->descripcion;
         $order->tratamiento = $request->tratamiento;
         $order->monto = $request->monto;
-        $order->moneda = $request->modeda;
+        $order->moneda = $request->moneda;
         $order->vendedor = $request->vendedor;
         $order->tipo_dibujo = $request->tipo_dibujo;
         if ($order->tipo_dibujo == 'Ingenieria') {
@@ -345,7 +341,25 @@ class ordenes_controller extends Controller
 
         // Find a record in the 'dibujos' table where 'ot' is equal to $id
 
-
+        foreach ($request->input('procesos', []) as $id => $data) {
+            if (str_starts_with($id, 'new_')) {
+                // Crear un nuevo proceso
+                Models\process::create([
+                    'order_id' => $order->id,
+                    'proceso' => $data['proceso'],
+                    'minutos' => $data['minutos'],
+                ]);
+            } else {
+                // Actualizar proceso existente
+                $proceso = Models\process::find($id);
+                if ($proceso) {
+                    $proceso->update([
+                        'proceso' => $data['proceso'],
+                        'minutos' => $data['minutos'],
+                    ]);
+                }
+            }
+        }
 
 
         $production = models\production::where('ot', '=', $id)->first();

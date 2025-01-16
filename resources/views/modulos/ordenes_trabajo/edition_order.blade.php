@@ -336,6 +336,21 @@
                                         </div>
                                     </div>
 
+
+
+                                    @foreach($order->Procesos as $proceso)
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label for="proceso">Proceso</label>
+                                            <input class="form-control" id="proceso_{{ $proceso->id }}" name="procesos[{{ $proceso->id }}][proceso]" value="{{ $proceso->proceso }}" type="text">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="proceso">Minutos</label>
+                                            <input class="form-control" id="minutos_{{ $proceso->id }}" name="procesos[{{ $proceso->id }}][minutos]" value="{{ $proceso->minutos }}" type="text">
+                                        </div>
+                                    </div>
+                                    @endforeach
+
                                     <hr />
                                     <div class="row">
                                         <div class="col-md-4 form-group">

@@ -14,4 +14,9 @@ class orders extends Model
     {
         return $this->belongsTo(Empresas::class, 'empresa', 'id');
     }
+
+    public function Procesos()
+    {
+        return $this->hasMany(Process::class, 'ot', 'id');
+    }
 }
