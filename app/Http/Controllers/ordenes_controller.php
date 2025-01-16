@@ -8,7 +8,7 @@ use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Models\materiales;
-use App\Models\Orders;
+use App\Models\Order;
 use PDF;
 use Illuminate\Support\Facades\Auth;
 use Mail;
@@ -291,7 +291,7 @@ class ordenes_controller extends Controller
             ->orderBy('name', 'ASC')
             ->get();
 
-        $order = Models\orders::with('Procesos')->findOrFail($id);
+        $order = Order::with('procesos')->findOrFail($id);
 
 
         return view('modulos.ordenes_trabajo.edition_order', compact('notifications', 'order', 'clientes', 'usuarios', 'vendedores'));
