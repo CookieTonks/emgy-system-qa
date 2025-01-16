@@ -35,7 +35,7 @@ class ordenes_controller extends Controller
 
         $notifications =  Models\notifications::where('user_id', '=', Auth::id())->get();
 
-        $orders = Models\orders::all();
+        $orders = Order::all();
         $clientes = models\cliente::orderBy('cliente', 'ASC')->get();
         $usuarios =  models\usuarios::orderBy('cliente', 'ASC')->get();
         $vendedores = models\user::where('role', '=', 'Dibujante')
@@ -50,10 +50,10 @@ class ordenes_controller extends Controller
 
     public function buscador_ordenes()
     {
-        // $orders = Models\orders::all();
+        // $orders = Order::all();
         $notifications =  Models\notifications::where('user_id', '=', Auth::id())->get();
 
-        $orders = Models\orders::join('productions', 'productions.ot', '=', 'orders.id')
+        $orders = Order::join('productions', 'productions.ot', '=', 'orders.id')
             ->select('orders.*', 'productions.tiempo_asignado', 'productions.tiempo_progreso')
             ->get();
 
@@ -69,7 +69,7 @@ class ordenes_controller extends Controller
             $cliente = models\cliente::where('id', '=', $request->cliente)->first();
             $empresa =  models\Empresas::where('id', '=', $request->empresa)->first();
 
-            $alta_orden = new Models\orders;
+            $alta_orden = new Order();
             $alta_orden->empresa = $empresa->name;
             $alta_orden->cliente = $cliente->cliente;
             $alta_orden->usuario = $request->usuario;
@@ -254,7 +254,7 @@ class ordenes_controller extends Controller
 
 
             if ($alta_orden->prioridad == 'Urgente') {
-                $orden = models\orders::where('id', '=', $alta_orden->id)->first();
+                $orden = Order::where('id', '=', $alta_orden->id)->first();
 
                 Mail::to('faciljets@gmail.com')->send(new DemoMail($mailData, $orden));
                 Mail::to('progjets01@gmail.com')->send(new DemoMail($mailData, $orden));
@@ -271,7 +271,7 @@ class ordenes_controller extends Controller
 
     public function order_pdf($id)
     {
-        $order = Models\orders::findOrFail($id);
+        $order = Order::findOrFail($id);
         $procesos = Models\process::where('ot', '=', $id)->get();
 
 
@@ -299,101 +299,107 @@ class ordenes_controller extends Controller
 
     public function edition_order_save(Request $request, $id)
     {
-        $order = models\orders::where('id', '=', $id)->first();
 
-        $order->empresa = $request->empresa;
-        $order->cliente = $request->cliente;
-        $order->usuario = $request->usuario;
-        $order->oc = $request->oc;
-        $order->partida = $request->partida;
-        $order->cantidad = $request->cantidad;
-        $order->descripcion = $request->descripcion;
-        $order->tratamiento = $request->tratamiento;
-        $order->monto = $request->monto;
-        $order->moneda = $request->moneda;
-        $order->vendedor = $request->vendedor;
-        $order->tipo_dibujo = $request->tipo_dibujo;
-        if ($order->tipo_dibujo == 'Ingenieria') {
-            $dibujoExists = models\dibujos::where('ot', '=', $id)->exists();
-            if ($dibujoExists === false) {
-                // Create a new record
-                $alta_dibujo = new Models\dibujos;
-                $alta_dibujo->ot = $id;
-                $alta_dibujo->descripcion = $request->descripcion;
-                $alta_dibujo->cliente = $request->cliente;
-                $alta_dibujo->estatus = 'Pendiente';
-                $alta_dibujo->save();
-            } else {
-                // Update existing record
-                $dibujo_ingenieria = models\dibujos::where('ot', '=', $id)->first();
-                $dibujo_ingenieria->cliente = $request->cliente;
-                $dibujo_ingenieria->descripcion = $request->descripcion;
-                $dibujo_ingenieria->save();
+        try {
+            $order = Order::where('id', '=', $id)->first();
+
+            $order->empresa = $request->empresa;
+            $order->cliente = $request->cliente;
+            $order->usuario = $request->usuario;
+            $order->oc = $request->oc;
+            $order->partida = $request->partida;
+            $order->cantidad = $request->cantidad;
+            $order->descripcion = $request->descripcion;
+            $order->tratamiento = $request->tratamiento;
+            $order->monto = $request->monto;
+            $order->moneda = $request->moneda;
+            $order->vendedor = $request->vendedor;
+            $order->tipo_dibujo = $request->tipo_dibujo;
+            if ($order->tipo_dibujo == 'Ingenieria') {
+                $dibujoExists = models\dibujos::where('ot', '=', $id)->exists();
+                if ($dibujoExists === false) {
+                    // Create a new record
+                    $alta_dibujo = new Models\dibujos;
+                    $alta_dibujo->ot = $id;
+                    $alta_dibujo->descripcion = $request->descripcion;
+                    $alta_dibujo->cliente = $request->cliente;
+                    $alta_dibujo->estatus = 'Pendiente';
+                    $alta_dibujo->save();
+                } else {
+                    // Update existing record
+                    $dibujo_ingenieria = models\dibujos::where('ot', '=', $id)->first();
+                    $dibujo_ingenieria->cliente = $request->cliente;
+                    $dibujo_ingenieria->descripcion = $request->descripcion;
+                    $dibujo_ingenieria->save();
+                }
             }
-        }
 
-        $order->comentario_diseno = $request->comentario_diseno;
-        $order->salida_produccion = $request->salida_produccion;
-        $order->salida_cliente = $request->salida_cliente;
-        $order->prioridad = $request->prioridad;
-        $order->tipo_material = $request->tipo_material;
-        $order->save();
+            $order->comentario_diseno = $request->comentario_diseno;
+            $order->salida_produccion = $request->salida_produccion;
+            $order->salida_cliente = $request->salida_cliente;
+            $order->prioridad = $request->prioridad;
+            $order->tipo_material = $request->tipo_material;
+            $order->save();
 
-        // Find a record in the 'dibujos' table where 'ot' is equal to $id
+            // Find a record in the 'dibujos' table where 'ot' is equal to $id
 
-        foreach ($request->input('procesos', []) as $id => $data) {
-            if (str_starts_with($id, 'new_')) {
-                // Crear un nuevo proceso
-                Models\process::create([
-                    'order_id' => $order->id,
-                    'proceso' => $data['proceso'],
-                    'minutos' => $data['minutos'],
-                ]);
-            } else {
-                // Actualizar proceso existente
-                $proceso = Models\process::find($id);
-                if ($proceso) {
-                    $proceso->update([
+            foreach ($request->input('procesos', []) as $id => $data) {
+                if (str_starts_with($id, 'new_')) {
+                    // Crear un nuevo proceso
+                    Models\process::create([
+                        'order_id' => $order->id,
                         'proceso' => $data['proceso'],
                         'minutos' => $data['minutos'],
                     ]);
+                } else {
+                    // Actualizar proceso existente
+                    $proceso = Models\process::find($id);
+                    if ($proceso) {
+                        $proceso->update([
+                            'proceso' => $data['proceso'],
+                            'minutos' => $data['minutos'],
+                        ]);
+                    }
                 }
             }
+
+
+            $production = models\production::where('ot', '=', $id)->first();
+            $production->cliente = $request->cliente;
+            $production->descripcion = $request->descripcion;
+            $production->fecha_cliente = $request->salida_cliente;
+            $production->fecha_production = $request->salida_produccion;
+            $production->prioridad = $request->prioridad;
+            $production->save();
+
+            $evento_cliente = models\Events::where('title', '=', 'EC: ' . $id)->delete();
+            $evento_produccion = models\Events::where('title', '=', 'SP: ' . $id)->delete();
+
+
+            $alta_evento = new models\Events();
+            $alta_evento->title = "EC: " . $id;
+            $alta_evento->start = $request->salida_cliente;
+            $alta_evento->end = $request->salida_cliente;
+            $alta_evento->save();
+
+            $alta_evento = new models\Events();
+            $alta_evento->title = "SP: " . $id;
+            $alta_evento->start = $request->salida_produccion;
+            $alta_evento->end = $request->salida_produccion;
+            $alta_evento->save();
+
+
+            $registro_jets = new models\emgy_registros();
+            $registro_jets->ot = $request->ot;
+            $registro_jets->movimiento = 'MODIFICACION - OT';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
+
+            return back()->with('mensaje-success', '¡Modificacion orden de trabajo realizada con exito!');
+        } catch (\Exception $e) {
+
+            return back()->with('mensaje-error', '¡Hubo un problema al registrar la OT, por favor intenta de nuevo!');
         }
-
-
-        $production = models\production::where('ot', '=', $id)->first();
-        $production->cliente = $request->cliente;
-        $production->descripcion = $request->descripcion;
-        $production->fecha_cliente = $request->salida_cliente;
-        $production->fecha_production = $request->salida_produccion;
-        $production->prioridad = $request->prioridad;
-        $production->save();
-
-        $evento_cliente = models\Events::where('title', '=', 'EC: ' . $id)->delete();
-        $evento_produccion = models\Events::where('title', '=', 'SP: ' . $id)->delete();
-
-
-        $alta_evento = new models\Events();
-        $alta_evento->title = "EC: " . $id;
-        $alta_evento->start = $request->salida_cliente;
-        $alta_evento->end = $request->salida_cliente;
-        $alta_evento->save();
-
-        $alta_evento = new models\Events();
-        $alta_evento->title = "SP: " . $id;
-        $alta_evento->start = $request->salida_produccion;
-        $alta_evento->end = $request->salida_produccion;
-        $alta_evento->save();
-
-
-        $registro_jets = new models\emgy_registros();
-        $registro_jets->ot = $request->ot;
-        $registro_jets->movimiento = 'MODIFICACION - OT';
-        $registro_jets->responsable = Auth::user()->name;
-        $registro_jets->save();
-
-        return back()->with('mensaje-success', '¡Modificacion orden de trabajo realizada con exito!');
     }
 
     public function material_order($id)
@@ -407,7 +413,7 @@ class ordenes_controller extends Controller
 
     public function material_register(Request $request)
     {
-        $empresa = models\orders::where('id', '=', $request->ot)->first();
+        $empresa = Order::where('id', '=', $request->ot)->first();
 
         $alta_material = new Models\materiales();
         $alta_material->ot = $request->ot;

@@ -9,6 +9,8 @@ use App\Models\orders;
 use App\Models\registros_maquinas;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Models\Order;
+
 
 
 
@@ -41,7 +43,7 @@ class admin_controller extends Controller
         $datos_ordenf = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->where('tiempo_final', 'LIKE', '%' . $fecha . '%')->get();
         $datos_ordenp = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->where('estatus', '<>', 'Finalizada')->get();
 
-        $clientes_ordenes = orders::groupBy('cliente')->select('cliente', DB::raw('count(*) as total'), DB::raw('sum(cantidad) as cantidad_solicitada'), DB::raw('sum(cant_entregada) as cantidad_entregada'))->get();
+        $clientes_ordenes = Order::groupBy('cliente')->select('cliente', DB::raw('count(*) as total'), DB::raw('sum(cantidad) as cantidad_solicitada'), DB::raw('sum(cant_entregada) as cantidad_entregada'))->get();
 
         $tecnicos = models\production::groupBy('persona_asignada')->select('persona_asignada', DB::raw('count(*) as orden_trabajadas'))->where('estatus', '=', 'Finalizada')->get();
         $datos_maquina = models\maquinas::where('estatus', '=', 'ACTIVA')->get();

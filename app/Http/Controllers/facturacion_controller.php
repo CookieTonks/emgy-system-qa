@@ -6,6 +6,9 @@ use App\Models;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Order;
+
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -48,7 +51,7 @@ class facturacion_controller extends Controller
 
         $date = Carbon::now();
 
-        $registro_factura = models\orders::where('id', '=', $request->ot)->first();
+        $registro_factura = Order::where('id', '=', $request->ot)->first();
 
 
         $salidas = models\salidas_embarques::where('ot', '=', $request->ot)

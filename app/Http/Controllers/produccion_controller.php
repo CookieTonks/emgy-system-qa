@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 
+use App\Models\Order;
 
 
 
@@ -65,7 +66,7 @@ class produccion_controller extends Controller
         $ot_produccion = models\production::where('ot', '=', $request->ot)->first();
 
         if ($ot_produccion->estatus === "RETRABAJO") {
-            $ot = models\orders::where('id', '=', $request->ot)->first();
+            $ot = Order::where('id', '=', $request->ot)->first();
             $ot->cant_retrabajo = $request->retrabajo;
             $ot->save();
         }
@@ -78,7 +79,7 @@ class produccion_controller extends Controller
 
 
 
-        $orden_trabajo = models\orders::where('id', '=', $request->ot)->first();
+        $orden_trabajo = Order::where('id', '=', $request->ot)->first();
         $orden_trabajo->estatus = "EN PRODUCCION";
         $orden_trabajo->save();
 
@@ -124,7 +125,7 @@ class produccion_controller extends Controller
 
 
 
-        $orden_trabajo = models\orders::where('id', '=', $request->ot)->first();
+        $orden_trabajo = Order::where('id', '=', $request->ot)->first();
         $orden_trabajo->estatus = "EN PRODUCCION";
         $orden_trabajo->save();
 
@@ -471,7 +472,7 @@ class produccion_controller extends Controller
             $this->realizarRegistros($request);
         } else {
             $piezas = models\salidas_produccion::where('ot', '=', $request->ot)->sum('cantidad');
-            $oc = models\orders::where('id', '=', $request->ot)->first();
+            $oc = Order::where('id', '=', $request->ot)->first();
 
             $suma = $piezas + $request->cantidad;
 

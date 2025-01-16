@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models;
 use App\Models\inspections;
 use App\Models\emgy_rutas;
-use App\Models\orders;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,7 +50,7 @@ class calidad_controller extends Controller
             $rutas_jets->sistema_calidad = 'DONE';
             $rutas_jets->save();
 
-            $orden_datos = models\orders::where('id', '=', $request->ot)->first();
+            $orden_datos = Order::where('id', '=', $request->ot)->first();
 
 
             //Parcialidad liberada con tratamiento externo
@@ -130,7 +130,7 @@ class calidad_controller extends Controller
             $produccion->modalidad = 'RETRABAJO';
             $produccion->save();
 
-            $order = models\orders::where('id', '=', $request->ot)->first();
+            $order = Order::where('id', '=', $request->ot)->first();
             $order->cant_retrabajo = $request->cant_retrabajo;
             $order->save();
 

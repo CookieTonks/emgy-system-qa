@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Events\ModelsPruned;
+use App\Models\Order;
+
 
 
 
@@ -74,7 +76,7 @@ class embarques_controller extends Controller
             $salida_embarques->estatus = 'Enviada por remision';
             $salida_embarques->save();
 
-            $orden = models\orders::where('id', '=', $request->ot)->first();
+            $orden = Order::where('id', '=', $request->ot)->first();
             $oc = $orden->cant_entregada;
             $piezas = $request->cantidad;
             $suma = $oc + $piezas;
@@ -112,7 +114,7 @@ class embarques_controller extends Controller
 
 
 
-            $orden = models\orders::where('id', '=', $request->ot)->first();
+            $orden = Order::where('id', '=', $request->ot)->first();
             $oc = $orden->cant_entregada;
             $piezas = $request->cant_piezas;
             $suma = $oc + $piezas;

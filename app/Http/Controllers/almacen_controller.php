@@ -8,6 +8,8 @@ use App\Models\materiales;
 use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
+use App\Models\Order;
+
 
 
 
@@ -133,7 +135,7 @@ class almacen_controller extends Controller
         $material->factura = $request->factura;
         $material->save();
 
-        $busqueda_ot = models\orders::where('id', '=', $request->ot)->first();
+        $busqueda_ot = Order::where('id', '=', $request->ot)->first();
 
 
         $salida_produccion = new models\salidas_produccion();
