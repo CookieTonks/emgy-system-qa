@@ -354,7 +354,7 @@
                                     <hr />
                                     <div class="row">
                                         <div class="col-md-4 form-group">
-                                            <label for="Monto">P/U</label>
+                                            <label for="Monto">Monto (Cant * P/U)</label>
                                             <input class="form-control" id="monto" name="monto" placeholder="" value="{{$order->monto}}" type="number">
                                         </div>
                                         <div class="col-md-4 form-group">
