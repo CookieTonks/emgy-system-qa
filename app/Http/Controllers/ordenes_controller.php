@@ -92,46 +92,44 @@ class ordenes_controller extends Controller
             $alta_orden->tipo_material = $request->tipo_material;
             $alta_orden->tipo_entrega_factura = $request->tipo_entrega_factura;
             $alta_orden->tipo_entrega_remision = $request->tipo_entrega_remision;
-
-
             $array_hora = $request->hora;
             $array_minutos = $request->minutos;
             $alta_orden->save();
 
 
             $array_proceso = $request->Proceso;
-            $arrlength = count($array_proceso);
 
-            $minutos_ot = 0;
-            $suma_procesos = 0;
+            $array_proceso = array_filter($array_proceso, function ($proceso) {
+                return !is_null($proceso) && trim($proceso) !== '';
+            });
 
-            for ($i = 0; $i < $arrlength; $i++) {
-                $horas = intval($array_hora[$i]);
-                $hora = 60;
-                $minutos = intval($array_minutos[$i]);
-                $cantidad = intval($request->cantidad);
+            if (!empty($array_proceso)) {
+                $arrlength = count($array_proceso);
 
+                $minutos_ot = 0;
+                $suma_procesos = 0;
 
+                for ($i = 0; $i < $arrlength; $i++) {
+                    $horas = intval($array_hora[$i]);
+                    $hora = 60;
+                    $minutos = intval($array_minutos[$i]);
+                    $cantidad = intval($request->cantidad);
 
-                $hora_minutos  =  $horas * $hora;
-                $minutos_sumados = $hora_minutos + $minutos;
-                $minutos_totales =  $minutos_sumados * $cantidad;
+                    $hora_minutos  =  $horas * $hora;
+                    $minutos_sumados = $hora_minutos + $minutos;
+                    $minutos_totales =  $minutos_sumados * $cantidad;
 
+                    $alta_proceso = new Models\process;
+                    $alta_proceso->ot = $alta_orden->id;
+                    $alta_proceso->proceso = $array_proceso[$i];
+                    $alta_proceso->minutos = $minutos_totales;
+                    $alta_proceso->save();
 
-                $alta_proceso = new Models\process;
-                $alta_proceso->ot = $alta_orden->id;
-                $alta_proceso->proceso =  $array_proceso[$i];
-                $alta_proceso->minutos = $minutos_totales;
-                $alta_proceso->save();
-
-
-
-                $minutos_ot = $minutos_ot + $minutos_totales;
-
-                $minutos_totales = 0;
-
-                $suma_procesos = $suma_procesos + 1;
+                    $minutos_ot += $minutos_totales;
+                    $suma_procesos += 1;
+                }
             }
+
 
 
             if ($alta_orden->tipo_dibujo == "Ingenieria") {
@@ -163,10 +161,10 @@ class ordenes_controller extends Controller
             $alta_produccion->cliente = $cliente->cliente;
             $alta_produccion->descripcion = $alta_orden->descripcion;
             $alta_produccion->maquina_asignada = '-';
-            $alta_produccion->tiempo_asignado = $minutos_ot;
+            $alta_produccion->tiempo_asignado = $minutos_ot ?? 0;
             $alta_produccion->persona_asignada = '-';
             $alta_produccion->estatus = 'REGISTRADA';
-            $alta_produccion->pp = $suma_procesos;
+            $alta_produccion->pp = $suma_procesos ?? 0;
             $alta_produccion->pr = 0;
             $alta_produccion->prioridad = $alta_orden->prioridad;
             $alta_produccion->fecha_production = $alta_orden->salida_produccion;
@@ -265,7 +263,7 @@ class ordenes_controller extends Controller
             return back()->with('mensaje-success', '¡Orden de trabajo realizada con exito!');
         } catch (\Exception $e) {
 
-            return back()->with('mensaje-error', '¡Hubo un problema al registrar la OT, por favor intenta de nuevo!');
+            return back()->with('mensaje-error', '¡Hubo un problema al registrar la OT, por favor intenta de nuevo!' . $e);
         }
     }
 

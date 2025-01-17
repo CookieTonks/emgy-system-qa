@@ -326,8 +326,8 @@
                             @foreach($orders as $order)
                             <tr>
                                 <td style="width: 300px;">
-                                    <a  target="_blank" href="{{route('order_pdf', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
-                                    <a  target="_blank" href="{{route('edition_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-edit"></i></a>
+                                    <a target="_blank" href="{{route('order_pdf', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                    <a target="_blank" href="{{route('edition_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-edit"></i></a>
                                     <a href="{{route('material_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-list"></i></a>
                                     <a href="{{route('ruta_ot', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-route"></i></a>
                                 </td>
@@ -419,19 +419,21 @@
                                     <div class="form-group form-horizontal">
                                         <label class="control-label">Tiempo por pieza</label>
                                         <div class="form-inline">
-                                            <select style="width:210px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">
-                                                <option value="TORNEADO">TORNEADO</option>
-                                                <option value="FRESADO">FRESADO</option>
-                                                <option value="RECTIFICADO">RECTIFICADO</option>
-                                                <option value="CNC">CNC</option>
-                                                <option value="TORNO CNC">TORNO CNC</option>
+                                            <select style="width:250px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">
+                                                <option value="" selected>-- SELECCIONAR --</option>
                                                 <option value="CEPILLADO">CEPILLADO</option>
-                                                <option value="SOLDADURA">SOLDADURA</option>
+                                                <option value="CNC">CNC</option>
+                                                <option value="FRESADO">FRESADO</option>
+                                                <option value="HILOEROSION">HILOEROSION</option>
                                                 <option value="PINTURA">PINTURA</option>
-                                                <option value="ENSAMBLE">ENSAMBLE</option>
+                                                <option value="RECTIFICADO">RECTIFICADO</option>
+                                                <option value="SERVICIO">SERVICIO</option>
+                                                <option value="SOLDADURA">SOLDADURA</option>
+                                                <option value="TORNEADO">TORNEADO</option>
+                                                <option value="TORNO CNC">TORNO CNC</option>
                                             </select>
-                                            <input style="width:95px; margin-left:5px;" type="number" class="input-small form-control" id="hora" name="hora[]" step="any" placeholder="(H)" required>
-                                            <input style="width:95px; margin-left:5px;" type="number" class="input-small form-control" id="minutos" name="minutos[]" placeholder="(M)" required>
+                                            <input style="width:95px; margin-left:5px;" type="number" class="input-small form-control" id="hora" name="hora[]" step="any" placeholder="(H)">
+                                            <input style="width:95px; margin-left:5px;" type="number" class="input-small form-control" id="minutos" name="minutos[]" placeholder="(M)">
                                             <button style="margin-left:5px" type="button" class="btn btn-success btn-add" id="proceso_add">
                                                 <span class="flaticon-381-add-1" aria-hidden="true"></span>
                                             </button>
