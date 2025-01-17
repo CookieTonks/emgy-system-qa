@@ -390,7 +390,7 @@ class ordenes_controller extends Controller
 
 
             $registro_jets = new models\emgy_registros();
-            $registro_jets->ot = $request->ot;
+            $registro_jets->ot = $id;
             $registro_jets->movimiento = 'MODIFICACION - OT';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
