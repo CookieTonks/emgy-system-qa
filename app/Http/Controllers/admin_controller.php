@@ -10,8 +10,8 @@ use App\Models\registros_maquinas;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
-
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 
 class admin_controller extends Controller
@@ -55,10 +55,14 @@ class admin_controller extends Controller
 
         $usuarios_list = models\usuarios::with('clientes')->get();
 
+        $tecnicos_list =  models\user::where('role', '=', 'Programador')->get();
+        $tecnicos_count =  models\user::where('role', '=', 'Programador')->count();
+
+
 
         $ordenes_trabajadas = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->count();
 
-        return view('modulos.administrador.dashboard_administrador', compact('usuarios_list', 'proveedores_list', 'maquinas_list', 'empresas', 'maquinas_conteo', 'proveedor_conteo', 'clientes_conteo', 'usuarios_conteo', 'notificaciones', 'clientes', 'tecnicos', 'datos_maquina', 'fecha', 'datos_ordenf', 'datos_ordena', 'datos_ordenp', 'maquinas', 'ordenes_asignadas', 'ordenes_finalizadas', 'ordenes_pendientes', 'clientes_ordenes'));
+        return view('modulos.administrador.dashboard_administrador', compact('tecnicos_count', 'tecnicos_list', 'usuarios_list', 'proveedores_list', 'maquinas_list', 'empresas', 'maquinas_conteo', 'proveedor_conteo', 'clientes_conteo', 'usuarios_conteo', 'notificaciones', 'clientes', 'tecnicos', 'datos_maquina', 'fecha', 'datos_ordenf', 'datos_ordena', 'datos_ordenp', 'maquinas', 'ordenes_asignadas', 'ordenes_finalizadas', 'ordenes_pendientes', 'clientes_ordenes'));
     }
     public function index(Request $request)
     {
@@ -194,6 +198,34 @@ class admin_controller extends Controller
             return back()->with('mensaje-success', 'Maquina eliminada correctamente.');
         } catch (\Throwable $th) {
             return back()->with('mensaje-error', '¡Hubo un problema al eliminar la maquina, por favor intenta de nuevo!' . $th);
+        }
+    }
+
+
+    public function alta_tecnico(Request $request)
+    {
+        try {
+            $tecnico = new models\user();
+            $tecnico->name = $request->nombre;
+            $tecnico->email = $request->email;
+            $tecnico->role = "Programador";
+            $password = Str::random(10);
+            $tecnico->password = Hash::make($password);
+            $tecnico->save();
+            return back()->with('mensaje-success', 'Tecnico agregado correctamente.');
+        } catch (\Throwable $th) {
+            return back()->with('mensaje-error', '¡Hubo un problema al agregar el tecnico, por favor intenta de nuevo!' . $th);
+        }
+    }
+
+    public function borrar_tecnico($id)
+    {
+        try {
+            $tecnico =  models\user::findOrFail($id);
+            $tecnico->delete();
+            return back()->with('mensaje-success', 'Tecnico eliminado correctamente.');
+        } catch (\Throwable $th) {
+            return back()->with('mensaje-error', '¡Hubo un problema al eliminar el tecnico, por favor intenta de nuevo!' . $th);
         }
     }
 }

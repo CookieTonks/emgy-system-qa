@@ -284,114 +284,107 @@
                         </ol>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="hk-row">
-
-                            <div class="col-sm-12">
-                                <div class="card-group hk-dash-type-2">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between mb-5">
-                                                <div>
-                                                    <span class="d-block font-15 text-dark font-weight-500">Alta cliente</span>
-                                                </div>
-                                                <div>
-                                                    <!-- Botón para dar de alta clientes -->
-                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_cliente">
-                                                        <i class="material-icons">+</i>
-                                                    </button>
-                                                    <!-- Botón para ver clientes dados de alta -->
-                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_clientes">
-                                                        <i class="material-icons">ver</i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <span class="d-block display-4 text-dark mb-5">{{$clientes_conteo}}</span>
-
-                                            <div>
-                                            </div>
+                        <div class="d-flex flex-wrap justify-content-between">
+                            <div class="card card-sm flex-fill mx-2 my-2" style="min-width: 200px; min-height: 250px;">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <div>
+                                            <span class="d-block font-15 text-dark font-weight-500">Cliente</span>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_cliente">
+                                                <i class="material-icons">+</i>
+                                            </button>
+                                            <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_clientes">
+                                                <i class="material-icons">ver</i>
+                                            </button>
                                         </div>
                                     </div>
-
-
-
-
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between mb-5">
-                                                <div>
-                                                    <span class="d-block font-15 text-dark font-weight-500">Alta usuario</span>
-                                                </div>
-                                                <div>
-                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_usuario">
-                                                        <i class="material-icons">+</i>
-                                                    </button>
-
-                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_usuarios">
-                                                        <i class="material-icons">ver</i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <span class="d-block display-4 text-dark mb-5"><span class="counter-anim">{{$usuarios_conteo}}</span></span>
-                                                <small class="d-block"></small>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between mb-5">
-                                                <div>
-                                                    <span class="d-block font-15 text-dark font-weight-500">Alta proveedor</span>
-                                                </div>
-                                                <div>
-                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_proveedor">
-                                                        <i class="material-icons">+</i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_proveedores">
-                                                        <i class="material-icons">ver</i>
-                                                    </button>
-
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <span class="d-block display-4 text-dark mb-5">{{$proveedor_conteo}}</span>
-                                                <small class="d-block"></small>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between mb-5">
-                                                <div>
-                                                    <span class="d-block font-15 text-dark font-weight-500">Alta maquina</span>
-                                                </div>
-                                                <div>
-                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_maquina">
-                                                        <i class="material-icons">+</i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_maquinas">
-                                                        <i class="material-icons">ver</i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <span class="d-block display-4 text-dark mb-5">{{$maquinas_conteo}}</span>
-                                                <small class="d-block"></small>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <span class="d-block display-4 text-dark mb-5">{{$clientes_conteo}}</span>
                                 </div>
                             </div>
-                            <hr class="hr" />
-                            <br>
+
+                            <div class="card card-sm flex-fill mx-2 my-2" style="min-width: 200px; min-height: 250px;">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <div>
+                                            <span class="d-block font-15 text-dark font-weight-500">Usuario</span>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_usuario">
+                                                <i class="material-icons">+</i>
+                                            </button>
+                                            <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_usuarios">
+                                                <i class="material-icons">ver</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <span class="d-block display-4 text-dark mb-5">{{$usuarios_conteo}}</span>
+                                </div>
+                            </div>
+
+                            <div class="card card-sm flex-fill mx-2 my-2" style="min-width: 200px; min-height: 250px;">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <div>
+                                            <span class="d-block font-15 text-dark font-weight-500">Proveedor</span>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_proveedor">
+                                                <i class="material-icons">+</i>
+                                            </button>
+                                            <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_proveedores">
+                                                <i class="material-icons">ver</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <span class="d-block display-4 text-dark mb-5">{{$proveedor_conteo}}</span>
+                                </div>
+                            </div>
+
+                            <div class="card card-sm flex-fill mx-2 my-2" style="min-width: 200px; min-height: 250px;">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <div>
+                                            <span class="d-block font-15 text-dark font-weight-500">Maquina</span>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_maquina">
+                                                <i class="material-icons">+</i>
+                                            </button>
+                                            <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_maquinas">
+                                                <i class="material-icons">ver</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <span class="d-block display-4 text-dark mb-5">{{$maquinas_conteo}}</span>
+                                </div>
+                            </div>
+
+                            <div class="card card-sm flex-fill mx-2 my-2" style="min-width: 200px; min-height: 250px;">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <div>
+                                            <span class="d-block font-15 text-dark font-weight-500">Tecnicos</span>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_tecnico">
+                                                <i class="material-icons">+</i>
+                                            </button>
+                                            <button type="button" class="btn btn-light ml-2" data-toggle="modal" data-target="#ver_tecnicos">
+                                                <i class="material-icons">ver</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <span class="d-block display-4 text-dark mb-5">{{$tecnicos_count}}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-sm-12">
                     <div class="card-group hk-dash-type-2">
@@ -728,7 +721,40 @@
                     </div>
                 </div>
 
+                <div class="modal fade" id="ver_tecnicos" tabindex="-1" role="dialog" aria-labelledby="verMaquinasLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="verMaquinasLabel">Tecnicos dados de alta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Aquí mostramos la lista de máquinas -->
+                                @foreach($tecnicos_list as $tecnico)
+                                <ul>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{$tecnico->name}}
 
+                                        <form action="{{ route('borrar_tecnico', $tecnico->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                                X
+                                            </button>
+                                        </form>
+
+                                    </li>
+                                </ul>
+                                @endforeach
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- <div class="hk-row">
                     <div class="col-lg-12">
@@ -942,6 +968,42 @@
                                 <label for="ano">Año</label>
                                 <input name="ano" class="form-control" id="ano" placeholder="" value="" type="text">
                             </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="alta_tecnico" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nuevo: Tecnico</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('alta_tecnico')}}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="usuario">Nombre</label>
+                                <input name="nombre" class="form-control" id="nombre" placeholder="" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12 form-group">
+                                <label for="usuario">Email</label>
+                                <input name="email" class="form-control" id="email" placeholder="" value="" type="text">
+                            </div>
+
                         </div>
                         <br>
                         <button type="submit" class="btn btn-block btn-primary">Registrar</button>

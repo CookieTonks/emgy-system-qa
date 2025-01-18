@@ -132,6 +132,8 @@ Route::post('/alta_proveedor', [App\Http\Controllers\admin_controller::class, 'a
 Route::delete('/borrar_proveedor/{id}', [App\Http\Controllers\admin_controller::class, 'borrar_proveedor'])->name('borrar_proveedor')->middleware('facturacion_middleware');
 Route::post('/alta_maquina', [App\Http\Controllers\admin_controller::class, 'alta_maquina'])->name('alta_maquina')->middleware('facturacion_middleware');
 Route::delete('/borrar_maquina/{id}', [App\Http\Controllers\admin_controller::class, 'borrar_maquina'])->name('borrar_maquina')->middleware('facturacion_middleware');
+Route::post('/alta_tecnico', [App\Http\Controllers\admin_controller::class, 'alta_tecnico'])->name('alta_tecnico')->middleware('facturacion_middleware');
+Route::delete('/borrar_tecnico/{id}', [App\Http\Controllers\admin_controller::class, 'borrar_tecnico'])->name('borrar_tecnico')->middleware('facturacion_middleware');
 
 
 Route::controller(admin_controller::class)->group(function () {
