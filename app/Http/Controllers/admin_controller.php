@@ -55,8 +55,8 @@ class admin_controller extends Controller
 
         $usuarios_list = models\usuarios::with('clientes')->get();
 
-        $tecnicos_list =  models\user::where('role', '=', 'Programador')->get();
-        $tecnicos_count =  models\user::where('role', '=', 'Programador')->count();
+        $tecnicos_list =  models\User::where('role', '=', 'Programador')->get();
+        $tecnicos_count =  models\User::where('role', '=', 'Programador')->count();
 
 
 

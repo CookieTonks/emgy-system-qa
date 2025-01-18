@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Models;
 use App\Models\materiales;
 use App\Models\Order;
-use App\Models\User;
 
 use PDF;
 use Illuminate\Support\Facades\Auth;
