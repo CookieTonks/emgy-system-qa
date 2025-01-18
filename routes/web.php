@@ -125,9 +125,13 @@ Route::get('/buscador_facturacion', [App\Http\Controllers\facturacion_controller
 
 Route::get('/dashboard_administrador', [App\Http\Controllers\admin_controller::class, 'dashboard_administrador'])->name('dashboard_administrador');
 Route::post('/alta_cliente', [App\Http\Controllers\admin_controller::class, 'alta_cliente'])->name('alta_cliente')->middleware('facturacion_middleware');
+Route::delete('/borrar_cliente/{id}', [App\Http\Controllers\admin_controller::class, 'borrar_cliente'])->name('borrar_cliente')->middleware('facturacion_middleware');
 Route::post('/alta_usuario', [App\Http\Controllers\admin_controller::class, 'alta_usuario'])->name('alta_usuario')->middleware('facturacion_middleware');
+Route::delete('/borrar_usuario/{id}', [App\Http\Controllers\admin_controller::class, 'borrar_usuario'])->name('borrar_usuario')->middleware('facturacion_middleware');
 Route::post('/alta_proveedor', [App\Http\Controllers\admin_controller::class, 'alta_proveedor'])->name('alta_proveedor')->middleware('facturacion_middleware');
+Route::delete('/borrar_proveedor/{id}', [App\Http\Controllers\admin_controller::class, 'borrar_proveedor'])->name('borrar_proveedor')->middleware('facturacion_middleware');
 Route::post('/alta_maquina', [App\Http\Controllers\admin_controller::class, 'alta_maquina'])->name('alta_maquina')->middleware('facturacion_middleware');
+Route::delete('/borrar_maquina/{id}', [App\Http\Controllers\admin_controller::class, 'borrar_maquina'])->name('borrar_maquina')->middleware('facturacion_middleware');
 
 
 Route::controller(admin_controller::class)->group(function () {

@@ -55,7 +55,7 @@ class admin_controller extends Controller
 
         $usuarios_list = models\usuarios::with('clientes')->get();
 
-     
+
         $ordenes_trabajadas = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->count();
 
         return view('modulos.administrador.dashboard_administrador', compact('usuarios_list', 'proveedores_list', 'maquinas_list', 'empresas', 'maquinas_conteo', 'proveedor_conteo', 'clientes_conteo', 'usuarios_conteo', 'notificaciones', 'clientes', 'tecnicos', 'datos_maquina', 'fecha', 'datos_ordenf', 'datos_ordena', 'datos_ordenp', 'maquinas', 'ordenes_asignadas', 'ordenes_finalizadas', 'ordenes_pendientes', 'clientes_ordenes'));
@@ -118,6 +118,18 @@ class admin_controller extends Controller
         return back()->with('mensaje-success', '¡Nuevo cliente registrado con éxito!');
     }
 
+    public function borrar_cliente($id)
+    {
+        try {
+            $usuario = models\cliente::findOrFail($id);
+            $usuario->delete();
+
+            return back()->with('mensaje-success', 'Cliente eliminado correctamente.');
+        } catch (\Throwable $th) {
+            return back()->with('mensaje-error', '¡Hubo un problema al eliminar el cliente, por favor intenta de nuevo!' . $th);
+        }
+    }
+
     public function alta_usuario(Request $request)
     {
         $usuario = new models\usuarios();
@@ -127,6 +139,19 @@ class admin_controller extends Controller
         return back()->with('mensaje-success', '¡Nuevo usuario registrado con éxito!');
     }
 
+
+    public function borrar_usuario($id)
+    {
+        try {
+            $usuario = models\usuarios::findOrFail($id);
+            $usuario->delete();
+
+            return back()->with('mensaje-success', 'Usuario eliminado correctamente.');
+        } catch (\Throwable $th) {
+            return back()->with('mensaje-error', '¡Hubo un problema al eliminar el usuario, por favor intenta de nuevo!' . $th);
+        }
+    }
+
     public function alta_proveedor(Request $request)
     {
         $proveedor = new  models\proveedor();
@@ -134,6 +159,18 @@ class admin_controller extends Controller
         $proveedor->save();
 
         return back()->with('mensaje-success', '¡Nuevo proveedor registrado con éxito!');
+    }
+
+
+    public function borrar_proveedor($id)
+    {
+        try {
+            $proveedor = models\proveedor::findOrFail($id);
+            $proveedor->delete();
+            return back()->with('mensaje-success', 'Proveedor eliminado correctamente.');
+        } catch (\Throwable $th) {
+            return back()->with('mensaje-error', '¡Hubo un problema al eliminar el proveedor, por favor intenta de nuevo!' . $th);
+        }
     }
 
     public function alta_maquina(Request $request)
@@ -147,5 +184,16 @@ class admin_controller extends Controller
         $maquina->ano = $request->ano;
         $maquina->save();
         return back()->with('mensaje-success', '¡Nueva maquina registrado con éxito!');
+    }
+
+    public function borrar_maquina($id)
+    {
+        try {
+            $proveedor = models\maquinas::findOrFail($id);
+            $proveedor->delete();
+            return back()->with('mensaje-success', 'Maquina eliminada correctamente.');
+        } catch (\Throwable $th) {
+            return back()->with('mensaje-error', '¡Hubo un problema al eliminar la maquina, por favor intenta de nuevo!' . $th);
+        }
     }
 }

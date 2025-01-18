@@ -599,8 +599,18 @@
 
                                 @foreach($clientes as $cliente)
                                 <ul>
-                                    <li>{{$cliente->cliente}}</li>
 
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{$cliente->cliente}}
+                                        <form action="{{ route('borrar_cliente', $cliente->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                                X
+                                            </button>
+                                        </form>
+
+                                    </li>
                                 </ul>
                                 @endforeach
                             </div>
@@ -625,7 +635,17 @@
                                 <!-- Aquí mostramos la lista de máquinas -->
                                 @foreach($maquinas_list as $maquina)
                                 <ul>
-                                    <li>{{$maquina->codigo}}</li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{$maquina->codigo}}
+
+                                        <form action="{{ route('borrar_maquina', $maquina->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                                X
+                                            </button>
+                                        </form>
+                                    </li>
                                 </ul>
                                 @endforeach
                             </div>
@@ -650,7 +670,16 @@
                                 <!-- Aquí mostramos la lista de máquinas -->
                                 @foreach($proveedores_list as $proveedor)
                                 <ul>
-                                    <li>{{$proveedor->nombre}}</li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{$proveedor->nombre}}
+                                        <form action="{{ route('borrar_proveedor', $proveedor->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                                X
+                                            </button>
+                                        </form>
+                                    </li>
                                 </ul>
                                 @endforeach
                             </div>
@@ -660,8 +689,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <div class="modal fade" id="ver_usuarios" tabindex="-1" role="dialog" aria-labelledby="verMaquinasLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -673,12 +700,26 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <!-- Aquí mostramos la lista de máquinas -->
-                                @foreach($usuarios_list as $usuario)
+                                <!-- Lista de usuarios -->
+                                @if($usuarios_list->isNotEmpty())
                                 <ul>
-                                    <li>{{$usuario->clientes->cliente}} - {{$usuario->name}}</li>
+                                    @foreach($usuarios_list as $usuario)
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{$usuario->clientes->cliente}} - {{$usuario->name}}
+                                        <!-- Botón para eliminar -->
+                                        <form action="{{ route('borrar_usuario', $usuario->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                                X
+                                            </button>
+                                        </form>
+                                    </li>
+                                    @endforeach
                                 </ul>
-                                @endforeach
+                                @else
+                                <p>No hay usuarios registrados.</p>
+                                @endif
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -686,6 +727,7 @@
                         </div>
                     </div>
                 </div>
+
 
 
                 <!-- <div class="hk-row">
