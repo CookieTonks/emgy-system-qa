@@ -453,7 +453,7 @@
                             <div class="row">
                                 <div class="col-md-4 form-group">
                                     <label for="Monto">P/U</label>
-                                    <input class="form-control" id="monto" name="monto" placeholder="" value="" type="number">
+                                    <input class="form-control" id="monto" name="monto" placeholder="" value="" type="number" step="0.01">
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label for="Moneda">Moneda</label>
