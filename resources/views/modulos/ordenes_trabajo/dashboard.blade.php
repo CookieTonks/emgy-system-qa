@@ -319,7 +319,7 @@
                                 <th>Usuario</th>
                                 <th>Descripcion</th>
                                 <th>Cantidad</th>
-                                <th>Vendeador</th>
+                                <th>Vendedoror</th>
                             </tr>
                         </thead>
                         <tbody>
