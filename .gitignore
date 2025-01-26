@@ -20,3 +20,4 @@ yarn-error.log
 composer.lock
 .htaccess 
 public/error_log  
+/storage/app/public/dibujos/
