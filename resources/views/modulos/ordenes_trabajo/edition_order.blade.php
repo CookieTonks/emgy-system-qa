@@ -430,32 +430,9 @@
                                         </div>
                                         <!-- Botón para abrir el modal -->
                                         <div class="col-md-4 form-group">
-                                            <button type="button" class="btn btn-block btn-info" data-bs-toggle="modal" data-bs-target="#uploadDibujoModal">Cargar dibujo</button>
-                                        </div>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="uploadDibujoModal" tabindex="-1" aria-labelledby="uploadDibujoModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <form id="uploadDibujoForm" action="{{ route('upload_dibujo', ['id' => $order->id]) }}" method="POST" enctype="multipart/form-data">
-                                                        @csrf
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="uploadDibujoModalLabel">Cargar Dibujo</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="form-group">
-                                                                <label for="dibujo">Seleccionar dibujo (PDF):</label>
-                                                                <input type="file" name="dibujo" id="dibujo" class="form-control" accept=".pdf" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                            <button type="submit" class="btn btn-primary">Subir Dibujo</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            <button type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#uploadDibujoModal">
+                                                Cargar dibujo
+                                            </button>
                                         </div>
 
                                         <div class="col-md-4 form-group">
@@ -464,14 +441,6 @@
                                         </div>
                                     </div>
                                 </form>
-
-                                <script>
-                                    document.getElementById('uploadDibujoForm').addEventListener('submit', function() {
-                                        const submitButton = this.querySelector('button[type="submit"]');
-                                        submitButton.disabled = true;
-                                        submitButton.innerHTML = 'Subiendo...';
-                                    });
-                                </script>
 
                             </div>
                         </div>
@@ -499,6 +468,32 @@
 
 
         <!-- Inicio de Modales -->
+        <!-- Modal -->
+        <div class="modal fade" id="uploadDibujoModal" tabindex="-1" role="dialog" aria-labelledby="uploadDibujoModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="uploadDibujoForm" action="{{ route('upload_dibujo', ['id' => $order->id]) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="uploadDibujoModalLabel">Subir Dibujo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="dibujo">Seleccionar dibujo (PDF):</label>
+                                <input type="file" name="dibujo" id="dibujo" class="form-control" accept=".pdf" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Subir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Final de modales -->
@@ -508,6 +503,8 @@
     ***********************************-->
 
     <!-- inicio de scripts -->
+
+
 
 
 
