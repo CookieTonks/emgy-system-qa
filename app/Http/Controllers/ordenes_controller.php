@@ -457,4 +457,33 @@ class ordenes_controller extends Controller
     {
         return Excel::download(new Produccion(), 'ordenes.xlsx');
     }
+
+    public function uploadDibujo(Request $request, $id)
+    {
+        // Validar archivo
+        $request->validate([
+            'dibujo' => 'required|file|mimes:pdf|max:2048',
+        ]);
+
+        // Verificar y procesar archivo
+        if ($request->hasFile('dibujo') && $request->file('dibujo')->isValid()) {
+            // Subir archivo
+            Storage::disk('public')->putFileAs(
+                'dibujos/' . $id,
+                $request->file('dibujo'),
+                $id . '.pdf'
+            );
+
+            // Actualizar estado en la base de datos
+            $alta_ruta = models\emgy_rutas::where('ot', '=', $id)->first();
+            if ($alta_ruta) {
+                $alta_ruta->sistema_ingenieria = 'DONE';
+                $alta_ruta->save();
+            }
+
+            return back()->with('success', 'Dibujo cargado correctamente.');
+        }
+
+        return back()->with('error', 'Error al cargar el dibujo.');
+    }
 }

@@ -46,6 +46,7 @@ Route::post('/dashboard_ordenes/', [App\Http\Controllers\ordenes_controller::cla
 Route::get('/order_pdf/{id}', [App\Http\Controllers\ordenes_controller::class, 'order_pdf'])->name('order_pdf')->middleware('ordenes_middleware');
 Route::get('/edition_order/{id}', [App\Http\Controllers\ordenes_controller::class, 'edition_order'])->name('edition_order')->middleware('ordenes_middleware');
 Route::post('/edition_order/{id}', [App\Http\Controllers\ordenes_controller::class, 'edition_order_save'])->name('edition_order_save')->middleware('ordenes_middleware');
+Route::post('/upload-dibujo/{id}', [App\Http\Controllers\ordenes_controller::class, 'uploadDibujo'])->name('upload_dibujo');
 
 Route::get('/material_order/{id}', [App\Http\Controllers\ordenes_controller::class, 'material_order'])->name('material_order')->middleware('ordenes_middleware');
 Route::post('/material_register/}', [App\Http\Controllers\ordenes_controller::class, 'material_register'])->name('material_register')->middleware('ordenes_middleware');

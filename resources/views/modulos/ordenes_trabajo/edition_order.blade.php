@@ -425,16 +425,53 @@
 
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-6 form-group">
+                                        <div class="col-md-4 form-group">
                                             <a href="{{route('dashboard_ordenes')}}" class="btn btn-block btn-success">Regresar</a>
-
                                         </div>
-                                        <div class="col-md-6 form-group">
+                                        <!-- Botón para abrir el modal -->
+                                        <div class="col-md-4 form-group">
+                                            <button type="button" class="btn btn-block btn-info" data-bs-toggle="modal" data-bs-target="#uploadDibujoModal">Cargar dibujo</button>
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="uploadDibujoModal" tabindex="-1" aria-labelledby="uploadDibujoModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form id="uploadDibujoForm" action="{{ route('upload_dibujo', ['id' => $order->id]) }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="uploadDibujoModalLabel">Cargar Dibujo</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label for="dibujo">Seleccionar dibujo (PDF):</label>
+                                                                <input type="file" name="dibujo" id="dibujo" class="form-control" accept=".pdf" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                            <button type="submit" class="btn btn-primary">Subir Dibujo</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 form-group">
                                             <button type="submit" class="btn btn-block btn-primary">Registrar</button>
 
                                         </div>
                                     </div>
                                 </form>
+
+                                <script>
+                                    document.getElementById('uploadDibujoForm').addEventListener('submit', function() {
+                                        const submitButton = this.querySelector('button[type="submit"]');
+                                        submitButton.disabled = true;
+                                        submitButton.innerHTML = 'Subiendo...';
+                                    });
+                                </script>
 
                             </div>
                         </div>
