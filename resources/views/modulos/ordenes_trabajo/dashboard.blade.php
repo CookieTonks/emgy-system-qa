@@ -332,7 +332,7 @@
                                     <a href="{{route('ruta_ot', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-route"></i></a>
                                 </td>
                                 <td>
-                                    <a target="_blank" href="{{ asset('storage/dibujos/' . $order->id . '/' . $order->id . '.pdf') }}">
+                                    <a target="_blank" href="{{ asset('storage/app/public/dibujos/' . $order->id . '/' . $order->id . '.pdf') }}">
                                         {{ $order->id }}
                                     </a>
                                 </td>
