@@ -332,8 +332,11 @@
                                     <a href="{{route('ruta_ot', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-route"></i></a>
                                 </td>
                                 <td>
-                                    <a target="_blank" href="public/storage/dibujos/{{$order->id}}/{{$order->id}}.pdf">{{$order->id}}</a>
+                                    <a target="_blank" href="{{ asset('storage/dibujos/' . $order->id . '/' . $order->id . '.pdf') }}?t={{ \Carbon\Carbon::now()->timestamp }}">
+                                        {{ $order->id }}
+                                    </a>
                                 </td>
+
                                 <td>{{$order->cliente}}</td>
                                 <td>{{$order->usuario}}</td>
                                 <td>{{$order->descripcion}}</td>
