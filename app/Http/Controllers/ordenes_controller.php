@@ -481,9 +481,9 @@ class ordenes_controller extends Controller
                 $alta_ruta->save();
             }
 
-            return back()->with('success', 'Dibujo cargado correctamente.');
+            return back()->with('mensaje-success', 'Dibujo cargado correctamente.');
         }
 
-        return back()->with('error', 'Error al cargar el dibujo.');
+        return back()->with('mensaje-error', 'Error al cargar el dibujo.');
     }
 }
