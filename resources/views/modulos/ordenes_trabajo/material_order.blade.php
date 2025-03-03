@@ -46,7 +46,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="/dashboard" class="brand-logo">
                 <img class="logo-abbr" src="../images/iconos/logo-compact.png" alt="">
                 <img class="logo-compact" src="../images/iconos/logo-compact.png" alt="">
                 <img class="brand-title" src="../images/iconos/logo-text.png" alt="">
@@ -212,23 +212,24 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-compass-2"></i>
-                            <span class="nav-text">Embarques</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{route ('dashboard_embarques')}}">Dashboard: Embarques</a></li>
-                            <li><a href="{{route ('buscador_embarques')}}">Buscador: Embarques</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{route ('dashboard_facturacion')}}">Dashboard: Facturacion</a></li>
                             <li><a href="{{route ('buscador_facturacion')}}">Buscador: Facturacion</a></li>
+                        </ul>
+                    </li>
+
+
+<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-compass-2"></i>
+                            <span class="nav-text">Embarques</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route ('dashboard_embarques')}}">Dashboard: Embarques</a></li>
+                            <li><a href="{{route ('buscador_embarques')}}">Buscador: Embarques</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -301,7 +302,7 @@
                                                         <thead class="thead-primary">
                                                             <tr>
                                                                 <th>
-                                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalForms">
+                                                                    <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#exampleModalForms">
                                                                         <i class="icon-plus">Agregar</i>
                                                                     </button>
                                                                 </th>

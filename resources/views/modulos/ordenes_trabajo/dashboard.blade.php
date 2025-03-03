@@ -64,7 +64,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="/dashboard" class="brand-logo">
                 <img class="logo-abbr" src="images/iconos/logo-compact.png" alt="">
                 <img class="logo-compact" src="images/iconos/logo-compact.png" alt="">
                 <img class="brand-title" src="images/iconos/logo-text.png" alt="">
@@ -230,23 +230,24 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-compass-2"></i>
-                            <span class="nav-text">Embarques</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{route ('dashboard_embarques')}}">Dashboard: Embarques</a></li>
-                            <li><a href="{{route ('buscador_embarques')}}">Buscador: Embarques</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{route ('dashboard_facturacion')}}">Dashboard: Facturacion</a></li>
                             <li><a href="{{route ('buscador_facturacion')}}">Buscador: Facturacion</a></li>
+                        </ul>
+                    </li>
+
+
+<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-compass-2"></i>
+                            <span class="nav-text">Embarques</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route ('dashboard_embarques')}}">Dashboard: Embarques</a></li>
+                            <li><a href="{{route ('buscador_embarques')}}">Buscador: Embarques</a></li>
                         </ul>
                     </li>
 
@@ -320,30 +321,73 @@
                                 <th>Descripcion</th>
                                 <th>Cantidad</th>
                                 <th>Vendedor</th>
+                                <th>Tipo</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($orders as $order)
+                            @if($order->prioridad == 'Urgente')
                             <tr>
+                                <td style="width: 300px;background-color:rgb(226, 119, 97) !important;">
+                                    <a target="_blank" href="{{route('order_pdf', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                    <a target="_blank" href="{{route('edition_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-edit"></i></a>
+                                    <a href="{{route('material_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-list"></i></a>
+                                    <a href="{{route('ruta_ot', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-route"></i></a>
+                                </td>
+                                <td style="background-color:rgb(226, 119, 97) !important; color: white !important;">
+                                    <a target="_blank" href="{{ asset('storage/dibujos/' . $order->id . '/' . $order->id . '.pdf') }}?t={{ \Carbon\Carbon::now()->timestamp }}">
+                                        {{ $order->id }}
+                                    </a>
+                                </td>
+
+                                <td style="background-color:rgb(226, 119, 97) !important; color: white !important;">
+                                    {{$order->cliente}}
+                                </td>
+                                <td style="background-color:rgb(226, 119, 97) !important; color: white !important;">
+                                    {{$order->usuario}}
+                                </td>
+                                <td style="background-color:rgb(226, 119, 97) !important; color: white !important;">
+                                    {{$order->descripcion}}
+                                </td>
+                                <td style="background-color:rgb(226, 119, 97) !important; color: white !important;">
+                                    {{$order->cantidad}}
+                                </td>
+                                <td style="background-color:rgb(226, 119, 97) !important; color: white !important;">
+                                    {{$order->vendedor}}
+                                </td>
+                                <td style="background-color:rgb(226, 119, 97) !important; color: white !important;">
+                                    {{$order->prioridad}}
+                                </td>
+                            </tr>
+                            @else
+                            <tr style="background-color: royalblue !important;">
                                 <td style="width: 300px;">
                                     <a target="_blank" href="{{route('order_pdf', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
                                     <a target="_blank" href="{{route('edition_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-edit"></i></a>
                                     <a href="{{route('material_order', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-list"></i></a>
                                     <a href="{{route('ruta_ot', $order->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-route"></i></a>
                                 </td>
-                                <td>
-                                    <a target="_blank" href="{{ asset('storage/dibujos/' . $order->id . '/' . $order->id . '.pdf') }}?t={{ \Carbon\Carbon::now()->timestamp }}">
+                                <td> <a target="_blank" href="{{ asset('storage/dibujos/' . $order->id . '/' . $order->id . '.pdf') }}?t={{ \Carbon\Carbon::now()->timestamp }}">
                                         {{ $order->id }}
                                     </a>
                                 </td>
 
-                                <td>{{$order->cliente}}</td>
-                                <td>{{$order->usuario}}</td>
-                                <td>{{$order->descripcion}}</td>
-                                <td>{{$order->cantidad}}</td>
-                                <td>{{$order->vendedor}}</td>
-
+                                <td> {{$order->cliente}}
+                                </td>
+                                <td> {{$order->usuario}}
+                                </td>
+                                <td> {{$order->descripcion}}
+                                </td>
+                                <td>
+                                    {{$order->cantidad}}
+                                </td>
+                                <td>
+                                    {{$order->vendedor}}
+                                </td>
+                                <td> {{$order->prioridad}}
+                                </td>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                         <tfoot>
@@ -355,6 +399,7 @@
                                 <th>Descripcion</th>
                                 <th>Cantidad</th>
                                 <th>Vendedor</th>
+                                <th>Tipo</th>
                             </tr>
                         </tfoot>
                     </table>

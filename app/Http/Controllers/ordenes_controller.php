@@ -198,18 +198,18 @@ class ordenes_controller extends Controller
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
 
-            if ($alta_orden->prioridad == 'Urgente') {
-                $registro_notificacion = new models\notifications();
-                $registro_notificacion->ot = $alta_orden->id;
-                $registro_notificacion->cliente = $alta_orden->cliente;
-                $registro_notificacion->estatus = 'Urgente';
-                $registro_notificacion->save();
-            }
+            // if ($alta_orden->prioridad == 'Urgente') {
+            //     $registro_notificacion = new models\notifications();
+            //     $registro_notificacion->ot = $alta_orden->id;
+            //     $registro_notificacion->cliente = $alta_orden->cliente;
+            //     $registro_notificacion->estatus = 'Urgente';
+            //     $registro_notificacion->save();
+            // }
 
-            $mailData = [
-                'title' => 'Notificación del sistema',
-                'body' => ''
-            ];
+            // $mailData = [
+            //     'title' => 'Notificación del sistema',
+            //     'body' => ''
+            // ];
 
 
             if ($alta_orden->tipo_dibujo == 'Cliente') {
@@ -252,15 +252,15 @@ class ordenes_controller extends Controller
             }
 
 
-            if ($alta_orden->prioridad == 'Urgente') {
-                $orden = Order::where('id', '=', $alta_orden->id)->first();
+            // if ($alta_orden->prioridad == 'Urgente') {
+            //     $orden = Order::where('id', '=', $alta_orden->id)->first();
 
-                Mail::to('faciljets@gmail.com')->send(new DemoMail($mailData, $orden));
-                Mail::to('progjets01@gmail.com')->send(new DemoMail($mailData, $orden));
-                Mail::to('almacenjets@gmail.com')->send(new DemoMail($mailData, $orden));
-                Mail::to('calidadjets@gmail.com')->send(new DemoMail($mailData, $orden));
-                Mail::to('miriamdominguez.e@gmail.com')->send(new DemoMail($mailData, $orden));
-            }
+            //     Mail::to('faciljets@gmail.com')->send(new DemoMail($mailData, $orden));
+            //     Mail::to('progjets01@gmail.com')->send(new DemoMail($mailData, $orden));
+            //     Mail::to('almacenjets@gmail.com')->send(new DemoMail($mailData, $orden));
+            //     Mail::to('calidadjets@gmail.com')->send(new DemoMail($mailData, $orden));
+            //     Mail::to('miriamdominguez.e@gmail.com')->send(new DemoMail($mailData, $orden));
+            // }
             return back()->with('mensaje-success', '¡Orden de trabajo realizada con exito!');
         } catch (\Exception $e) {
 
