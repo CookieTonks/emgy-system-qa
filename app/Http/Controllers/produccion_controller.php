@@ -344,127 +344,133 @@ class produccion_controller extends Controller
     public function  tareas_supervisor(Request $request)
     {
 
-        dd($request->all());
+        try {
+            if ($request->tarea_supervisor === 'Inicio') {
+                $now = Carbon::now();
+
+                $orden_programador = models\production::where('id', '=', $orden)->first();
+
+                $registro_maquina = models\registros_maquinas::updateOrCreate(
+                    [
+                        'ot' => $orden_programador->ot,
+                        'tipo' => 'INICIO'
+                    ],
+                    [
+                        'hora' => $now,
+                        'responsable' => Auth::user()->name
+                    ]
+                );
+
+                $orden_programador->tiempo_inicio = $now;
+                $orden_programador->estatus = 'EN MAQUINA';
+                $orden_programador->save();
+
+
+                $registro_emgy = new models\emgy_registros();
+                $registro_emgy->ot = $orden_programador->ot;
+                $registro_emgy->movimiento = 'PRODUCCION - INICIADA';
+                $registro_emgy->responsable = Auth::user()->name;
+                $registro_emgy->save();
+
+
+
+
+                return back()->with('mensaje-success', '¡OT iniciada a las: ' . $now . ' registrada');
+            } elseif ($request->tarea_supervisor === 'Pausa') {
+                $now = Carbon::now();
+
+                $orden_programador = models\production::where('id', '=', $orden)->first();
+
+                if ($orden_programador->tiempo_inicio == '') {
+                    return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
+                } else {
+
+                    $registro_maquina = new models\registros_maquinas();
+                    $registro_maquina->ot = $orden_programador->ot;
+                    $registro_maquina->tipo = 'PAUSADA';
+                    $registro_maquina->hora = $now;
+                    $registro_maquina->responsable = Auth::user()->name;
+                    $registro_maquina->save();
+
+                    $orden_programador->tiempo_final = $now;
+                    $orden_programador->estatus = 'EN ESPERA';
+
+                    $minutos = (strtotime($orden_programador->tiempo_inicio) - strtotime($orden_programador->tiempo_final)) / 60;
+                    $minutos = abs($minutos);
+                    $minutos = floor($minutos);
+
+
+                    $orden_programador->tiempo_progreso = $orden_programador->tiempo_progreso + $minutos;
+                    $orden_programador->save();
+
+                    $orden_programador_limpia = models\production::where('id', '=', $orden)->first();
+                    $orden_programador_limpia->tiempo_inicio = '';
+                    $orden_programador_limpia->tiempo_final = '';
+                    $orden_programador_limpia->save();
+
+
+
+                    $registro_emgy = new models\emgy_registros();
+                    $registro_emgy->ot = $orden_programador->ot;
+                    $registro_emgy->movimiento = 'PRODUCCION - PAUSADA';
+                    $registro_emgy->responsable = Auth::user()->name;
+                    $registro_emgy->save();
+                    return back()->with('mensaje-success', '¡Orden de trabajo en espera!');
+                }
+            } elseif ($request->tarea_supervisor === 'Finalizar') {
+                $now = Carbon::now();
+
+                $orden_programador = models\production::where('id', '=', $orden)->first();
+
+                if ($orden_programador->tiempo_inicio == '') {
+                    return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
+                } else {
+
+                    $registro_maquina = new models\registros_maquinas();
+                    $registro_maquina->ot = $orden_programador->ot;
+                    $registro_maquina->tipo = 'FINALIZADA';
+                    $registro_maquina->hora = $now;
+                    $registro_maquina->responsable = Auth::user()->name;
+                    $registro_maquina->c_acabado = $request->criterio_acabado;
+                    $registro_maquina->c_rebabeo = $request->criterio_rebabeo;
+                    $registro_maquina->c_machueleado = $request->criterio_machueleado;
+                    $registro_maquina->c_limpieza = $request->criterio_limpieza;
+                    $registro_maquina->c_chaflanes = $request->criterio_chaflanes;
+                    $registro_maquina->c_roscas = $request->criterio_roscas;
+                    $registro_maquina->save();
+
+
+                    $orden_programador->tiempo_final = $now;
+                    $orden_programador->estatus = 'FINALIZADA';
+
+                    $minutos = (strtotime($orden_programador->tiempo_inicio) - strtotime($orden_programador->tiempo_final)) / 60;
+                    $minutos = abs($minutos);
+                    $minutos = floor($minutos);
+
+
+                    $orden_programador->tiempo_progreso = $orden_programador->tiempo_progreso + $minutos;
+                    $orden_programador->save();
+
+                    $orden_programador_limpia = models\production::where('ot', '=', $orden)->first();
+                    $orden_programador_limpia->tiempo_final = $now;
+                    $orden_programador_limpia->pr = $orden_programador_limpia->pr + 1;
+                    $orden_programador_limpia->save();
+
+
+                    $registro_emgy = new models\emgy_registros();
+                    $registro_emgy->ot = $orden_programador->ot;
+                    $registro_emgy->movimiento = 'PRODUCCION - FINALIZADA';
+                    $registro_emgy->responsable = Auth::user()->name;
+                    $registro_emgy->save();
+
+                    return back()->with('mensaje-success', '¡Orden de trabajo finalizada!');
+                }
+            }
+        } catch (\Throwable $th) {
+            return back()->with('mensaje-error', '¡Error al actualizar el estatus!');
+        }
 
         $orden = $request->ot;
-
-        if ($request->tarea_supervisor === 'Inicio') {
-            $now = Carbon::now();
-
-            $orden_programador = models\production::where('id', '=', $orden)->first();
-
-            $registro_maquina = new models\registros_maquinas();
-            $registro_maquina->ot = $orden_programador->ot;
-            $registro_maquina->tipo = 'INICIO';
-            $registro_maquina->hora = $now;
-            $registro_maquina->responsable = Auth::user()->name;
-            $registro_maquina->save();
-
-            $orden_programador->tiempo_inicio = $now;
-            $orden_programador->estatus = 'EN MAQUINA';
-            $orden_programador->save();
-
-
-            $registro_emgy = new models\emgy_registros();
-            $registro_emgy->ot = $orden_programador->ot;
-            $registro_emgy->movimiento = 'PRODUCCION - INICIADA';
-            $registro_emgy->responsable = Auth::user()->name;
-            $registro_emgy->save();
-
-
-
-
-            return back()->with('mensaje-success', '¡OT iniciada a las: ' . $now . ' registrada');
-        } elseif ($request->tarea_supervisor === 'Pausa') {
-            $now = Carbon::now();
-
-            $orden_programador = models\production::where('id', '=', $orden)->first();
-
-            if ($orden_programador->tiempo_inicio == '') {
-                return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
-            } else {
-
-                $registro_maquina = new models\registros_maquinas();
-                $registro_maquina->ot = $orden_programador->ot;
-                $registro_maquina->tipo = 'PAUSADA';
-                $registro_maquina->hora = $now;
-                $registro_maquina->responsable = Auth::user()->name;
-                $registro_maquina->save();
-
-                $orden_programador->tiempo_final = $now;
-                $orden_programador->estatus = 'EN ESPERA';
-
-                $minutos = (strtotime($orden_programador->tiempo_inicio) - strtotime($orden_programador->tiempo_final)) / 60;
-                $minutos = abs($minutos);
-                $minutos = floor($minutos);
-
-
-                $orden_programador->tiempo_progreso = $orden_programador->tiempo_progreso + $minutos;
-                $orden_programador->save();
-
-                $orden_programador_limpia = models\production::where('id', '=', $orden)->first();
-                $orden_programador_limpia->tiempo_inicio = '';
-                $orden_programador_limpia->tiempo_final = '';
-                $orden_programador_limpia->save();
-
-
-
-                $registro_emgy = new models\emgy_registros();
-                $registro_emgy->ot = $orden_programador->ot;
-                $registro_emgy->movimiento = 'PRODUCCION - PAUSADA';
-                $registro_emgy->responsable = Auth::user()->name;
-                $registro_emgy->save();
-                return back()->with('mensaje-success', '¡Orden de trabajo en espera!');
-            }
-        } elseif ($request->tarea_supervisor === 'Finalizar') {
-            $now = Carbon::now();
-
-            $orden_programador = models\production::where('id', '=', $orden)->first();
-
-            if ($orden_programador->tiempo_inicio == '') {
-                return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
-            } else {
-
-                $registro_maquina = new models\registros_maquinas();
-                $registro_maquina->ot = $orden_programador->ot;
-                $registro_maquina->tipo = 'FINALIZADA';
-                $registro_maquina->hora = $now;
-                $registro_maquina->responsable = Auth::user()->name;
-                $registro_maquina->c_acabado = $request->criterio_acabado;
-                $registro_maquina->c_rebabeo = $request->criterio_rebabeo;
-                $registro_maquina->c_machueleado = $request->criterio_machueleado;
-                $registro_maquina->c_limpieza = $request->criterio_limpieza;
-                $registro_maquina->c_chaflanes = $request->criterio_chaflanes;
-                $registro_maquina->c_roscas = $request->criterio_roscas;
-                $registro_maquina->save();
-
-
-                $orden_programador->tiempo_final = $now;
-                $orden_programador->estatus = 'FINALIZADA';
-
-                $minutos = (strtotime($orden_programador->tiempo_inicio) - strtotime($orden_programador->tiempo_final)) / 60;
-                $minutos = abs($minutos);
-                $minutos = floor($minutos);
-
-
-                $orden_programador->tiempo_progreso = $orden_programador->tiempo_progreso + $minutos;
-                $orden_programador->save();
-
-                $orden_programador_limpia = models\production::where('ot', '=', $orden)->first();
-                $orden_programador_limpia->tiempo_final = $now;
-                $orden_programador_limpia->pr = $orden_programador_limpia->pr + 1;
-                $orden_programador_limpia->save();
-
-
-                $registro_emgy = new models\emgy_registros();
-                $registro_emgy->ot = $orden_programador->ot;
-                $registro_emgy->movimiento = 'PRODUCCION - FINALIZADA';
-                $registro_emgy->responsable = Auth::user()->name;
-                $registro_emgy->save();
-
-                return back()->with('mensaje-success', '¡Orden de trabajo finalizada!');
-            }
-        }
     }
     public function salida_produccion(Request $request)
     {
