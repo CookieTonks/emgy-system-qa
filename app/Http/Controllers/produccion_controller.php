@@ -344,6 +344,8 @@ class produccion_controller extends Controller
     public function  tareas_supervisor(Request $request)
     {
 
+        dd($request->all());
+
         $orden = $request->ot;
 
         if ($request->tarea_supervisor === 'Inicio') {
