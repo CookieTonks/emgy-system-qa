@@ -34,6 +34,8 @@ class produccion_controller extends Controller
             ->get();
 
 
+            dd($ordenes);
+
 
         $usuarios = models\user::where('role', '=', 'Programador')->orderby('name', 'asc')->get();
 
