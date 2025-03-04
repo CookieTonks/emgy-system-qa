@@ -319,7 +319,7 @@
                                             @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
                                             <tr class="bg-danger text-white">
                                                 <th>
-                                                    <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
                                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
                                                         <i class="flaticon-381-news"></i>
                                                     </button>
@@ -354,7 +354,7 @@
                                             @else
                                             <tr>
                                                 <th>
-                                                    <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
                                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
                                                         <i class="flaticon-381-news"></i>
                                                     </button>
@@ -372,7 +372,7 @@
                                                     </button>
 
                                                 </th>
-                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->ot}}/{{$orden->ot}}.pdf">{{$orden->ot}}</a></td>
                                                 <td>{{$orden->cliente}}</td>
                                                 <td>{{$orden->maquina_asignada}}</td>
                                                 <td>{{$orden->persona_asignada}}</td>
