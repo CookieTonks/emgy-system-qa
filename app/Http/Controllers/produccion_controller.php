@@ -344,6 +344,8 @@ class produccion_controller extends Controller
     public function  tareas_supervisor(Request $request)
     {
 
+        $orden_programador = models\production::where('id', '=', $orden)->first();
+
         try {
             if ($request->tarea_supervisor === 'Inicio') {
                 $now = Carbon::now();
@@ -467,7 +469,7 @@ class produccion_controller extends Controller
                 }
             }
         } catch (\Throwable $th) {
-            return back()->with('mensaje-error', '¡Error al actualizar el estatus!');
+            return back()->with('mensaje-error', '¡Error al actualizar el estatus!'.$th);
         }
 
         $orden = $request->ot;
