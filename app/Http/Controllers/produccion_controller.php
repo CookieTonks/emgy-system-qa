@@ -344,29 +344,20 @@ class produccion_controller extends Controller
     public function  tareas_supervisor(Request $request)
     {
 
-
-
-        $orden = $request->ot;
-        $orden_programador = models\production::where('id', '=', $orden )->first();
-
-        dd($orden_programador, $request);
-
         try {
+            $orden = $request->ot;
+
             if ($request->tarea_supervisor === 'Inicio') {
                 $now = Carbon::now();
 
-                $orden_programador = models\production::where('id', '=', $orden)->first();
+                $orden_programador = models\production::where('ot', '=', $orden)->first();
 
-                $registro_maquina = models\registros_maquinas::updateOrCreate(
-                    [
-                        'ot' => $orden_programador->ot,
-                        'tipo' => 'INICIO'
-                    ],
-                    [
-                        'hora' => $now,
-                        'responsable' => Auth::user()->name
-                    ]
-                );
+                $registro_maquina = new models\registros_maquinas();
+                $registro_maquina->ot = $orden_programador->ot;
+                $registro_maquina->tipo = 'INICIO';
+                $registro_maquina->hora = $now;
+                $registro_maquina->responsable = Auth::user()->name;
+                $registro_maquina->save();
 
                 $orden_programador->tiempo_inicio = $now;
                 $orden_programador->estatus = 'EN MAQUINA';
@@ -386,7 +377,7 @@ class produccion_controller extends Controller
             } elseif ($request->tarea_supervisor === 'Pausa') {
                 $now = Carbon::now();
 
-                $orden_programador = models\production::where('id', '=', $orden)->first();
+                $orden_programador = models\production::where('ot', '=', $orden)->first();
 
                 if ($orden_programador->tiempo_inicio == '') {
                     return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
@@ -410,7 +401,7 @@ class produccion_controller extends Controller
                     $orden_programador->tiempo_progreso = $orden_programador->tiempo_progreso + $minutos;
                     $orden_programador->save();
 
-                    $orden_programador_limpia = models\production::where('id', '=', $orden)->first();
+                    $orden_programador_limpia = models\production::where('ot', '=', $orden)->first();
                     $orden_programador_limpia->tiempo_inicio = '';
                     $orden_programador_limpia->tiempo_final = '';
                     $orden_programador_limpia->save();
@@ -427,7 +418,7 @@ class produccion_controller extends Controller
             } elseif ($request->tarea_supervisor === 'Finalizar') {
                 $now = Carbon::now();
 
-                $orden_programador = models\production::where('id', '=', $orden)->first();
+                $orden_programador = models\production::where('ot', '=', $orden)->first();
 
                 if ($orden_programador->tiempo_inicio == '') {
                     return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
@@ -474,10 +465,11 @@ class produccion_controller extends Controller
                 }
             }
         } catch (\Throwable $th) {
-            return back()->with('mensaje-error', '¡Error al actualizar el estatus!'.$th);
+            return back()->with('mensaje-error', '¡Error al cambiar el estatus de la orden, por favor intenta de nuevo!' . $th);
         }
-
     }
+
+
     public function salida_produccion(Request $request)
     {
         $orden_programador = models\production::where('ot', '=', $request->ot)->first();
