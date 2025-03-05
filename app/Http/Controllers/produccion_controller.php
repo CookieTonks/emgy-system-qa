@@ -344,7 +344,9 @@ class produccion_controller extends Controller
     public function  tareas_supervisor(Request $request)
     {
 
-        $orden_programador = models\production::where('id', '=', $request->ot)->first();
+
+        $orden = $request->ot;
+        $orden_programador = models\production::where('id', '=', $orden )->first();
 
         try {
             if ($request->tarea_supervisor === 'Inicio') {
