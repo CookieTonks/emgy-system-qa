@@ -345,10 +345,11 @@ class produccion_controller extends Controller
     {
 
 
+
         $orden = $request->ot;
         $orden_programador = models\production::where('id', '=', $orden )->first();
 
-        dd($orden_programador);
+        dd($orden_programador, $request);
 
         try {
             if ($request->tarea_supervisor === 'Inicio') {
