@@ -63,13 +63,15 @@ Route::get('/dashboard_compras', [App\Http\Controllers\compras_controller::class
 Route::post('/dashboard_compras', [App\Http\Controllers\compras_controller::class, 'alta_oc'])->name('alta_oc')->middleware('compras_middleware');
 
 
+Route::get('/dashboard_certificados', [App\Http\Controllers\compras_controller::class, 'dashboard_certificados'])->name('dashboard_certificados')->middleware('compras_middleware');
+
+
 Route::get('/material_oc/{id}', [App\Http\Controllers\compras_controller::class, 'material_oc'])->name('material_oc')->middleware('compras_middleware');
 Route::post('/material_proveedor/', [App\Http\Controllers\compras_controller::class, 'material_proveedor'])->name('material_proveedor')->middleware('compras_middleware');
 Route::get('/buscador_material/{id}', [App\Http\Controllers\compras_controller::class, 'buscador_material'])->name('buscador_material')->middleware('compras_middleware');
 
 Route::post('/material_oc/', [App\Http\Controllers\compras_controller::class, 'material_oc_alta'])->name('material_oc_alta')->middleware('compras_middleware');
 Route::post('/edicion_material/', [App\Http\Controllers\compras_controller::class, 'edicion_material'])->name('edicion_material')->middleware('compras_middleware');
-Route::post('/carga_certificado/', [App\Http\Controllers\compras_controller::class, 'carga_certificado'])->name('carga_certificado')->middleware('compras_middleware');
 
 
 Route::get('/filtro_almacen', [App\Http\Controllers\almacen_controller::class, 'filtro_almacen'])->name('filtro_almacen')->middleware('almacen_middleware');
@@ -83,7 +85,7 @@ Route::post('/material_produccion', [App\Http\Controllers\almacen_controller::cl
 Route::post('/material_compras', [App\Http\Controllers\almacen_controller::class, 'material_compras'])->name('material_compras')->middleware('almacen_middleware');
 Route::post('/envio_tratamiento', [App\Http\Controllers\almacen_controller::class, 'envio_tratamiento'])->name('envio_tratamiento')->middleware('almacen_middleware');
 Route::post('/regreso_tratamiento_almacen', [App\Http\Controllers\almacen_controller::class, 'regreso_tratamiento_almacen'])->name('regreso_tratamiento_almacen')->middleware('almacen_middleware');
-
+Route::post('/carga_certificado/', [App\Http\Controllers\almacen_controller::class, 'carga_certificado'])->name('carga_certificado')->middleware('compras_middleware');
 
 Route::get('/dashboard_produccion', [App\Http\Controllers\produccion_controller::class, 'dashboard_produccion'])->name('dashboard_produccion')->middleware('produccion_middleware');
 Route::post('/asignacion_produccion/', [App\Http\Controllers\produccion_controller::class, 'asignacion_produccion'])->name('asignacion_produccion')->middleware('produccion_middleware');

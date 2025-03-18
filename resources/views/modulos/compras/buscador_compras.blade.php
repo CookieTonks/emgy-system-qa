@@ -292,7 +292,6 @@
                         <thead class="thead-primary">
                             <tr>
                                 <th>
-
                                 </th>
                                 <th>OT</th>
                                 <th>TIPO</th>

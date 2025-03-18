@@ -39,6 +39,15 @@ class compras_controller extends Controller
         return view('modulos.compras.buscador_compras', compact('materiales', 'notificaciones'));
     }
 
+    public function dashboard_certificados()
+    {
+
+        $notificaciones =  Models\notifications::all();
+
+
+        return view('modulos.compras.dashboard_certificados', compact('notificaciones'));
+    }
+
     public function buscador_material($id)
     {
         $notificaciones =  Models\notifications::all();
@@ -121,14 +130,5 @@ class compras_controller extends Controller
         return back()->with('mensaje-success', '¡Material modificado con exito!');
     }
 
-    public function carga_certificado(Request $request)
-    {
-        Storage::disk('public')->putFileAs('certificados/' . $request->oc, $request->file('certificado'), $request->oc . '.pdf');
 
-        $ocompras =  Models\ocompras::where('id', '=', $request->oc)->first();
-        $ocompras->certificado = 'CARGADO';
-        $ocompras->save();
-
-        return back()->with('mensaje-success', '¡Certificado cargado con exito!');
-    }
 }

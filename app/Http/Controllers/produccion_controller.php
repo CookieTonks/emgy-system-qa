@@ -370,9 +370,6 @@ class produccion_controller extends Controller
                 $registro_emgy->responsable = Auth::user()->name;
                 $registro_emgy->save();
 
-
-
-
                 return back()->with('mensaje-success', '¡OT iniciada a las: ' . $now . ' registrada');
             } elseif ($request->tarea_supervisor === 'Pausa') {
                 $now = Carbon::now();
