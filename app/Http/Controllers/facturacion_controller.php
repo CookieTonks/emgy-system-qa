@@ -62,6 +62,7 @@ class facturacion_controller extends Controller
             ->sum('cantidad');
 
 
+
         $salidas = (int)$salidas;
         $oc = (int)$registro_factura->cantidad;
 

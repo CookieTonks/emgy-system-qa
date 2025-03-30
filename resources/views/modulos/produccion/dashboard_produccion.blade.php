@@ -17,6 +17,8 @@
     <livewire:styles />
 
 
+
+
     <!-- Fin de recursos -->
 
 </head>
@@ -213,7 +215,7 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
@@ -224,7 +226,7 @@
                     </li>
 
 
-<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-compass-2"></i>
                             <span class="nav-text">Embarques</span>
                         </a>
@@ -320,19 +322,21 @@
                                             <tr class="bg-danger text-white">
                                                 <th>
                                                     <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignacion" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}} ">
                                                         <i class="flaticon-381-news"></i>
+                                                        <span class="tooltip-text">Asignación</span>
+
                                                     </button>
 
-                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-Asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-panel"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-send-1"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-user-2"></i>
                                                     </button>
 
@@ -355,19 +359,19 @@
                                             <tr>
                                                 <th>
                                                     <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignación" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
                                                         <i class="flaticon-381-news"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-panel"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-send-1"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-user-2"></i>
                                                     </button>
 
@@ -807,7 +811,7 @@
 
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Validación de supervisor OT')
+                modal.find('.modal-title').text('Tareas de supervisor OT')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)

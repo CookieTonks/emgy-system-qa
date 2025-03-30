@@ -93,7 +93,7 @@ class calidad_controller extends Controller
                 $registro_jets->save();
 
                 $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
-                $calidad_proceso->estatus = "P/EMBARQUES";
+                $calidad_proceso->estatus = 'P/EMBARQUES';
                 $calidad_proceso->save();
             }
 
@@ -144,7 +144,7 @@ class calidad_controller extends Controller
             $registro_jets->save();
 
             $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
-            $calidad_proceso->estatus = "P\RETRABAJO";
+            $calidad_proceso->estatus = 'P\RETRABAJO';
             $calidad_proceso->save();
 
 
