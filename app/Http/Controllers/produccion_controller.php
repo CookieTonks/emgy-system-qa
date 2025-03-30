@@ -327,8 +327,6 @@ class produccion_controller extends Controller
             $maquina->save();
 
 
-
-
             $registro_jets = new models\emgy_registros();
             $registro_jets->ot = $orden_programador->ot;
             $registro_jets->movimiento = 'PRODUCCION - FINALIZADA';

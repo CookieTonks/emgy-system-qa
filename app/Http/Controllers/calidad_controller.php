@@ -24,8 +24,11 @@ class calidad_controller extends Controller
 
         $retrabajos = models\production::where('modalidad', '=', 'RETRABAJO')->get();
 
+        $usuarios = models\user::where('role', '=', 'Programador')->orderby('name', 'asc')->get();
 
-        return view('modulos.calidad.dashboard_calidad', compact('retrabajos', 'ordenes', 'notificaciones'));
+
+
+        return view('modulos.calidad.dashboard_calidad', compact('retrabajos', 'ordenes', 'notificaciones', 'usuarios'));
     }
 
     public function buscador_calidad()
