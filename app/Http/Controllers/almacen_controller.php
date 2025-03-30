@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
 use App\Models\Order;
+use Illuminate\Support\Facades\Storage;
+
 
 
 
@@ -369,5 +371,24 @@ class almacen_controller extends Controller
         $ruta->save();
 
         return back()->with('mensaje-success', '¡Alta de material registrada!');
+    }
+
+    public function carga_certificado(Request $request)
+    {
+        $request->validate([
+            'oc' => 'required|exists:ocompras,id',
+            'certificado' => 'required|file|mimes:pdf|max:2048',
+        ]);
+
+        $filename = $request->oc . '.pdf';
+        $path = 'certificados/' . $request->oc;
+
+        Storage::disk('public')->putFileAs($path, $request->file('certificado'), $filename);
+
+        $ocompras = Models\ocompras::find($request->oc);
+        $ocompras->certificado = 'CARGADO';
+        $ocompras->save();
+
+        return back()->with('mensaje-success', '¡Certificado cargado con éxito!');
     }
 }

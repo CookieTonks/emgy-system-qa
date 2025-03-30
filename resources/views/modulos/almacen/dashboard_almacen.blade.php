@@ -249,7 +249,7 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
@@ -260,7 +260,7 @@
                     </li>
 
 
-<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-compass-2"></i>
                             <span class="nav-text">Embarques</span>
                         </a>
@@ -437,8 +437,13 @@
                                                 <td style="width: 200px;">
 
                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#recepcion_material" data-id="{{$material->id}}" data-ot="{{$material->ot}}" data-descripcion="{{$material->descripcion}}" data-cantidad="{{$material->cantidad_solicitada}}" data-cantidad_recibida="{{$material->cantidad_recibida}}" data-oc="{{$material->oc}}" data-proveedor="{{$material->proveedor}}">
-                                                        <i class="icon-check"> Entrada</i>
+                                                        Entrada
                                                     </button>
+
+                                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#carga_certificado" data-id="{{$material->id}}" data-ot="{{$material->ot}}" data-descripcion="{{$material->descripcion}}" data-oc="{{$material->oc}}">
+                                                        Certificado
+                                                    </button>
+
                                                 </td>
                                                 @else
                                                 <td>
@@ -828,6 +833,51 @@
         </div>
 
 
+        <div class="modal fade" id="carga_certificado" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Carga de certificado</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('carga_certificado') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="ot">OT</label>
+                                    <input class="form-control" id="ot" name="ot" type="text">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="oc">OC</label>
+                                    <input class="form-control" id="oc" name="oc" type="text" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="descripcion">Descripción</label>
+                                    <input class="form-control" id="descripcion" name="descripcion" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="certificado">Certificado (PDF)</label>
+                                    <input class="form-control" id="certificado" name="certificado" type="file" accept=".pdf" required>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                            <br>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Final de modales -->
 
         <!--**********************************
@@ -836,6 +886,32 @@
 
         <!-- inicio de scripts -->
 
+
+
+
+        <script>
+            $(document).ready(function() {
+                $('#carga_certificado').on('show.bs.modal', function(event) {
+                    var button = $(event.relatedTarget) // Button that triggered the modal
+                    var ot = button.data('ot')
+                    var descripcion = button.data('descripcion')
+                    var oc = button.data('oc')
+
+
+                    var id = button.data('id')
+                    var modal = $(this)
+                    modal.find('.modal-title').text('Carga de Certificado')
+                    modal.find('#ot').val(ot)
+                    modal.find('#id').val(id)
+                    modal.find('#descripcion').val(descripcion)
+                    modal.find('#oc').val(oc)
+
+
+
+
+                })
+            });
+        </script>
 
 
         <script>

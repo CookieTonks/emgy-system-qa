@@ -246,7 +246,7 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
@@ -257,7 +257,7 @@
                     </li>
 
 
-<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-compass-2"></i>
                             <span class="nav-text">Embarques</span>
                         </a>
@@ -331,18 +331,30 @@
                                 <th>OC</th>
                                 <th>PROVEEDOR</th>
                                 <th>CANTIDAD</th>
+                                <th>DOCUMENTO</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($materiales as $material)
                             <tr>
-                                <td>{{$material->ot}}</td>
-                                <td>{{$material->descripcion}}</td>
-                                <td>{{$material->oc}}</td>
-                                <td>{{$material->proveedor}}</td>
-                                <td>{{$material->cantidad_solicitada}}</td>
+                                <td>{{ $material->ot }}</td>
+                                <td>{{ $material->descripcion }}</td>
+                                <td>{{ $material->oc }}</td>
+                                <td>{{ $material->proveedor }}</td>
+                                <td>{{ $material->cantidad_solicitada }}</td>
+                                <td>
+                                    @if(Storage::disk('public')->exists('certificados/' . $material->oc . '.pdf'))
+                                    <a href="{{ asset('storage/certificados/' . $material->oc . '.pdf') }}" target="_blank" class="btn btn-primary btn-sm">
+                                        Ver Certificado
+                                    </a>
+                                    @else
+                                    <span class="text-danger">No disponible</span>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -351,6 +363,8 @@
                                 <th>OC</th>
                                 <th>PROVEEDOR</th>
                                 <th>CANTIDAD</th>
+                                <th>DOCUMENTO</th>
+
                             </tr>
                         </tfoot>
                     </table>
