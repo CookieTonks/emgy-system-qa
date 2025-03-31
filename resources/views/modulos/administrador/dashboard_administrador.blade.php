@@ -213,7 +213,7 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
@@ -224,7 +224,7 @@
                     </li>
 
 
-<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-compass-2"></i>
                             <span class="nav-text">Embarques</span>
                         </a>
@@ -970,9 +970,19 @@
                                 <input name="ano" class="form-control" id="ano" placeholder="" value="" type="text">
                             </div>
                         </div>
-                        <br>
-                        <button type="submit" class="btn btn-block btn-primary">Registrar</button>
-                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="planta">Planta</label>
+                                <select name="planta" class="form-control" id="planta">
+                                    <option value="Planta 1">Planta 1</option>
+                                    <option value="Planta 2">Planta 2</option>
+                                    <option value="Planta 3">Planta 3</option>
+                                </select>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                            <br>
                     </form>
                 </div>
             </div>
