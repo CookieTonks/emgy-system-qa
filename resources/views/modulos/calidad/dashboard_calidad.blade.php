@@ -303,7 +303,7 @@
                     @foreach($ordenes as $orden)
                     <tr>
                         <td style="width: 200px;">
-                            <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                            <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
 
                             <button type="button" class="btn  btn-sm btn-success" data-toggle="modal" data-target="#nueva_inspeccion" data-id="{{$orden->id}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-cantpro="{{$orden->cantidad}}">
                                 <i class="flaticon-381-list-1"></i>
