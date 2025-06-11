@@ -22,16 +22,70 @@ class produccion_controller extends Controller
     {
         $notificaciones = Models\notifications::all();
 
-        $ordenes = DB::table('productions')
+        // Órdenes sin máquina asignada
+        $ordenesSinMaquina = DB::table('productions')
             ->join('orders', 'orders.id', '=', 'productions.ot')
-            ->where('productions.estatus', '=', 'L.PRODUCCION')
-            ->orWhere('productions.estatus', '=', 'ASIGNADA')
-            ->orWhere('productions.estatus', '=', 'EN MAQUINA')
-            ->orWhere('productions.estatus', '=', 'EN ESPERA')
-            ->orWhere('productions.estatus', '=', 'FINALIZADA')
-            ->orWhere('productions.estatus', '=', 'RETRABAJO')
+            ->leftJoin('maquinas', 'productions.maquina_asignada', '=', 'maquinas.codigo')
+            ->whereNull('maquinas.codigo') // No tienen máquina asignada
+            ->where(function ($query) {
+                $query->where('productions.estatus', '=', 'L.PRODUCCION')
+                    ->orWhere('productions.estatus', '=', 'ASIGNADA')
+                    ->orWhere('productions.estatus', '=', 'EN MAQUINA')
+                    ->orWhere('productions.estatus', '=', 'EN ESPERA')
+                    ->orWhere('productions.estatus', '=', 'FINALIZADA')
+                    ->orWhere('productions.estatus', '=', 'RETRABAJO');
+            })
             ->select('productions.*', 'orders.cantidad', 'orders.cant_entregada', 'orders.procesos', 'orders.cant_retrabajo')
             ->get();
+
+        // Órdenes asignadas a PLANTA 1
+        $ordenesPlanta1 = DB::table('productions')
+            ->join('orders', 'orders.id', '=', 'productions.ot')
+            ->join('maquinas', 'productions.maquina_asignada', '=', 'maquinas.codigo')
+            ->where('maquinas.planta', '=', 'PLANTA 1')
+            ->where(function ($query) {
+                $query->where('productions.estatus', '=', 'L.PRODUCCION')
+                    ->orWhere('productions.estatus', '=', 'ASIGNADA')
+                    ->orWhere('productions.estatus', '=', 'EN MAQUINA')
+                    ->orWhere('productions.estatus', '=', 'EN ESPERA')
+                    ->orWhere('productions.estatus', '=', 'FINALIZADA')
+                    ->orWhere('productions.estatus', '=', 'RETRABAJO');
+            })
+            ->select('productions.*', 'orders.cantidad', 'orders.cant_entregada', 'orders.procesos', 'orders.cant_retrabajo', 'maquinas.planta')
+            ->get();
+
+        // Órdenes asignadas a PLANTA 2
+        $ordenesPlanta2 = DB::table('productions')
+            ->join('orders', 'orders.id', '=', 'productions.ot')
+            ->join('maquinas', 'productions.maquina_asignada', '=', 'maquinas.codigo')
+            ->where('maquinas.planta', '=', 'PLANTA 2')
+            ->where(function ($query) {
+                $query->where('productions.estatus', '=', 'L.PRODUCCION')
+                    ->orWhere('productions.estatus', '=', 'ASIGNADA')
+                    ->orWhere('productions.estatus', '=', 'EN MAQUINA')
+                    ->orWhere('productions.estatus', '=', 'EN ESPERA')
+                    ->orWhere('productions.estatus', '=', 'FINALIZADA')
+                    ->orWhere('productions.estatus', '=', 'RETRABAJO');
+            })
+            ->select('productions.*', 'orders.cantidad', 'orders.cant_entregada', 'orders.procesos', 'orders.cant_retrabajo', 'maquinas.planta')
+            ->get();
+
+        // Órdenes asignadas a PLANTA 3
+        $ordenesPlanta3 = DB::table('productions')
+            ->join('orders', 'orders.id', '=', 'productions.ot')
+            ->join('maquinas', 'productions.maquina_asignada', '=', 'maquinas.codigo')
+            ->where('maquinas.planta', '=', 'PLANTA 3')
+            ->where(function ($query) {
+                $query->where('productions.estatus', '=', 'L.PRODUCCION')
+                    ->orWhere('productions.estatus', '=', 'ASIGNADA')
+                    ->orWhere('productions.estatus', '=', 'EN MAQUINA')
+                    ->orWhere('productions.estatus', '=', 'EN ESPERA')
+                    ->orWhere('productions.estatus', '=', 'FINALIZADA')
+                    ->orWhere('productions.estatus', '=', 'RETRABAJO');
+            })
+            ->select('productions.*', 'orders.cantidad', 'orders.cant_entregada', 'orders.procesos', 'orders.cant_retrabajo', 'maquinas.planta')
+            ->get();
+
 
 
 
@@ -40,7 +94,7 @@ class produccion_controller extends Controller
 
         $maquinas = Models\maquinas::orderBy('codigo', 'ASC')->get();
 
-        return view('modulos.produccion.dashboard_produccion', compact('usuarios', 'maquinas', 'ordenes', 'notificaciones'));
+        return view('modulos.produccion.dashboard_produccion', compact('ordenesSinMaquina', 'ordenesPlanta1', 'ordenesPlanta2', 'ordenesPlanta3', 'usuarios', 'maquinas',  'notificaciones'));
     }
 
     public function asignacion_produccion(Request $request)
@@ -325,8 +379,6 @@ class produccion_controller extends Controller
             $maquina->carga = $maquina->carga - 1;
             $maquina->estatus = 'SIN CARGA';
             $maquina->save();
-
-
 
 
             $registro_jets = new models\emgy_registros();

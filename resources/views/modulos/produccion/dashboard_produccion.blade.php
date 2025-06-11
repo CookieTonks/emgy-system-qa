@@ -17,6 +17,8 @@
     <livewire:styles />
 
 
+
+
     <!-- Fin de recursos -->
 
 </head>
@@ -213,7 +215,7 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
@@ -224,7 +226,7 @@
                     </li>
 
 
-<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-compass-2"></i>
                             <span class="nav-text">Embarques</span>
                         </a>
@@ -293,6 +295,7 @@
                         <div class="row">
                             <div class="col-sm">
 
+                                <h3 class="hk-sec-title">Ordenes de trabajo sin Asignar</h3>
                                 <div class="table-responsive">
                                     <table class="table table-sm table-hover mb-0">
                                         <thead class="thead-primary">
@@ -315,24 +318,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($ordenes as $orden)
+                                            @foreach($ordenesSinMaquina as $orden)
                                             @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
                                             <tr class="bg-danger text-white">
                                                 <th>
                                                     <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignacion" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}} ">
                                                         <i class="flaticon-381-news"></i>
+                                                        <span class="tooltip-text">Asignación</span>
+
                                                     </button>
 
-                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-Asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-panel"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-send-1"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-user-2"></i>
                                                     </button>
 
@@ -355,19 +360,394 @@
                                             <tr>
                                                 <th>
                                                     <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignación" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
                                                         <i class="flaticon-381-news"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-panel"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-send-1"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-user-2"></i>
+                                                    </button>
+
+                                                </th>
+                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->ot}}/{{$orden->ot}}.pdf">{{$orden->ot}}</a></td>
+                                                <td>{{$orden->cliente}}</td>
+                                                <td>{{$orden->maquina_asignada}}</td>
+                                                <td>{{$orden->persona_asignada}}</td>
+                                                <td>{{$orden->cantidad}}</td>
+                                                <td>{{$orden->cant_entregada}}</td>
+                                                <td>{{$orden->fecha_cliente}}</td>
+                                                <td>{{$orden->tiempo_asignado}}</td>
+                                                <td>{{$orden->tiempo_progreso}}</td>
+                                                <td>{{$orden->procesos}}</td>
+                                                <td>{{$orden->pp}}/{{$orden->pr}}</td>
+                                                <td>{{$orden->prioridad}}</td>
+                                                <td>{{$orden->estatus}}</td>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>
+                                                </th>
+                                                <th>OT</th>
+                                                <th>Cliente</th>
+                                                <th>Maquina</th>
+                                                <th>Técnico</th>
+                                                <th>Cant. OC</th>
+                                                <th>Cant. Entregadas</th>
+                                                <th>Fecha de entrega</th>
+                                                <th>Tiempo estimado</th>
+                                                <th>Tiempo progreso</th>
+                                                <th>Procesos</th>
+                                                <th>Avance</th>
+                                                <th>Prioridad</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <hr> <!-- Línea divisoria -->
+
+                                <br>
+                                <h3 class="hk-sec-title">PLANTA 1</h3>
+
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-hover mb-0">
+                                        <thead class="thead-primary">
+                                            <tr>
+                                                <th>
+                                                </th>
+                                                <th>OT</th>
+                                                <th>Cliente</th>
+                                                <th>Maquina</th>
+                                                <th>Tecnico</th>
+                                                <th>Cant. OC</th>
+                                                <th>Cant. Entregadas</th>
+                                                <th>Fecha de entrega</th>
+                                                <th>Tiempo estimado</th>
+                                                <th>Tiempo progreso</th>
+                                                <th>Procesos</th>
+                                                <th>Avance</th>
+                                                <th>Prioridad</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($ordenesPlanta1 as $orden)
+                                            @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
+                                            <tr class="bg-danger text-white">
+                                                <th>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignacion" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}} ">
+                                                        <i class="flaticon-381-news"></i>
+                                                        <span class="tooltip-text">Asignación</span>
+
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-Asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-panel"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-send-1"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-user-2"></i>
+                                                    </button>
+
+                                                </th>
+                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                <td>{{$orden->cliente}}</td>
+                                                <td>{{$orden->maquina_asignada}}</td>
+                                                <td>{{$orden->persona_asignada}}</td>
+                                                <td>{{$orden->cantidad}}</td>
+                                                <td>{{$orden->cant_entregada}}</td>
+                                                <td>{{$orden->fecha_cliente}}</td>
+                                                <td>{{$orden->tiempo_asignado}}</td>
+                                                <td>{{$orden->tiempo_progreso}}</td>
+                                                <td>{{$orden->procesos}}</td>
+                                                <td>{{$orden->pp}}/{{$orden->pr}}</td>
+                                                <td>{{$orden->prioridad}}</td>
+                                                <td>{{$orden->estatus}}</td>
+                                            </tr>
+                                            @else
+                                            <tr>
+                                                <th>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignación" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                        <i class="flaticon-381-news"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-panel"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-send-1"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-user-2"></i>
+                                                    </button>
+
+                                                </th>
+                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->ot}}/{{$orden->ot}}.pdf">{{$orden->ot}}</a></td>
+                                                <td>{{$orden->cliente}}</td>
+                                                <td>{{$orden->maquina_asignada}}</td>
+                                                <td>{{$orden->persona_asignada}}</td>
+                                                <td>{{$orden->cantidad}}</td>
+                                                <td>{{$orden->cant_entregada}}</td>
+                                                <td>{{$orden->fecha_cliente}}</td>
+                                                <td>{{$orden->tiempo_asignado}}</td>
+                                                <td>{{$orden->tiempo_progreso}}</td>
+                                                <td>{{$orden->procesos}}</td>
+                                                <td>{{$orden->pp}}/{{$orden->pr}}</td>
+                                                <td>{{$orden->prioridad}}</td>
+                                                <td>{{$orden->estatus}}</td>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>
+                                                </th>
+                                                <th>OT</th>
+                                                <th>Cliente</th>
+                                                <th>Maquina</th>
+                                                <th>Técnico</th>
+                                                <th>Cant. OC</th>
+                                                <th>Cant. Entregadas</th>
+                                                <th>Fecha de entrega</th>
+                                                <th>Tiempo estimado</th>
+                                                <th>Tiempo progreso</th>
+                                                <th>Procesos</th>
+                                                <th>Avance</th>
+                                                <th>Prioridad</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <hr> <!-- Línea divisoria -->
+
+                                <br>
+                                <h3 class="hk-sec-title">PLANTA 2</h3>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-hover mb-0">
+                                        <thead class="thead-primary">
+                                            <tr>
+                                                <th>
+                                                </th>
+                                                <th>OT</th>
+                                                <th>Cliente</th>
+                                                <th>Maquina</th>
+                                                <th>Tecnico</th>
+                                                <th>Cant. OC</th>
+                                                <th>Cant. Entregadas</th>
+                                                <th>Fecha de entrega</th>
+                                                <th>Tiempo estimado</th>
+                                                <th>Tiempo progreso</th>
+                                                <th>Procesos</th>
+                                                <th>Avance</th>
+                                                <th>Prioridad</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($ordenesPlanta2 as $orden)
+                                            @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
+                                            <tr class="bg-danger text-white">
+                                                <th>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignacion" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}} ">
+                                                        <i class="flaticon-381-news"></i>
+                                                        <span class="tooltip-text">Asignación</span>
+
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-Asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-panel"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-send-1"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-user-2"></i>
+                                                    </button>
+
+                                                </th>
+                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                <td>{{$orden->cliente}}</td>
+                                                <td>{{$orden->maquina_asignada}}</td>
+                                                <td>{{$orden->persona_asignada}}</td>
+                                                <td>{{$orden->cantidad}}</td>
+                                                <td>{{$orden->cant_entregada}}</td>
+                                                <td>{{$orden->fecha_cliente}}</td>
+                                                <td>{{$orden->tiempo_asignado}}</td>
+                                                <td>{{$orden->tiempo_progreso}}</td>
+                                                <td>{{$orden->procesos}}</td>
+                                                <td>{{$orden->pp}}/{{$orden->pr}}</td>
+                                                <td>{{$orden->prioridad}}</td>
+                                                <td>{{$orden->estatus}}</td>
+                                            </tr>
+                                            @else
+                                            <tr>
+                                                <th>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignación" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                        <i class="flaticon-381-news"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-panel"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-send-1"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-user-2"></i>
+                                                    </button>
+
+                                                </th>
+                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->ot}}/{{$orden->ot}}.pdf">{{$orden->ot}}</a></td>
+                                                <td>{{$orden->cliente}}</td>
+                                                <td>{{$orden->maquina_asignada}}</td>
+                                                <td>{{$orden->persona_asignada}}</td>
+                                                <td>{{$orden->cantidad}}</td>
+                                                <td>{{$orden->cant_entregada}}</td>
+                                                <td>{{$orden->fecha_cliente}}</td>
+                                                <td>{{$orden->tiempo_asignado}}</td>
+                                                <td>{{$orden->tiempo_progreso}}</td>
+                                                <td>{{$orden->procesos}}</td>
+                                                <td>{{$orden->pp}}/{{$orden->pr}}</td>
+                                                <td>{{$orden->prioridad}}</td>
+                                                <td>{{$orden->estatus}}</td>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>
+                                                </th>
+                                                <th>OT</th>
+                                                <th>Cliente</th>
+                                                <th>Maquina</th>
+                                                <th>Técnico</th>
+                                                <th>Cant. OC</th>
+                                                <th>Cant. Entregadas</th>
+                                                <th>Fecha de entrega</th>
+                                                <th>Tiempo estimado</th>
+                                                <th>Tiempo progreso</th>
+                                                <th>Procesos</th>
+                                                <th>Avance</th>
+                                                <th>Prioridad</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+
+
+                                <hr> <!-- Línea divisoria -->
+                                <br>
+                                <h3 class="hk-sec-title">PLANTA 3</h3>
+
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-hover mb-0">
+                                        <thead class="thead-primary">
+                                            <tr>
+                                                <th>
+                                                </th>
+                                                <th>OT</th>
+                                                <th>Cliente</th>
+                                                <th>Maquina</th>
+                                                <th>Tecnico</th>
+                                                <th>Cant. OC</th>
+                                                <th>Cant. Entregadas</th>
+                                                <th>Fecha de entrega</th>
+                                                <th>Tiempo estimado</th>
+                                                <th>Tiempo progreso</th>
+                                                <th>Procesos</th>
+                                                <th>Avance</th>
+                                                <th>Prioridad</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($ordenesPlanta3 as $orden)
+                                            @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
+                                            <tr class="bg-danger text-white">
+                                                <th>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignacion" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}} ">
+                                                        <i class="flaticon-381-news"></i>
+                                                        <span class="tooltip-text">Asignación</span>
+
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-Asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-panel"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-send-1"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-user-2"></i>
+                                                    </button>
+
+                                                </th>
+                                                <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                <td>{{$orden->cliente}}</td>
+                                                <td>{{$orden->maquina_asignada}}</td>
+                                                <td>{{$orden->persona_asignada}}</td>
+                                                <td>{{$orden->cantidad}}</td>
+                                                <td>{{$orden->cant_entregada}}</td>
+                                                <td>{{$orden->fecha_cliente}}</td>
+                                                <td>{{$orden->tiempo_asignado}}</td>
+                                                <td>{{$orden->tiempo_progreso}}</td>
+                                                <td>{{$orden->procesos}}</td>
+                                                <td>{{$orden->pp}}/{{$orden->pr}}</td>
+                                                <td>{{$orden->prioridad}}</td>
+                                                <td>{{$orden->estatus}}</td>
+                                            </tr>
+                                            @else
+                                            <tr>
+                                                <th>
+                                                    <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="flaticon-381-focus"></i></a>
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Asignación" data-toggle="modal" data-target="#asignacion_maquina" data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                        <i class="flaticon-381-news"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-secondary btn-sm" title="Re-asignación" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-panel"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-success btn-sm" title="Validacion Supervisor" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                        <i class="flaticon-381-send-1"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-primary btn-sm" title="Tareas Supervisor" data-toggle="modal" data-target="#tareas_supervisor" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                         <i class="flaticon-381-user-2"></i>
                                                     </button>
 
@@ -468,6 +848,8 @@
                     <!-- Modal forms-->
                 </div>
             </div>
+
+
         </div>
     </div>
     <!--**********************************
@@ -807,7 +1189,7 @@
 
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Validación de supervisor OT')
+                modal.find('.modal-title').text('Tareas de supervisor OT')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)

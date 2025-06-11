@@ -213,7 +213,7 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
@@ -224,7 +224,7 @@
                     </li>
 
 
-<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-compass-2"></i>
                             <span class="nav-text">Embarques</span>
                         </a>
@@ -434,8 +434,13 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <label for="operador">Operador</label>
-                                <input required class="form-control" id="operador" name="operador" placeholder="" value="" type="text">
+                                <label for="programador">OPERADOR</label>
+                                <select name="operador" class="form-control custom-select d-block w-100" id="operador" required>
+                                    <option value="">Selecciona una opcion...</option>
+                                    @foreach($usuarios as $usuario)
+                                    <option value="{{$usuario->id}}">{{$usuario->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="descripcion">Descripcion</label>

@@ -213,7 +213,7 @@
                             <li><a href="{{route ('buscador_calidad')}}">Buscador: Calidad</a></li>
                         </ul>
                     </li>
-                                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Facturacion</span>
                         </a>
@@ -224,7 +224,7 @@
                     </li>
 
 
-<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-compass-2"></i>
                             <span class="nav-text">Embarques</span>
                         </a>
@@ -305,10 +305,10 @@
                                         } else {
                                             echo "OT: {$orden->ot}|invalid\n";
                                         } ?>
-                          e=>end: <?php if ($orden->sistema_facturacion == '-') {
-                                        echo "FACTURACION\n";
+                          e=>end: <?php if ($orden->sistema_embarques == '-') {
+                                        echo "EMBARQUES\n";
                                     } else {
-                                        echo "FACTURACION|invalid\n";
+                                        echo "EMBARQUES|invalid\n";
                                     } ?>
                         op1=>operation: <?php if ($orden->sistema_ingenieria == '-') {
                                             echo "INGENIERIA\n";
@@ -352,10 +352,10 @@
                                             } else {
                                                 echo "CALIDAD|invalid\n";
                                             } ?>
-                          op7=>operation: <?php if ($orden->sistema_embarques == '-') {
-                                                echo "EMBARQUES\n";
+                          op7=>operation: <?php if ($orden->sistema_facturacion == '-') {
+                                                echo "FACTURACION\n";
                                             } else {
-                                                echo "EMBARQUES|invalid\n";
+                                                echo "FACTURACION|invalid\n";
                                             } ?>
                         @endforeach
                         st(right)->op1->op2(right)->op3(right)->op4(right)->op5(right)->op6(right)->op7(right)->e
@@ -573,7 +573,7 @@
     <script src="../../plantilla/flowchart/release/flowchart.js"></script>
     <script src="http://flowchart.js.org/flowchart-latest.js"></script>
 
-    
+
 
 
     <!-- Final de librerias -->

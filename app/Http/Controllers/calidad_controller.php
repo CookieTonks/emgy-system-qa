@@ -24,8 +24,11 @@ class calidad_controller extends Controller
 
         $retrabajos = models\production::where('modalidad', '=', 'RETRABAJO')->get();
 
+        $usuarios = models\user::where('role', '=', 'Programador')->orderby('name', 'asc')->get();
 
-        return view('modulos.calidad.dashboard_calidad', compact('retrabajos', 'ordenes', 'notificaciones'));
+
+
+        return view('modulos.calidad.dashboard_calidad', compact('retrabajos', 'ordenes', 'notificaciones', 'usuarios'));
     }
 
     public function buscador_calidad()
@@ -90,7 +93,7 @@ class calidad_controller extends Controller
                 $registro_jets->save();
 
                 $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
-                $calidad_proceso->estatus = "P/EMBARQUES";
+                $calidad_proceso->estatus = 'P/EMBARQUES';
                 $calidad_proceso->save();
             }
 
@@ -141,7 +144,7 @@ class calidad_controller extends Controller
             $registro_jets->save();
 
             $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
-            $calidad_proceso->estatus = "P\RETRABAJO";
+            $calidad_proceso->estatus = 'P\RETRABAJO';
             $calidad_proceso->save();
 
 

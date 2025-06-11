@@ -186,6 +186,8 @@ class admin_controller extends Controller
         $maquina->modelo = $request->modelo;
         $maquina->numero_serie = $request->num_serie;
         $maquina->ano = $request->ano;
+        $maquina->planta = $request->planta;
+        
         $maquina->save();
         return back()->with('mensaje-success', '¡Nueva maquina registrado con éxito!');
     }
