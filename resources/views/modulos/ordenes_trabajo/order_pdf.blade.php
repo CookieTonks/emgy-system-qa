@@ -25,12 +25,12 @@
   <table class="table table-borderless">
     <thead>
       <tr>
-        <td  scope="col" style="font-size:xx-small;"><img src="images/iconos/logo.png" width="100px">
+        <td scope="col" style="font-size:xx-small;"><img src="images/iconos/logo.png" width="100px">
           <p>EMGY METALMECANICA S.A DE C.V <br>
             MAQUINADOS Y PAILERIA INDUSTRIAL <br>
             Rio de las Amazonas #306<br>
             Villa del Rio, Guadalupe, NL. 67112<br>
-           </p>
+          </p>
         </td>
         <td scope="col" style="text-align: right; font-size:xx-small;">
           <p>Telefono: 81 2321 9299 <br>
@@ -52,7 +52,7 @@
         <th colspan="1" style="text-align:left">Cliente</th>
         <th colspan="1" style="text-align:left">Descripcion</th>
         <th colspan="1" style="text-align:left">Cant.OC</th>
-                <th colspan="1" style="text-align:left">Cant.RT</th>
+        <th colspan="1" style="text-align:left">Cant.RT</th>
         <th colspan="1" style="text-align:left">Vendedor</th>
       </tr>
     </thead>
@@ -62,7 +62,7 @@
         <td style="text-align: left;" colspan="1"> {{$order->cliente}} </td>
         <td style="text-align: left;" colspan="1"> {{$order->descripcion}} </td>
         <td style="text-align: left;" colspan="1"> {{$order->cantidad}} </td>
-                <td style="text-align: left;" colspan="1"> {{$order->cant_retrabajo}} </td>
+        <td style="text-align: left;" colspan="1"> {{$order->cant_retrabajo}} </td>
         <td style="text-align: left;" colspan="1"> {{$order->vendedor}} </td>
       </tr>
     </tbody>
@@ -107,7 +107,20 @@
 
 
 
-
+  <table class="table " style="text-align:center;font-size:xx-small;" width="100%">
+    <thead style="background-color: green; color:white;">
+      <tr>
+        <th colspan="1" style="text-align:left">Tratamiento</th>
+        <th colspan="1" style="text-align:left">Comentarios</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left;" colspan="1"> {{$order->tratamiento}}  </td>
+        <td style="text-align: left;" colspan="1"> {{$order->comentario_diseno}}  </td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <table class="table table-bordered" style="text-align: center;font-size:x-small;">

@@ -39,6 +39,8 @@ class almacen_controller extends Controller
         $materiales = models\materiales::all();
         return view('modulos.almacen.buscador_almacen', compact('materiales', 'notificaciones'));
     }
+
+    
     public function dashboard_almacen()
     {
         $materiales_revision = models\materiales::where('estatus', '=', 'P/ALMACEN')
@@ -251,7 +253,7 @@ class almacen_controller extends Controller
     public function envio_tratamiento(Request $request)
     {
         $tratamiento = models\materiales::where('id', '=', $request->id)->first();
-        $tratamiento->estatus = 'SOLICITADA';
+        $tratamiento->estatus = 'ASIGNADA';
         $tratamiento->proveedor = $request->proveedor;
         $tratamiento->save();
 
@@ -265,9 +267,6 @@ class almacen_controller extends Controller
         $salida_embarques->chofer = $request->chofer;
         $salida_embarques->estatus = 'Enviada tratamiento';
         $salida_embarques->save();
-
-        //cambio
-
 
 
         return back()->with('mensaje-success', '¡Enviada a tratamiento con exito!');

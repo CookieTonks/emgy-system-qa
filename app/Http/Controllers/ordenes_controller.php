@@ -270,7 +270,9 @@ class ordenes_controller extends Controller
 
     public function order_pdf($id)
     {
+
         $order = Order::findOrFail($id);
+
         $procesos = Models\process::where('ot', '=', $id)->get();
 
 
